@@ -86,7 +86,7 @@ export const useQuiz = () => {
 			if (state.allQuestions.length === 0) {
         throw new Error("No questions loaded or incorrect format")
 			}
-		} catch (error: any) {
+		} catch (error) {
 			state.error = error instanceof Error ? error.message : 'Failed to load questions'
       console.error('Error loading questions:', error)
 		} finally {
