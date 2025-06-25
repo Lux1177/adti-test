@@ -35,8 +35,35 @@
 					</div>
 				</div>
 
+				<!-- Resume Quiz Notice -->
+				<div v-if="hasActiveQuiz" class="backdrop-blur-sm bg-yellow-500/10 border border-yellow-400/30 rounded-2xl p-4 mb-6">
+					<div class="flex items-center justify-center space-x-2 mb-2">
+						<Icon name="heroicons:exclamation-triangle" class="w-5 h-5 text-yellow-400" />
+						<span class="text-yellow-300 font-medium">Диққат</span>
+					</div>
+					<p class="text-yellow-200 text-sm mb-4">
+						Сизда тугалланмаган тест мавжуд. Янги тест бошлаш эскисини ўчириб ташлайди.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-3 justify-center">
+						<NuxtLink to="/test">
+							<button class="px-6 py-3 bg-green-500/20 backdrop-blur-sm border border-green-400/30 text-green-300 font-medium rounded-2xl hover:bg-green-500/30 transition-all duration-300 flex items-center">
+								<Icon name="heroicons:play" class="w-4 h-4 mr-2" />
+								Тестни Давом Этиш
+							</button>
+						</NuxtLink>
+						<button
+							@click="$emit('start')"
+							class="px-6 py-3 bg-red-500/20 backdrop-blur-sm border border-red-400/30 text-red-300 font-medium rounded-2xl hover:bg-red-500/30 transition-all duration-300 flex items-center"
+						>
+							<Icon name="heroicons:arrow-path" class="w-4 h-4 mr-2" />
+							Янги Тест Бошлаш
+						</button>
+					</div>
+				</div>
+
 				<!-- Start Button -->
 				<button
+					v-else
 					@click="$emit('start')"
 					:disabled="loading"
 					class="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium text-lg rounded-2xl hover:bg-white/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -58,6 +85,7 @@
 <script setup lang="ts">
 interface Props {
 	loading?: boolean
+	hasActiveQuiz?: boolean
 }
 
 defineProps<Props>()

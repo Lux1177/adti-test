@@ -19,6 +19,13 @@
 						class="px-4 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300"
 						active-class="bg-white/20 text-white"
 					>
+						Бош саҳифа
+					</NuxtLink>
+					<NuxtLink
+						to="/test"
+						class="px-4 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300"
+						active-class="bg-white/20 text-white"
+					>
 						Тест
 					</NuxtLink>
 				</nav>
@@ -42,6 +49,14 @@
 				<nav class="flex flex-col space-y-2">
 					<NuxtLink
 						to="/"
+						@click="mobileMenuOpen = false"
+						class="px-4 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300"
+						active-class="bg-white/20 text-white"
+					>
+						Бош саҳифа
+					</NuxtLink>
+					<NuxtLink
+						to="/test"
 						@click="mobileMenuOpen = false"
 						class="px-4 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300"
 						active-class="bg-white/20 text-white"
