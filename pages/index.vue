@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<!-- Loading State -->
-		<div v-if="quiz.state.isLoading" class="flex justify-center items-center min-h-[50vh]">
+		<div v-if="quiz.state.isLoading" class="flex justify-center items-center min-h-screen">
 			<div class="text-center space-y-4">
 				<div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
-				<p class="text-lg text-gray-600">Savollar yuklanmoqda...</p>
+				<p class="text-lg text-gray-600">Саволлар юкланмоқда...</p>
 			</div>
 		</div>
 
@@ -13,7 +13,7 @@
 			v-else-if="quiz.state.error"
 			color="red"
 			variant="solid"
-			title="Xatolik"
+			title="Хатолик"
 			:description="quiz.state.error"
 			class="max-w-2xl mx-auto mb-8"
 		/>
@@ -54,6 +54,7 @@
 <script setup lang="ts">
 import { useQuiz } from '~/composables/useQuiz'
 import { ref, onMounted } from 'vue'
+import { useHead } from '#app'
 
 const quiz = useQuiz()
 
@@ -62,9 +63,9 @@ const currentScreen = ref<Screen>('start')
 
 // Set page meta
 useHead({
-	title: 'Ingliz Tili Bo\'yicha Test',
+	title: 'Инглиз Тили Бўйича Тест',
 	meta: [
-		{ name: 'description', content: 'Ingliz tili bo\'yicha onlayn test' }
+		{ name: 'description', content: 'Инглиз тили бўйича онлайн тест' }
 	]
 })
 

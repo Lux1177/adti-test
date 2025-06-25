@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+import { useHead } from '#app'
 
 // Global head configuration
 useHead({

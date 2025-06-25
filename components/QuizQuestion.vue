@@ -1,32 +1,30 @@
 <template>
 	<div class="max-w-4xl mx-auto">
-		<div class="backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 shadow-2xl p-6 md:p-8">
+		<div class="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-6 md:p-8 shadow-2xl">
 			<!-- Progress Section -->
 			<div class="mb-8">
 				<div class="flex justify-between items-center mb-4">
-					<div class="text-white/80 font-medium">
-						Savol {{ currentQuestionIndex + 1 }} / {{ totalQuestions }}
+					<div class="text-white/80">
+						{{ currentQuestionIndex + 1 }}-савол, жами {{ totalQuestions }} та
 					</div>
-					<div class="text-white/80 font-medium">
-						{{ Math.round(progress) }}% tugallandi
+					<div class="text-white/80">
+						{{ Math.round(progress) }}% бажарилди
 					</div>
 				</div>
 
 				<!-- Progress Bar -->
-				<div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+				<div class="w-full bg-white/10 rounded-full h-2 overflow-hidden">
 					<div
-						class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-700 ease-out shadow-lg"
+						class="h-full bg-white/40 rounded-full transition-all duration-700 ease-out"
 						:style="{ width: `${progress}%` }"
-					>
-						<div class="h-full bg-white/20 animate-pulse"></div>
-					</div>
+					></div>
 				</div>
 			</div>
 
 			<!-- Question -->
 			<div class="mb-8">
-				<div class="bg-gradient-to-r from-white/10 to-white/5 rounded-2xl p-6 border border-white/20">
-					<h2 class="text-2xl md:text-3xl font-bold text-white leading-relaxed" v-html="formattedQuestion"></h2>
+				<div class="backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10">
+					<h2 class="text-2xl md:text-3xl font-light text-white leading-relaxed" v-html="formattedQuestion"></h2>
 				</div>
 			</div>
 
@@ -37,15 +35,15 @@
 					:key="index"
 					@click="selectOption(option)"
 					:disabled="selectedAnswer !== null"
-					class="w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-[1.02] disabled:cursor-not-allowed group"
+					class="w-full text-left p-6 rounded-2xl border transition-all duration-300 hover:bg-white/5 disabled:cursor-not-allowed"
 					:class="getOptionClasses(option)"
 				>
 					<div class="flex items-center">
-						<div class="flex-shrink-0 w-8 h-8 rounded-full border-2 mr-4 flex items-center justify-center font-bold transition-all duration-300"
+						<div class="flex-shrink-0 w-8 h-8 rounded-full border mr-4 flex items-center justify-center font-medium transition-all duration-300"
 						     :class="getOptionIconClasses(option)">
 							{{ String.fromCharCode(65 + index) }}
 						</div>
-						<span class="text-lg font-medium" v-html="option.replace(/\n/g, '<br>')"></span>
+						<span class="text-lg" v-html="option.replace(/\n/g, '<br>')"></span>
 					</div>
 				</button>
 			</div>
@@ -55,9 +53,9 @@
 				<button
 					@click="$emit('next')"
 					:disabled="selectedAnswer === null"
-					class="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-400 hover:to-pink-500 text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center"
+					class="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium text-lg rounded-2xl hover:bg-white/30 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed flex items-center"
 				>
-					<span>{{ isLastQuestion ? 'Testni Yakunlash' : 'Keyingi Savol' }}</span>
+					<span>{{ isLastQuestion ? 'Тестни Тугатиш' : 'Кейинги Савол' }}</span>
 					<Icon name="heroicons:arrow-right" class="w-5 h-5 ml-2" />
 				</button>
 			</div>
@@ -99,13 +97,13 @@ const selectOption = (option: string) => {
 
 const getOptionClasses = (option: string) => {
 	if (selectedAnswer.value === null) {
-		return 'bg-white/5 border-white/20 hover:bg-white/10 hover:border-white/30 text-white'
+		return 'bg-white/5 border-white/20 text-white hover:border-white/30'
 	}
 
 	if (option === props.question.correctAnswer) {
-		return 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-400 text-white shadow-lg shadow-green-500/20'
+		return 'bg-green-500/20 border-green-400/50 text-white'
 	} else if (option === selectedAnswer.value && option !== props.question.correctAnswer) {
-		return 'bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-400 text-white shadow-lg shadow-red-500/20'
+		return 'bg-red-500/20 border-red-400/50 text-white'
 	}
 
 	return 'bg-white/5 border-white/10 text-white/60'
@@ -117,9 +115,9 @@ const getOptionIconClasses = (option: string) => {
 	}
 
 	if (option === props.question.correctAnswer) {
-		return 'border-green-400 bg-green-400 text-white'
+		return 'border-green-400 bg-green-400/20 text-green-300'
 	} else if (option === selectedAnswer.value && option !== props.question.correctAnswer) {
-		return 'border-red-400 bg-red-400 text-white'
+		return 'border-red-400 bg-red-400/20 text-red-300'
 	}
 
 	return 'border-white/20 text-white/40'
