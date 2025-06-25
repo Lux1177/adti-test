@@ -37,7 +37,7 @@
 
 		<!-- Quiz Question -->
 		<QuizQuestion
-			v-else-if="!quizStore.isTestComplete"
+			v-else
 			:question="quizStore.getCurrentQuestion"
 			:current-question-index="quizStore.currentQuestionIndex"
 			:total-questions="quizStore.currentQuestions.length"
@@ -45,16 +45,6 @@
 			:is-last-question="quizStore.isLastQuestion"
 			@answer="handleAnswer"
 			@next="handleNext"
-		/>
-
-		<!-- Results Screen -->
-		<QuizResults
-			v-else
-			:score="quizStore.score"
-			:total-questions="quizStore.currentQuestions.length"
-			:percentage="quizStore.getPercentage"
-			:user-answers="quizStore.userAnswers"
-			@restart="restartQuiz"
 		/>
 	</div>
 </template>
@@ -77,22 +67,15 @@ useHead({
 })
 
 // Load questions and check for saved state on mount
-const loadQuestionsAndState = async () => {
+onMounted(() => {
 	// Load questions if not already loaded
 	if (quizStore.allQuestions.length === 0) {
-		await quizStore.loadQuestions()
+		quizStore.loadQuestions()
 	}
 
 	// Check if there's a saved quiz state
-	const hasActiveQuiz = quizStore.loadState()
-
-	// If test is complete, finish it
-	if (hasActiveQuiz && quizStore.isTestComplete) {
-		quizStore.finishTest()
-	}
-}
-
-onMounted(loadQuestionsAndState)
+	quizStore.loadState()
+})
 
 const handleAnswer = (answer: string) => {
 	quizStore.selectAnswer(answer)
@@ -102,12 +85,9 @@ const handleNext = () => {
 	quizStore.nextQuestion()
 
 	if (quizStore.isTestComplete) {
-		quizStore.finishTest() // Clear state when test is finished
+		// Finish test and navigate immediately to results page
+		quizStore.finishTest()
+		router.push('/results')
 	}
-}
-
-const restartQuiz = () => {
-	quizStore.resetTest() // Clear saved state
-	router.push('/') // Redirect to home page
 }
 </script>

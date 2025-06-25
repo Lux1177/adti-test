@@ -59,6 +59,8 @@ export const useQuizStore = defineStore("quiz", {
 					score: this.score,
 					userAnswers: this.userAnswers,
 					isActive: this.hasActiveQuiz,
+					isComplete: this.isTestComplete,
+					timestamp: Date.now(),
 				}
 				localStorage.setItem("quizState", JSON.stringify(stateToSave))
 			}
@@ -71,12 +73,12 @@ export const useQuizStore = defineStore("quiz", {
 				if (savedState) {
 					try {
 						const parsed = JSON.parse(savedState)
-						if (parsed.isActive && parsed.currentQuestions && parsed.currentQuestions.length > 0) {
+						if (parsed.currentQuestions && parsed.currentQuestions.length > 0) {
 							this.currentQuestions = parsed.currentQuestions
 							this.currentQuestionIndex = parsed.currentQuestionIndex || 0
 							this.score = parsed.score || 0
 							this.userAnswers = parsed.userAnswers || []
-							return true // Quiz was in progress
+							return true // Quiz state was loaded
 						}
 					} catch (error) {
 						console.error("Error loading quiz state:", error)
@@ -84,13 +86,33 @@ export const useQuizStore = defineStore("quiz", {
 					}
 				}
 			}
-			return false // No active quiz found
+			return false // No quiz state found
 		},
 
 		// Clear saved state
 		clearState() {
 			if (process.client) {
 				localStorage.removeItem("quizState")
+			}
+		},
+
+		// Clear active quiz status with delay (but keep results)
+		clearActiveStatusWithDelay() {
+			if (process.client) {
+				setTimeout(() => {
+					const savedState = localStorage.getItem("quizState")
+					if (savedState) {
+						try {
+							const parsed = JSON.parse(savedState)
+							// Mark as inactive but keep results
+							parsed.isActive = false
+							parsed.currentQuestionIndex = parsed.currentQuestions.length // Mark as complete
+							localStorage.setItem("quizState", JSON.stringify(parsed))
+						} catch (error) {
+							console.error("Error updating quiz state:", error)
+						}
+					}
+				}, 2000) // 2 second delay before clearing active status
 			}
 		},
 
@@ -228,9 +250,10 @@ export const useQuizStore = defineStore("quiz", {
 			this.saveState() // Save after moving to next question
 		},
 
-		// Finish the test
+		// Finish the test (clear active status with delay but keep results)
 		finishTest() {
-			this.clearState() // Clear state when test is finished
+			this.saveState() // Save final state
+			this.clearActiveStatusWithDelay() // Clear active status after 2 seconds
 		},
 
 		// Reset the test

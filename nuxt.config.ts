@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@pinia/nuxt"],
@@ -7,6 +6,16 @@ export default defineNuxtConfig({
     strict: true,
   },
   app: {
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
+      duration: 400,
+    },
+    layoutTransition: {
+      name: "layout",
+      mode: "out-in",
+      duration: 300,
+    },
     head: {
       htmlAttrs: {
         lang: "uz",
