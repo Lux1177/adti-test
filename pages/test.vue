@@ -85,8 +85,7 @@ const handleNext = () => {
 	quizStore.nextQuestion()
 
 	if (quizStore.isTestComplete) {
-		// Finish test and navigate immediately to results page
-		quizStore.finishTest()
+		// Navigate immediately to results page
 		router.push('/results')
 	}
 }
