@@ -33,6 +33,13 @@ import { useHead } from '#app'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '~/stores/quiz'
 
+useHead({
+	title: 'АДТИ Тест',
+	meta: [
+		{ name: 'description', content: 'АДТИ Тест топшириш иловаси' }
+	]
+})
+
 const quizStore = useQuizStore()
 const router = useRouter()
 
