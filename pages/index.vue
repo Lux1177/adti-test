@@ -32,6 +32,13 @@ import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '~/composables/useQuizStore'
 
+useHead({
+	title: 'ADTI Test topshirish',
+	meta: [
+		{ name: 'description', content: 'Test topshirish' }
+	],
+})
+
 const quizStore = useQuizStore()
 const router = useRouter()
 

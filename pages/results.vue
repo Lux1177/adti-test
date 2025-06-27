@@ -154,9 +154,18 @@
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '~/composables/useQuizStore'
-
 const quizStore = useQuizStore()
 const router = useRouter()
+
+useHead({
+	title: 'Test natijasi',
+	meta: [
+		{ name: 'description', content: 'Test natijasi' }
+	],
+	bodyAttrs: {
+		class: 'test'
+	},
+})
 
 const hasResults = computed(() => {
 	return quizStore.state.userAnswers.length > 0 && quizStore.state.currentQuestions.length > 0
