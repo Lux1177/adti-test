@@ -1,33 +1,37 @@
 <template>
 	<div>
-		<!-- Loading State -->
-		<div v-if="quizStore.isLoading" class="flex justify-center items-center min-h-screen">
-			<div class="text-center space-y-4">
-				<div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
-				<p class="text-lg text-gray-600">Натижалар юкланмоқда...</p>
+		<!-- Enhanced Loading State -->
+		<div v-if="quizStore.state.isLoading" class="flex justify-center items-center min-h-screen">
+			<div class="text-center space-y-6 animate-fade-in-scale">
+				<div class="w-20 h-20 mx-auto glass-ultra rounded-full flex items-center justify-center animate-pulse-smooth">
+					<div class="animate-spin-smooth rounded-full h-12 w-12 border-4 border-white/20 border-t-white"></div>
+				</div>
+				<p class="text-2xl text-white font-light">Натижалар юкланмоқда...</p>
 			</div>
 		</div>
 
-		<!-- Error State -->
+		<!-- Enhanced Error State -->
 		<UAlert
-			v-else-if="quizStore.error"
+			v-else-if="quizStore.state.error"
 			color="red"
 			variant="solid"
 			title="Хатолик"
-			:description="quizStore.error"
-			class="max-w-2xl mx-auto mb-8"
+			:description="quizStore.state.error"
+			class="max-w-2xl mx-auto mb-8 animate-fade-in-up"
 		/>
 
-		<!-- No Results Available -->
+		<!-- Enhanced No Results Available -->
 		<div v-else-if="!hasResults" class="flex justify-center items-center min-h-screen">
-			<div class="text-center space-y-6">
-				<div class="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-8 shadow-2xl animate-scale-in">
-					<Icon name="heroicons:document-text" class="w-16 h-16 text-blue-400 mx-auto mb-4" />
-					<h2 class="text-2xl font-light text-white mb-4">Натижалар топилмади</h2>
-					<p class="text-white/70 mb-6">Натижаларни кўриш учун аввал тестни тугатишингиз керак.</p>
+			<div class="text-center space-y-8 animate-fade-in-scale">
+				<div class="glass-ultra rounded-3xl p-12 shadow-2xl card-ultra-hover max-w-lg">
+					<div class="w-24 h-24 mx-auto mb-6 glass-light-ultra rounded-full flex items-center justify-center animate-float">
+						<Icon name="heroicons:document-text" class="w-12 h-12 text-blue-400 icon-ultra-smooth" />
+					</div>
+					<h2 class="text-3xl font-light text-white mb-4">Натижалар топилмади</h2>
+					<p class="text-white/70 mb-8 text-lg leading-relaxed">Натижаларни кўриш учун аввал тестни тугатишингиз керак.</p>
 					<NuxtLink to="/">
-						<button class="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium text-lg rounded-2xl hover:bg-white/30 transition-all duration-300 flex items-center mx-auto">
-							<Icon name="heroicons:arrow-left" class="w-5 h-5 mr-2" />
+						<button class="btn-ultra-smooth px-10 py-4 text-white font-semibold text-lg rounded-2xl flex items-center mx-auto micro-bounce">
+							<Icon name="heroicons:arrow-left" class="w-5 h-5 mr-3" />
 							Бош саҳифага қайтиш
 						</button>
 					</NuxtLink>
@@ -35,103 +39,108 @@
 			</div>
 		</div>
 
-		<!-- Quiz Results -->
-		<div v-else class="max-w-5xl mx-auto animate-scale-in">
-			<div class="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-6 md:p-8 shadow-2xl">
-				<!-- Header -->
-				<div class="text-center mb-8">
-					<div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-						<Icon name="heroicons:trophy" class="w-10 h-10 text-white" />
+		<!-- Enhanced Quiz Results -->
+		<div v-else class="max-w-6xl mx-auto animate-fade-in-scale">
+			<div class="glass-ultra p-8 md:p-12 shadow-2xl rounded-3xl card-ultra-hover">
+				<!-- Enhanced Header -->
+				<div class="text-center mb-12 animate-fade-in-up">
+					<div class="w-28 h-28 mx-auto mb-8 rounded-full glass-light-ultra flex items-center justify-center animate-float micro-glow">
+						<Icon name="heroicons:trophy" class="w-14 h-14 text-yellow-400 icon-ultra-smooth" />
 					</div>
 
-					<h2 class="text-4xl font-light mb-4 text-white">
+					<h2 class="text-5xl md:text-6xl font-light mb-6 text-white bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
 						Тест Натижалари
 					</h2>
 
-					<!-- Score Display -->
-					<div class="backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10 mb-6">
-						<div class="text-2xl text-white/90 mb-2">
+					<!-- Enhanced Score Display -->
+					<div class="glass-light-ultra rounded-3xl p-8 border border-white/10 mb-8 card-ultra-hover">
+						<div class="text-2xl md:text-3xl text-white/90 mb-4 font-light">
 							Сиз {{ totalQuestions }} тадан {{ score }} тасига тўғри жавоб бердингиз
 						</div>
-						<div class="text-4xl font-light mb-4" :class="getScoreColorClass()">
+						<div class="text-6xl md:text-7xl font-light mb-6" :class="getScoreColorClass()">
 							{{ percentage.toFixed(1) }}%
 						</div>
-						<div class="text-lg" :class="getScoreTextClass()">
+						<div class="text-xl md:text-2xl font-medium" :class="getScoreTextClass()">
 							{{ getScoreText() }}
 						</div>
 					</div>
 
-					<!-- Progress Bar -->
-					<div class="w-full bg-white/10 rounded-full h-3 overflow-hidden mb-8">
+					<!-- Enhanced Progress Bar -->
+					<div class="progress-ultra h-4 rounded-full mb-8">
 						<div
-							class="h-full rounded-full transition-all duration-1000 ease-out progress-bar"
+							class="progress-fill"
 							:class="getProgressBarClass()"
 							:style="{ width: `${percentage}%` }"
 						></div>
 					</div>
 				</div>
 
-				<!-- Detailed Results -->
-				<div class="mb-8">
-					<h3 class="text-2xl font-light text-white mb-6 text-center">Жавоблар Тафсилоти</h3>
+				<!-- Enhanced Detailed Results -->
+				<div class="mb-12 animate-fade-in-up animate-stagger-2">
+					<h3 class="text-3xl font-light text-white mb-8 text-center">Жавоблар Тафсилоти</h3>
 
-					<div class="max-h-96 overflow-y-auto space-y-4 custom-scrollbar">
-						<div
-							v-for="(answer, index) in userAnswers"
-							:key="index"
-							class="backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 animate-fade-in-up"
-							:class="answer.isCorrect ? 'bg-green-500/10 border-green-400/30' : 'bg-red-500/10 border-red-400/30'"
-							:style="{ animationDelay: `${index * 0.1}s` }"
+					<div class="max-h-96 overflow-y-auto space-y-6 custom-scrollbar">
+						<TransitionGroup
+							name="list-ultra"
+							tag="div"
+							class="space-y-6"
 						>
-							<div class="flex items-start space-x-4">
-								<div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm"
-								     :class="answer.isCorrect ? 'bg-green-400/20 text-green-300 border border-green-400/30' : 'bg-red-400/20 text-red-300 border border-red-400/30'">
-									{{ index + 1 }}
-								</div>
+							<div
+								v-for="(answer, index) in userAnswers"
+								:key="index"
+								class="glass-light-ultra rounded-3xl p-8 border transition-all duration-500 card-ultra-hover"
+								:class="answer.isCorrect ? 'border-green-400/40 bg-green-500/10' : 'border-red-400/40 bg-red-500/10'"
+							>
+								<div class="flex items-start space-x-6">
+									<div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
+									     :class="answer.isCorrect ? 'bg-green-400/30 text-green-300 border-2 border-green-400/50' : 'bg-red-400/30 text-red-300 border-2 border-red-400/50'">
+										{{ index + 1 }}
+									</div>
 
-								<div class="flex-1 space-y-3">
-									<p class="font-medium text-white">
-										<span v-html="answer.question.replace(/\n/g, '<br>')"></span>
-									</p>
-
-									<div class="space-y-2">
-										<p :class="answer.isCorrect ? 'text-green-300' : 'text-red-300'">
-											<strong>Сизнинг жавобингиз:</strong>
-											<span v-html="answer.selected.replace(/\n/g, '<br>')"></span>
+									<div class="flex-1 space-y-4">
+										<p class="font-semibold text-white text-lg">
+											<span v-html="answer.question.replace(/\n/g, '<br>')"></span>
 										</p>
 
-										<p v-if="!answer.isCorrect" class="text-green-300">
-											<strong>Тўғри жавоб:</strong>
-											<span v-html="answer.correct.replace(/\n/g, '<br>')"></span>
-										</p>
+										<div class="space-y-3">
+											<p :class="answer.isCorrect ? 'text-green-300' : 'text-red-300'" class="font-medium">
+												<strong>Сизнинг жавобингиз:</strong>
+												<span v-html="answer.selected.replace(/\n/g, '<br>')"></span>
+											</p>
+
+											<p v-if="!answer.isCorrect" class="text-green-300 font-medium">
+												<strong>Тўғри жавоб:</strong>
+												<span v-html="answer.correct.replace(/\n/g, '<br>')"></span>
+											</p>
+										</div>
+									</div>
+
+									<div class="flex-shrink-0">
+										<Icon
+											:name="answer.isCorrect ? 'heroicons:check-circle' : 'heroicons:x-circle'"
+											class="w-8 h-8 icon-ultra-smooth"
+											:class="answer.isCorrect ? 'text-green-400' : 'text-red-400'"
+										/>
 									</div>
 								</div>
-
-								<div class="flex-shrink-0">
-									<Icon
-										:name="answer.isCorrect ? 'heroicons:check-circle' : 'heroicons:x-circle'"
-										class="w-6 h-6"
-										:class="answer.isCorrect ? 'text-green-400' : 'text-red-400'"
-									/>
-								</div>
 							</div>
-						</div>
+						</TransitionGroup>
 					</div>
 				</div>
 
-				<!-- Action Buttons -->
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<!-- Enhanced Action Buttons -->
+				<div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up animate-stagger-3">
 					<button
 						@click="restartQuiz"
-						class="btn-smooth px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium text-lg rounded-2xl hover:bg-white/30 transition-all duration-300 flex items-center justify-center"
+						class="btn-ultra-smooth px-12 py-5 text-white font-semibold text-xl rounded-3xl flex items-center justify-center micro-bounce"
 					>
-						<Icon name="heroicons:arrow-path" class="w-5 h-5 mr-2" />
+						<Icon name="heroicons:arrow-path" class="w-6 h-6 mr-3" />
 						Тестни Қайта Бошлаш
 					</button>
 
 					<NuxtLink to="/">
-						<button class="btn-smooth px-8 py-4 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-300 font-medium text-lg rounded-2xl hover:bg-blue-500/30 transition-all duration-300 flex items-center justify-center w-full sm:w-auto">
-							<Icon name="heroicons:home" class="w-5 h-5 mr-2" />
+						<button class="btn-ultra-smooth px-12 py-5 text-blue-300 font-semibold text-xl rounded-3xl flex items-center justify-center w-full sm:w-auto micro-bounce">
+							<Icon name="heroicons:home" class="w-6 h-6 mr-3" />
 							Бош саҳифага қайтиш
 						</button>
 					</NuxtLink>
@@ -143,41 +152,20 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { useHead } from '#app'
 import { useRouter } from 'vue-router'
-import { useQuizStore } from '~/stores/quiz'
+import { useQuizStore } from '~/composables/useQuizStore'
 
 const quizStore = useQuizStore()
 const router = useRouter()
 
-// Set page meta
-useHead({
-	title: 'Тест Натижалари - Инглиз Тили Бўйича Тест',
-	meta: [
-		{ name: 'description', content: 'Инглиз тили тести натижалари' }
-	]
-})
-
-// Load state on mount to get results
-onMounted(() => {
-	// Load questions if not already loaded
-	if (quizStore.allQuestions.length === 0) {
-		quizStore.loadQuestions()
-	}
-
-	// Load saved state to get results
-	quizStore.loadState()
-})
-
-// Computed properties for results
 const hasResults = computed(() => {
-	return quizStore.userAnswers.length > 0 && quizStore.currentQuestions.length > 0
+	return quizStore.state.userAnswers.length > 0 && quizStore.state.currentQuestions.length > 0
 })
 
-const score = computed(() => quizStore.score)
-const totalQuestions = computed(() => quizStore.currentQuestions.length)
-const percentage = computed(() => quizStore.getPercentage)
-const userAnswers = computed(() => quizStore.userAnswers)
+const score = computed(() => quizStore.state.score)
+const totalQuestions = computed(() => quizStore.state.currentQuestions.length)
+const percentage = computed(() => quizStore.getPercentage.value)
+const userAnswers = computed(() => quizStore.state.userAnswers)
 
 const getScoreColorClass = () => {
 	if (percentage.value >= 80) return 'text-green-400'
@@ -186,9 +174,9 @@ const getScoreColorClass = () => {
 }
 
 const getProgressBarClass = () => {
-	if (percentage.value >= 80) return 'bg-green-400/60'
-	if (percentage.value >= 60) return 'bg-yellow-400/60'
-	return 'bg-red-400/60'
+	if (percentage.value >= 80) return 'bg-gradient-to-r from-green-400 to-green-500'
+	if (percentage.value >= 60) return 'bg-gradient-to-r from-yellow-400 to-yellow-500'
+	return 'bg-gradient-to-r from-red-400 to-red-500'
 }
 
 const getScoreTextClass = () => {
@@ -206,7 +194,12 @@ const getScoreText = () => {
 }
 
 const restartQuiz = () => {
-	quizStore.resetTest() // Clear saved state
-	router.push('/') // Redirect to home page
+	quizStore.resetTest()
+	router.push('/')
 }
+
+onMounted(() => {
+	quizStore.loadQuestions()
+	quizStore.loadState()
+})
 </script>

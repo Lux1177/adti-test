@@ -143,19 +143,21 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { useHead } from '#app'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '~/stores/quiz'
 
 const quizStore = useQuizStore()
 const router = useRouter()
 
-// Set page meta
-useHead({
-	title: 'Тест Натижалари - Инглиз Тили Бўйича Тест',
-	meta: [
-		{ name: 'description', content: 'Инглиз тили тести натижалари' }
-	]
+// Load state on mount to get results (client-side only)
+onMounted(() => {
+	// Load questions if not already loaded
+	if (quizStore.allQuestions.length === 0) {
+		quizStore.loadQuestions()
+	}
+
+	// Load saved state to get results
+	quizStore.loadState()
 })
 
 // Computed properties for results
@@ -198,15 +200,4 @@ const restartQuiz = () => {
 	quizStore.resetTest() // Clear saved state
 	router.push('/') // Redirect to home page
 }
-
-// Load state on mount to get results
-onMounted(() => {
-	// Load questions if not already loaded
-	if (quizStore.allQuestions.length === 0) {
-		quizStore.loadQuestions()
-	}
-
-	// Load saved state to get results
-	quizStore.loadState()
-})
 </script>

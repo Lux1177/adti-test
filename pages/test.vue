@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- Loading State -->
-		<div v-if="quizStore.isLoading" class="flex justify-center items-center min-h-screen">
+		<div v-if="quizStore.state.isLoading" class="flex justify-center items-center min-h-screen">
 			<div class="text-center space-y-4">
 				<div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
 				<p class="text-lg text-gray-600">Саволлар юкланмоқда...</p>
@@ -10,16 +10,16 @@
 
 		<!-- Error State -->
 		<UAlert
-			v-else-if="quizStore.error"
+			v-else-if="quizStore.state.error"
 			color="red"
 			variant="solid"
 			title="Хатолик"
-			:description="quizStore.error"
+			:description="quizStore.state.error"
 			class="max-w-2xl mx-auto mb-8"
 		/>
 
-		<!-- No Active Quiz - Redirect to Home -->
-		<div v-else-if="!quizStore.hasActiveQuiz" class="flex justify-center items-center min-h-screen">
+		<!-- No Active Quiz -->
+		<div v-else-if="!quizStore.hasActiveQuiz.value" class="flex justify-center items-center min-h-screen">
 			<div class="text-center space-y-6">
 				<div class="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-8 shadow-2xl">
 					<Icon name="heroicons:exclamation-triangle" class="w-16 h-16 text-yellow-400 mx-auto mb-4" />
@@ -38,11 +38,11 @@
 		<!-- Quiz Question -->
 		<QuizQuestion
 			v-else
-			:question="quizStore.getCurrentQuestion"
-			:current-question-index="quizStore.currentQuestionIndex"
-			:total-questions="quizStore.currentQuestions.length"
-			:progress="quizStore.getProgress"
-			:is-last-question="quizStore.isLastQuestion"
+			:question="quizStore.getCurrentQuestion.value"
+			:current-question-index="quizStore.state.currentQuestionIndex"
+			:total-questions="quizStore.state.currentQuestions.length"
+			:progress="quizStore.getProgress.value"
+			:is-last-question="quizStore.isLastQuestion.value"
 			@answer="handleAnswer"
 			@next="handleNext"
 		/>
@@ -51,30 +51,21 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useHead } from '#app'
 import { useRouter } from 'vue-router'
-import { useQuizStore } from '~/stores/quiz'
+import { useQuizStore } from '~/composables/useQuizStore'
 
 const quizStore = useQuizStore()
 const router = useRouter()
 
-// Set page meta
-useHead({
-	title: 'Тест Топшириш - Инглиз Тили Бўйича Тест',
-	meta: [
-		{ name: 'description', content: 'Инглиз тили тестини топшириш' }
-	]
-})
-
-// Load questions and check for saved state on mount
-onMounted(() => {
-	// Load questions if not already loaded
-	if (quizStore.allQuestions.length === 0) {
+const loadQuizData = () => {
+	if (quizStore.state.allQuestions.length === 0) {
 		quizStore.loadQuestions()
 	}
-
-	// Check if there's a saved quiz state
 	quizStore.loadState()
+}
+
+onMounted(() => {
+	loadQuizData()
 })
 
 const handleAnswer = (answer: string) => {
@@ -84,8 +75,7 @@ const handleAnswer = (answer: string) => {
 const handleNext = () => {
 	quizStore.nextQuestion()
 
-	if (quizStore.isTestComplete) {
-		// Navigate immediately to results page
+	if (quizStore.isTestComplete.value) {
 		router.push('/results')
 	}
 }

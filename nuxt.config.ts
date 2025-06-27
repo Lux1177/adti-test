@@ -1,10 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt"],
+  modules: ["@nuxt/ui"], // Removed @pinia/nuxt
   css: ["~/assets/css/main.css"],
   typescript: {
     strict: true,
   },
+  ssr: false, // Client-side rendering only
   app: {
     pageTransition: {
       name: "page",
@@ -33,10 +34,6 @@ export default defineNuxtConfig({
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-        },
-        { rel: 'icon',
-          type: 'image/x-icon',
-          href: '/icon.png'
         },
       ],
     },
