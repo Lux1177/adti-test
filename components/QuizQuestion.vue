@@ -5,10 +5,10 @@
 			<div class="mb-8 animate-fade-in-up">
 				<div class="flex justify-between items-center mb-6">
 					<div class="text-white/90 font-medium text-lg transition-all duration-300">
-						{{ currentQuestionIndex + 1 }}-савол, жами {{ totalQuestions }} та
+						{{ t('quiz.question') }} {{ currentQuestionIndex + 1 }}, {{ t('quiz.total') }} {{ totalQuestions }}
 					</div>
 					<div class="text-white/90 font-medium text-lg transition-all duration-300">
-						{{ Math.round(progress) }}% бажарилди
+						{{ Math.round(progress) }}% {{ t('quiz.completed') }}
 					</div>
 				</div>
 
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 
-			<!-- Enhanced Options with Ultra Smooth Animations - No Scale -->
+			<!-- Enhanced Options with Ultra Smooth Animations -->
 			<div class="space-y-5 mb-10">
 				<button
 					v-for="(option, index) in question.options"
@@ -57,7 +57,7 @@
 					class="btn-ultra-smooth px-10 py-5 text-white font-semibold text-xl rounded-3xl transition-all duration-300 flex items-center group micro-bounce"
 					:class="selectedAnswer === null ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110'"
 				>
-					<span class="mr-3">{{ isLastQuestion ? 'Тестни Тугатиш' : 'Кейинги Савол' }}</span>
+					<span class="mr-3">{{ isLastQuestion ? t('quiz.finish') : t('quiz.next') }}</span>
 					<Icon name="heroicons:arrow-right" class="w-6 h-6 transition-transform duration-300"
 					      :class="selectedAnswer !== null ? 'group-hover:translate-x-2' : ''" />
 				</button>
@@ -69,6 +69,9 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import type { Question } from '~/types/quiz'
+import { useI18n } from '~/composables/useI18n'
+
+const { t } = useI18n()
 
 interface Props {
 	question: Question

@@ -1,5 +1,5 @@
 import { reactive, computed, readonly } from "vue"
-import type { Question, UserAnswer } from "~/types/quiz"
+import type { Question, UserAnswer, Locale } from "~/types/quiz"
 
 interface QuizState {
 	allQuestions: Question[]
@@ -9,6 +9,7 @@ interface QuizState {
 	userAnswers: UserAnswer[]
 	isLoading: boolean
 	error: string | null
+	currentQuizId: string | null
 }
 
 // Create reactive state
@@ -20,12 +21,13 @@ const state = reactive<QuizState>({
 	userAnswers: [],
 	isLoading: false,
 	error: null,
+	currentQuizId: null,
 })
 
 // localStorage keys
 const STORAGE_KEYS = {
 	QUIZ_STATE: "quiz-state",
-	ALL_QUESTIONS: "quiz-questions",
+	QUIZ_CACHE: "quiz-cache",
 }
 
 // Save state to localStorage
@@ -36,6 +38,7 @@ const saveState = () => {
 			currentQuestionIndex: state.currentQuestionIndex,
 			score: state.score,
 			userAnswers: state.userAnswers,
+			currentQuizId: state.currentQuizId,
 			timestamp: Date.now(),
 		}
 		localStorage.setItem(STORAGE_KEYS.QUIZ_STATE, JSON.stringify(stateToSave))
@@ -54,6 +57,7 @@ const loadState = (): boolean => {
 					state.currentQuestionIndex = parsed.currentQuestionIndex || 0
 					state.score = parsed.score || 0
 					state.userAnswers = parsed.userAnswers || []
+					state.currentQuizId = parsed.currentQuizId || null
 					return true
 				}
 			} catch (error) {
@@ -72,82 +76,29 @@ const clearState = () => {
 	}
 }
 
-// Save questions to localStorage for caching
-const saveQuestions = (questions: Question[]) => {
+// Save quiz data to cache
+const saveQuizCache = (quizId: string, locale: Locale, questions: Question[]) => {
 	if (typeof window !== "undefined") {
-		localStorage.setItem(
-				STORAGE_KEYS.ALL_QUESTIONS,
-				JSON.stringify({
-					questions,
-					timestamp: Date.now(),
-				}),
-		)
+		const cache = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_CACHE) || "{}")
+		cache[`${quizId}-${locale}`] = {
+			questions,
+			timestamp: Date.now(),
+		}
+		localStorage.setItem(STORAGE_KEYS.QUIZ_CACHE, JSON.stringify(cache))
 	}
 }
 
-// Load cached questions from localStorage
-const loadCachedQuestions = (): Question[] | null => {
+// Load quiz data from cache
+const loadQuizCache = (quizId: string, locale: Locale): Question[] | null => {
 	if (typeof window !== "undefined") {
-		const cached = localStorage.getItem(STORAGE_KEYS.ALL_QUESTIONS)
-		if (cached) {
-			try {
-				const parsed = JSON.parse(cached)
-				// Cache for 1 hour
-				if (Date.now() - parsed.timestamp < 3600000) {
-					return parsed.questions
-				}
-			} catch (error) {
-				console.error("Error loading cached questions:", error)
-			}
+		const cache = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_CACHE) || "{}")
+		const cached = cache[`${quizId}-${locale}`]
+		if (cached && Date.now() - cached.timestamp < 3600000) {
+			// 1 hour cache
+			return cached.questions
 		}
 	}
 	return null
-}
-
-// Parse questions from text format
-const parseQuestions = (data: string): Question[] => {
-	const questions: Question[] = []
-	const questionBlocks = data.trim().split(/\s*\+{3,}\s*/)
-
-	questionBlocks.forEach((block) => {
-		if (block.trim() === "") return
-
-		const parts = block.split(/\n\s*={3,}\s*/)
-		if (parts.length < 2) return
-
-		const question = parts[0].trim()
-		if (!question) return
-
-		const options: string[] = []
-		let correctAnswerText = ""
-		let correctAnswerFound = false
-
-		for (let i = 1; i < parts.length; i++) {
-			const optionText = parts[i].trim()
-			if (optionText === "") continue
-
-			if (optionText.startsWith("#")) {
-				const actualAnswer = optionText.substring(1).trim()
-				options.push(actualAnswer)
-				if (!correctAnswerFound) {
-					correctAnswerText = actualAnswer
-					correctAnswerFound = true
-				}
-			} else {
-				options.push(optionText)
-			}
-		}
-
-		if (question && options.length >= 1 && correctAnswerFound) {
-			questions.push({
-				questionText: question,
-				options: options,
-				correctAnswer: correctAnswerText,
-			})
-		}
-	})
-
-	return questions
 }
 
 // Shuffle array in place
@@ -184,13 +135,13 @@ const hasActiveQuiz = computed(() => {
 })
 
 // Actions
-const loadQuestions = async () => {
+const loadQuestions = async (quizId: string, locale: Locale) => {
 	state.isLoading = true
 	state.error = null
 
 	try {
 		// Try to load from cache first
-		const cachedQuestions = loadCachedQuestions()
+		const cachedQuestions = loadQuizCache(quizId, locale)
 		if (cachedQuestions && cachedQuestions.length > 0) {
 			state.allQuestions = cachedQuestions
 			state.isLoading = false
@@ -198,15 +149,15 @@ const loadQuestions = async () => {
 		}
 
 		// Fetch from API if no cache
-		const response = await $fetch("/api/questions")
-		const questions = parseQuestions(response.data)
+		const response = await $fetch(`/api/questions/${quizId}`)
+		const questions = response.data[locale] || []
 
 		if (questions.length === 0) {
-			throw new Error("No questions loaded or incorrect format")
+			throw new Error("No questions found for this quiz and language")
 		}
 
 		state.allQuestions = questions
-		saveQuestions(questions) // Cache the questions
+		saveQuizCache(quizId, locale, questions) // Cache the questions
 	} catch (error) {
 		state.error = error instanceof Error ? error.message : "Failed to load questions"
 		console.error("Error loading questions:", error)
@@ -215,18 +166,23 @@ const loadQuestions = async () => {
 	}
 }
 
-const startTest = (): boolean => {
-	const questionsPerTest = 20
+const startTest = (quizId: string): boolean => {
+	if (state.allQuestions.length === 0) {
+		state.error = "No questions loaded. Please load questions first."
+		return false
+	}
 
 	state.score = 0
 	state.currentQuestionIndex = 0
 	state.userAnswers = []
+	state.currentQuizId = quizId
 
 	// Create a copy and shuffle
 	const shuffledQuestions = [...state.allQuestions]
 	shuffleArray(shuffledQuestions)
 
-	state.currentQuestions = shuffledQuestions.slice(0, Math.min(questionsPerTest, shuffledQuestions.length))
+	// Take all questions or limit based on quiz configuration
+	state.currentQuestions = shuffledQuestions
 
 	if (state.currentQuestions.length === 0) {
 		state.error = "No questions available to start the test"
@@ -269,6 +225,7 @@ const resetTest = () => {
 	state.currentQuestionIndex = 0
 	state.score = 0
 	state.userAnswers = []
+	state.currentQuizId = null
 }
 
 // Export the composable

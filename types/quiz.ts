@@ -20,3 +20,24 @@ export interface QuizState {
 	isLoading: boolean
 	error: string | null
 }
+
+export type UserCategory = "professor" | "employee" | "student" | "medical" | "applicant"
+export type Locale = "en" | "ru" | "uz"
+
+export interface QuizInfo {
+	id: string
+	titleKey: string
+	descriptionKey: string
+	category: UserCategory[]
+	difficulty: "easy" | "medium" | "hard"
+	questionCount: number
+	available: boolean
+	icon: string
+	color: string
+}
+
+export interface QuizData {
+	[quizId: string]: {
+		[locale in Locale]: Question[]
+	}
+}

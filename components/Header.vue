@@ -1,5 +1,5 @@
 <template>
-	<header class="glass-ultra border-b border-white/10 gpu-accelerated sticky top-0 z-50">
+	<header class="glass-ultra gpu-accelerated sticky top-0 z-50">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center h-20">
 				<div class="flex items-center">
@@ -8,7 +8,7 @@
 							<Icon name="heroicons:academic-cap" class="w-6 h-6 text-white icon-ultra-smooth" />
 						</div>
 						<span class="text-2xl font-semibold text-white transition-all duration-300 group-hover:text-white/90">
-              АДТИ
+              {{ t('nav.title') }}
             </span>
 					</NuxtLink>
 				</div>
@@ -19,25 +19,36 @@
 						class="nav-link-ultra px-6 py-3 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 font-medium"
 						active-class="bg-white/20 text-white shadow-lg"
 					>
-						Бош саҳифа
+						{{ t('nav.home') }}
 					</NuxtLink>
 					<NuxtLink
 						to="/test"
 						class="nav-link-ultra px-6 py-3 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 font-medium"
 						active-class="bg-white/20 text-white shadow-lg"
 					>
-						Тест
+						{{ t('nav.test') }}
 					</NuxtLink>
 					<NuxtLink
 						to="/results"
 						class="nav-link-ultra px-6 py-3 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 font-medium"
 						active-class="bg-white/20 text-white shadow-lg"
 					>
-						Натижалар
+						{{ t('nav.results') }}
 					</NuxtLink>
 				</nav>
 
-				<!-- Enhanced Mobile menu button - No scale -->
+				<!-- Language Selector -->
+				<div class="hidden md:flex items-center space-x-4">
+					<button
+						@click="$emit('change-language')"
+						class="p-3 rounded-full text-white/70 hover:text-white glass-light-ultra transition-all duration-300 hover:brightness-110 micro-bounce"
+						:title="t('language.select')"
+					>
+						<Icon name="heroicons:language" class="w-6 h-6" />
+					</button>
+				</div>
+
+				<!-- Enhanced Mobile menu button -->
 				<div class="md:hidden">
 					<button
 						@click="mobileMenuOpen = !mobileMenuOpen"
@@ -66,7 +77,7 @@
 							class="nav-link-ultra px-6 py-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/10 animate-fade-in-up transition-all duration-300 font-medium"
 							active-class="bg-white/20 text-white shadow-lg"
 						>
-							Бош саҳифа
+							{{ t('nav.home') }}
 						</NuxtLink>
 						<NuxtLink
 							to="/test"
@@ -74,7 +85,7 @@
 							class="nav-link-ultra px-6 py-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/10 animate-fade-in-up animate-stagger-2 transition-all duration-300 font-medium"
 							active-class="bg-white/20 text-white shadow-lg"
 						>
-							Тест
+							{{ t('nav.test') }}
 						</NuxtLink>
 						<NuxtLink
 							to="/results"
@@ -82,8 +93,15 @@
 							class="nav-link-ultra px-6 py-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/10 animate-fade-in-up animate-stagger-3 transition-all duration-300 font-medium"
 							active-class="bg-white/20 text-white shadow-lg"
 						>
-							Натижалар
+							{{ t('nav.results') }}
 						</NuxtLink>
+						<button
+							@click="$emit('change-language'); mobileMenuOpen = false"
+							class="nav-link-ultra px-6 py-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/10 animate-fade-in-up animate-stagger-4 transition-all duration-300 font-medium text-left flex items-center"
+						>
+							<Icon name="heroicons:language" class="w-5 h-5 mr-3" />
+							{{ t('language.select') }}
+						</button>
 					</nav>
 				</div>
 			</Transition>
@@ -94,9 +112,16 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from '#app'
+import { useI18n } from '~/composables/useI18n'
+
+const route = useRoute()
+const { t } = useI18n()
 
 const mobileMenuOpen = ref(false)
-const route = useRoute()
+
+defineEmits<{
+	'change-language': []
+}>()
 
 // Close mobile menu when route changes with smooth transition
 watch(() => route.path, () => {
