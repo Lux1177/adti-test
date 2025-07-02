@@ -13,7 +13,14 @@
 				<div class="mb-8 animate-stagger-1">
 					<div class="inline-flex items-center px-6 py-3 glass-light-ultra rounded-full">
 						<div class="w-8 h-8 mr-3 rounded-full flex items-center justify-center">
-							<img :src="getCategoryImage(selectedCategory)" :alt="getCategoryTitle(selectedCategory)" class="w-full h-full object-cover rounded-full" />
+							<NuxtImg
+								:src="getCategoryImage(selectedCategory)"
+								:alt="getCategoryTitle(selectedCategory)"
+								class="w-full h-full object-cover rounded-full"
+								preload
+								format="webp"
+								quality="80"
+							/>
 						</div>
 						<span class="text-white font-medium">{{ getCategoryTitle(selectedCategory) }}</span>
 					</div>
@@ -211,12 +218,12 @@ const getCategoryImage = (category: UserCategory) => {
 
 const getCategoryTitle = (category: UserCategory) => {
 	const titles = {
-		professor: t('category.professor'),
-		employee: t('category.employee'),
-		student: t('category.student'),
-		medical: t('category.medical'),
-		applicant: t('category.applicant'),
-		academic_lyceum: t('category.academic_lyceum')
+		professor: 'Professor',
+		employee: 'Employee',
+		student: 'Student',
+		medical: 'Medical',
+		applicant: 'Applicant',
+		academic_lyceum: 'Academic Lyceum'
 	}
 	return titles[category]
 }

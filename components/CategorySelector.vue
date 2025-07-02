@@ -24,7 +24,14 @@
 						:style="{ animationDelay: `${0.1 + index * 0.1}s` }"
 					>
 						<div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-							<img :src="category.image" :alt="t(category.titleKey)" class="w-full h-full object-cover rounded-full" />
+							<NuxtImg
+								:src="category.image"
+								:alt="t(category.titleKey)"
+								class="w-full h-full object-cover rounded-full"
+								preload
+								format="webp"
+								quality="80"
+							/>
 						</div>
 						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t(category.titleKey) }}

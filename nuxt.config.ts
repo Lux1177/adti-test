@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/fonts"], // Removed @pinia/nuxt
+  modules: ["@nuxt/ui", "@nuxt/fonts", "@nuxt/image"], // Removed @pinia/nuxt
   css: ["~/assets/css/main.css"],
   typescript: {
     strict: true,
