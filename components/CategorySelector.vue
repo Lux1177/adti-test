@@ -16,73 +16,18 @@
 
 				<!-- Category Options Grid -->
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
-					<!-- Professor/Teacher -->
 					<button
-						@click="selectCategory('professor')"
+						v-for="(category, index) in categories"
+						:key="category.key"
+						@click="selectCategory(category.key)"
 						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
-						style="animation-delay: 0.1s"
+						:style="{ animationDelay: `${0.1 + index * 0.1}s` }"
 					>
-						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
-							👨‍🏫
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+							<img :src="category.image" :alt="t(category.titleKey)" class="w-full h-full object-cover rounded-full" />
 						</div>
 						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
-							{{ t('category.professor') }}
-						</h3>
-					</button>
-
-					<!-- Employee -->
-					<button
-						@click="selectCategory('employee')"
-						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
-						style="animation-delay: 0.2s"
-					>
-						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
-							👩‍💼
-						</div>
-						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
-							{{ t('category.employee') }}
-						</h3>
-					</button>
-
-					<!-- Student -->
-					<button
-						@click="selectCategory('student')"
-						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
-						style="animation-delay: 0.3s"
-					>
-						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
-							👨‍🎓
-						</div>
-						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
-							{{ t('category.student') }}
-						</h3>
-					</button>
-
-					<!-- Medical Worker -->
-					<button
-						@click="selectCategory('medical')"
-						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
-						style="animation-delay: 0.4s"
-					>
-						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
-							👨‍⚕️
-						</div>
-						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
-							{{ t('category.medical') }}
-						</h3>
-					</button>
-
-					<!-- Applicant -->
-					<button
-						@click="selectCategory('applicant')"
-						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
-						style="animation-delay: 0.5s"
-					>
-						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
-							🎓
-						</div>
-						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
-							{{ t('category.applicant') }}
+							{{ t(category.titleKey) }}
 						</h3>
 					</button>
 				</div>
@@ -110,6 +55,15 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
+
+const categories = [
+	{ key: 'professor' as UserCategory, titleKey: 'category.professor', image: '/images/professor.png' },
+	{ key: 'employee' as UserCategory, titleKey: 'category.employee', image: '/images/employee.png' },
+	{ key: 'student' as UserCategory, titleKey: 'category.student', image: '/images/student.png' },
+	{ key: 'medical' as UserCategory, titleKey: 'category.medical', image: '/images/medical.png' },
+	{ key: 'applicant' as UserCategory, titleKey: 'category.applicant', image: '/images/applicant.png' },
+	{ key: 'academic_lyceum' as UserCategory, titleKey: 'category.academic_lyceum', image: '/images/lyceum.png' },
+]
 
 const selectCategory = (category: UserCategory) => {
 	emit('select', category)

@@ -12,8 +12,8 @@
 				<!-- Category Badge -->
 				<div class="mb-8 animate-stagger-1">
 					<div class="inline-flex items-center px-6 py-3 glass-light-ultra rounded-full">
-						<div class="w-8 h-8 mr-3 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-xl">
-							{{ getCategoryEmoji(selectedCategory) }}
+						<div class="w-8 h-8 mr-3 rounded-full flex items-center justify-center">
+							<img :src="getCategoryImage(selectedCategory)" :alt="getCategoryTitle(selectedCategory)" class="w-full h-full object-cover rounded-full" />
 						</div>
 						<span class="text-white font-medium">{{ getCategoryTitle(selectedCategory) }}</span>
 					</div>
@@ -197,15 +197,16 @@ const startQuiz = (quizId: string) => {
 	emit('start', quizId)
 }
 
-const getCategoryEmoji = (category: UserCategory) => {
-	const emojis = {
-		professor: '👨‍🏫',
-		employee: '👩‍💼',
-		student: '👨‍🎓',
-		medical: '👨‍⚕️',
-		applicant: '🎓'
+const getCategoryImage = (category: UserCategory) => {
+	const images = {
+		professor: '/images/professor.png',
+		employee: '/images/employee.png',
+		student: '/images/student.png',
+		medical: '/images/medical.png',
+		applicant: '/images/applicant.png',
+		academic_lyceum: '/images/lyceum.png'
 	}
-	return emojis[category]
+	return images[category]
 }
 
 const getCategoryTitle = (category: UserCategory) => {
@@ -214,7 +215,8 @@ const getCategoryTitle = (category: UserCategory) => {
 		employee: t('category.employee'),
 		student: t('category.student'),
 		medical: t('category.medical'),
-		applicant: t('category.applicant')
+		applicant: t('category.applicant'),
+		academic_lyceum: t('category.academic_lyceum')
 	}
 	return titles[category]
 }

@@ -39,11 +39,6 @@ const translations: Translations = {
 	},
 
 	// Category Selection
-	"category.select": {
-		en: "Select Test Category",
-		ru: "Выберите категорию теста",
-		uz: "Тест категориясини танланг",
-	},
 	"category.test_collections": {
 		en: "Test Collections",
 		ru: "Коллекции тестов",
@@ -74,6 +69,11 @@ const translations: Translations = {
 		ru: "Для абитуриентов",
 		uz: "Абитуриентлар учун",
 	},
+	"category.academic_lyceum": {
+		en: "For Academic Lyceums",
+		ru: "Для академических лицеев",
+		uz: "Akademik litseylar uchun",
+	},
 
 	// Navigation
 	"nav.home": {
@@ -94,7 +94,7 @@ const translations: Translations = {
 	"nav.title": {
 		en: "ASMI",
 		ru: "АГМИ",
-		uz: "ADTI",
+		uz: "АДТИ",
 	},
 
 	// Quiz Selection
@@ -115,6 +115,16 @@ const translations: Translations = {
 	},
 
 	// Quiz Titles and Descriptions
+	"quiz.lyceum_physics.title": {
+		en: "Physics for Lyceums",
+		ru: "Физика для лицеев",
+		uz: "Litseylar uchun fizika",
+	},
+	"quiz.lyceum_physics.description": {
+		en: "Fundamental physics concepts for lyceum students.",
+		ru: "Основные концепции физики для учащихся лицеев.",
+		uz: "Litsey o'quvchilari uchun fundamental fizika tushunchalari.",
+	},
 	"quiz.english.title": {
 		en: "English Grammar Test",
 		ru: "Тест по английской грамматике",

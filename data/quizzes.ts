@@ -7,6 +7,7 @@ import { medicalAnatomyQuestions } from "./medical/anatomy"
 import { studentEnglishQuestions } from "./student/english"
 import { professorManagementQuestions } from "./professor/management"
 import { applicantEntranceQuestions } from "./applicant/entrance"
+import { lyceumPhysicsQuestions } from "./lyceum/physics"
 
 // Quiz metadata
 export const quizzes: QuizInfo[] = [
@@ -95,6 +96,21 @@ export const quizzes: QuizInfo[] = [
 		subject: "entrance",
 		categoryFolder: "applicant",
 	},
+
+	// Academic Lyceum Quizzes
+	{
+		id: "lyceum-physics",
+		titleKey: "quiz.lyceum_physics.title",
+		descriptionKey: "quiz.lyceum_physics.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 3,
+		available: true,
+		icon: "⚛️",
+		color: "from-indigo-400 to-purple-500",
+		subject: "physics",
+		categoryFolder: "lyceum",
+	},
 ]
 
 // Quiz questions data - organized by quiz ID
@@ -105,4 +121,5 @@ export const quizData = {
 	"student-english": studentEnglishQuestions,
 	"professor-management": professorManagementQuestions,
 	"applicant-entrance": applicantEntranceQuestions,
+	"lyceum-physics": lyceumPhysicsQuestions,
 }

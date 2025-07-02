@@ -21,7 +21,7 @@ export interface QuizState {
 	error: string | null
 }
 
-export type UserCategory = "professor" | "employee" | "student" | "medical" | "applicant"
+export type UserCategory = "professor" | "employee" | "student" | "medical" | "applicant" | "academic_lyceum"
 export type Locale = "en" | "ru" | "uz"
 
 export interface QuizInfo {
