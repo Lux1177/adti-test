@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center justify-center min-h-screen relative overflow-hidden">
+	<div class="flex items-center justify-center min-h-[calc(100vh-5rem)] flex items-center justify-center relative overflow-hidden">
 		<!-- Animated Background Elements -->
 		<div class="absolute inset-0 overflow-hidden pointer-events-none">
 			<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float"></div>
@@ -8,24 +8,24 @@
 		</div>
 
 		<div class="w-full max-w-6xl animate-fade-in-scale gpu-accelerated relative z-10">
-			<div class="glass-ultra p-8 md:p-12 text-center shadow-2xl rounded-3xl card-ultra-hover">
+			<div class="glass-ultra p-6 md:p-8 text-center shadow-2xl rounded-3xl card-ultra-hover">
 				<!-- Enhanced Title -->
-				<h1 class="text-4xl md:text-6xl font-light mb-12 text-white animate-fade-in-up bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
+				<h1 class="text-4xl md:text-6xl font-light mb-8 text-white animate-fade-in-up bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
 					{{ t('category.test_collections') }}
 				</h1>
 
 				<!-- Category Options Grid -->
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
 					<!-- Professor/Teacher -->
 					<button
 						@click="selectCategory('professor')"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
 						style="animation-delay: 0.1s"
 					>
-						<div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
 							👨‍🏫
 						</div>
-						<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
+						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t('category.professor') }}
 						</h3>
 					</button>
@@ -33,13 +33,13 @@
 					<!-- Employee -->
 					<button
 						@click="selectCategory('employee')"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
 						style="animation-delay: 0.2s"
 					>
-						<div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
 							👩‍💼
 						</div>
-						<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
+						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t('category.employee') }}
 						</h3>
 					</button>
@@ -47,13 +47,13 @@
 					<!-- Student -->
 					<button
 						@click="selectCategory('student')"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
 						style="animation-delay: 0.3s"
 					>
-						<div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
 							👨‍🎓
 						</div>
-						<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
+						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t('category.student') }}
 						</h3>
 					</button>
@@ -61,13 +61,13 @@
 					<!-- Medical Worker -->
 					<button
 						@click="selectCategory('medical')"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
 						style="animation-delay: 0.4s"
 					>
-						<div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
 							👨‍⚕️
 						</div>
-						<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
+						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t('category.medical') }}
 						</h3>
 					</button>
@@ -75,13 +75,13 @@
 					<!-- Applicant -->
 					<button
 						@click="selectCategory('applicant')"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 group"
 						style="animation-delay: 0.5s"
 					>
-						<div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
+						<div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-300">
 							🎓
 						</div>
-						<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
+						<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors duration-300">
 							{{ t('category.applicant') }}
 						</h3>
 					</button>

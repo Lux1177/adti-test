@@ -1,8 +1,8 @@
 <template>
 	<div class="max-w-4xl mx-auto animate-fade-in-scale gpu-accelerated">
-		<div class="glass-ultra p-6 md:p-8 shadow-2xl rounded-3xl card-ultra-hover">
+		<div class="glass-ultra p-4 md:p-6 shadow-2xl rounded-3xl card-ultra-hover">
 			<!-- Enhanced Progress Section -->
-			<div class="mb-8 animate-fade-in-up">
+			<div class="mb-6 animate-fade-in-up">
 				<div class="flex justify-between items-center mb-6">
 					<div class="text-white/90 font-medium text-lg transition-all duration-300">
 						{{ t('quiz.question') }} {{ currentQuestionIndex + 1 }}, {{ t('quiz.total') }} {{ totalQuestions }}
@@ -22,29 +22,29 @@
 			</div>
 
 			<!-- Enhanced Question -->
-			<div class="mb-10 animate-fade-in-up animate-stagger-2">
-				<div class="glass-light-ultra rounded-3xl p-8 border border-white/10 card-ultra-hover">
+			<div class="mb-6 animate-fade-in-up animate-stagger-2">
+				<div class="glass-light-ultra rounded-3xl p-6 border border-white/10 card-ultra-hover">
 					<h2 class="text-2xl md:text-4xl font-light text-white leading-relaxed transition-all duration-300" v-html="formattedQuestion"></h2>
 				</div>
 			</div>
 
 			<!-- Enhanced Options with Ultra Smooth Animations -->
-			<div class="space-y-5 mb-10">
+			<div class="space-y-3 mb-6">
 				<button
 					v-for="(option, index) in question.options"
 					:key="index"
 					@click="selectOption(option)"
 					:disabled="selectedAnswer !== null"
-					class="w-full text-left p-6 md:p-8 rounded-3xl border transition-all duration-500 disabled:cursor-not-allowed card-ultra-hover animate-fade-in-up micro-bounce gpu-accelerated"
+					class="w-full text-left p-4 md:p-5 rounded-3xl border transition-all duration-500 disabled:cursor-not-allowed card-ultra-hover animate-fade-in-up micro-bounce gpu-accelerated"
 					:class="getOptionClasses(option)"
 					:style="{ animationDelay: `${0.1 + index * 0.1}s` }"
 				>
 					<div class="flex items-center">
-						<div class="flex-shrink-0 w-12 h-12 rounded-full border-2 mr-6 flex items-center justify-center font-semibold text-lg transition-all duration-500"
+						<div class="flex-shrink-0 w-10 h-10 rounded-full border-2 mr-6 flex items-center justify-center font-semibold text-lg transition-all duration-500"
 						     :class="getOptionIconClasses(option)">
 							{{ String.fromCharCode(65 + index) }}
 						</div>
-						<span class="text-lg md:text-xl font-medium transition-all duration-300" v-html="option.replace(/\n/g, '<br>')"></span>
+						<span class="text-base md:text-lg font-medium transition-all duration-300" v-html="option.replace(/\n/g, '<br>')"></span>
 					</div>
 				</button>
 			</div>
@@ -54,7 +54,7 @@
 				<button
 					@click="$emit('next')"
 					:disabled="selectedAnswer === null"
-					class="btn-ultra-smooth px-10 py-5 text-white font-semibold text-xl rounded-3xl transition-all duration-300 flex items-center group micro-bounce"
+					class="btn-ultra-smooth px-8 py-4 text-white font-semibold text-lg rounded-3xl transition-all duration-300 flex items-center group micro-bounce"
 					:class="selectedAnswer === null ? 'opacity-50 cursor-not-allowed' : 'hover:brightness-110'"
 				>
 					<span class="mr-3">{{ isLastQuestion ? t('quiz.finish') : t('quiz.next') }}</span>

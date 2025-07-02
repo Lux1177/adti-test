@@ -34,6 +34,8 @@ export interface QuizInfo {
 	available: boolean
 	icon: string
 	color: string
+	subject: string
+	categoryFolder: string
 }
 
 export interface QuizData {

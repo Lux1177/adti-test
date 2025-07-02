@@ -40,6 +40,7 @@ const saveState = () => {
 			userAnswers: state.userAnswers,
 			currentQuizId: state.currentQuizId,
 			timestamp: Date.now(),
+			isTestComplete: isTestComplete.value,
 		}
 		localStorage.setItem(STORAGE_KEYS.QUIZ_STATE, JSON.stringify(stateToSave))
 	}
@@ -228,6 +229,11 @@ const resetTest = () => {
 	state.currentQuizId = null
 }
 
+const finishTest = () => {
+	// Mark test as completed and save final state
+	saveState()
+}
+
 // Export the composable
 export const useQuizStore = () => {
 	return {
@@ -251,5 +257,6 @@ export const useQuizStore = () => {
 		loadState,
 		saveState,
 		clearState,
+		finishTest,
 	}
 }

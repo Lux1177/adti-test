@@ -2,114 +2,54 @@
 	<div>
 		<!-- Language Selection -->
 		<LanguageSelector
-			v-if="currentStep === 'language'"
+			v-if="!languageSelected"
 			@continue="handleLanguageSelected"
 		/>
 
-		<!-- Category Selection -->
-		<CategorySelector
-			v-else-if="currentStep === 'category'"
-			@select="handleCategorySelected"
-			@back="currentStep = 'language'"
-		/>
-
-		<!-- Quiz Selection -->
-		<div v-else-if="currentStep === 'quiz'">
-			<!-- Loading State -->
-			<div v-if="isLoading" class="flex justify-center items-center min-h-screen">
-				<div class="text-center space-y-4">
-					<div class="animate-spin-smooth rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto"></div>
-					<p class="text-lg text-gray-600">{{ t('loading.questions') }}</p>
+		<!-- Main Welcome Screen -->
+		<div v-else class="flex items-center justify-center min-h-[calc(100vh-5rem)]">
+			<div class="w-full max-w-2xl animate-fade-in-scale gpu-accelerated relative z-10">
+				<div class="glass-ultra p-8 md:p-12 text-center shadow-2xl rounded-3xl card-ultra-hover">
+					<div class="mb-8 animate-stagger-1">
+						<div class="w-24 h-24 mx-auto glass-light-ultra rounded-full flex items-center justify-center animate-float micro-glow">
+							<Icon name="heroicons:academic-cap" class="w-12 h-12 text-white icon-ultra-smooth" />
+						</div>
+					</div>
+					<h1 class="text-4xl md:text-6xl font-light mb-6 text-white animate-fade-in-up animate-stagger-2 bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
+						{{ t('main.welcome_title') }}
+					</h1>
+					<p class="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed animate-fade-in-up animate-stagger-3 max-w-lg mx-auto">
+						{{ t('main.welcome_subtitle') }}
+					</p>
+					<NuxtLink to="/test">
+						<button class="btn-ultra-smooth px-12 py-5 text-white font-semibold text-xl rounded-2xl animate-fade-in-up animate-stagger-5 micro-bounce group">
+              <span class="flex items-center justify-center">
+                <Icon name="heroicons:play" class="w-6 h-6 mr-3 transition-transform group-hover:scale-110" />
+                {{ t('main.start_button') }}
+              </span>
+						</button>
+					</NuxtLink>
 				</div>
 			</div>
-
-			<!-- Error State -->
-			<UAlert
-				v-else-if="error"
-				color="red"
-				variant="solid"
-				:title="t('error.title')"
-				:description="error"
-				class="max-w-2xl mx-auto mb-8"
-			/>
-
-			<!-- Quiz Selection -->
-			<QuizSelector
-				v-else
-				:has-active-quiz="quizStore.hasActiveQuiz.value"
-				:current-quiz-id="quizStore.state.currentQuizId"
-				:selected-category="selectedCategory!"
-				:loading="isLoading"
-				@start="startQuiz"
-				@back-to-categories="currentStep = 'category'"
-				@change-language="currentStep = 'language'"
-			/>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useQuizStore } from '~/composables/useQuizStore'
+import { ref, onMounted } from 'vue'
 import { useI18n } from '~/composables/useI18n'
-import type { UserCategory } from '~/types/quiz'
 
-const { t, loadLocale, locale } = useI18n()
-const quizStore = useQuizStore()
-const router = useRouter()
-
-type Step = 'language' | 'category' | 'quiz'
-
-const currentStep = ref<Step>('language')
-const selectedCategory = ref<UserCategory | null>(null)
-const isLoading = ref(false)
-const error = ref<string | null>(null)
+const { t, loadLocale } = useI18n()
+const languageSelected = ref(false)
 
 const handleLanguageSelected = () => {
-	currentStep.value = 'category'
+	languageSelected.value = true
 }
 
-const handleCategorySelected = (category: UserCategory) => {
-	selectedCategory.value = category
-	currentStep.value = 'quiz'
-}
-
-const startQuiz = async (quizId: string) => {
-	isLoading.value = true
-	error.value = null
-
-	try {
-		// Load questions for the selected quiz and current language
-		await quizStore.loadQuestions(quizId, locale.value)
-
-		// Start the test
-		const success = quizStore.startTest(quizId)
-		if (success) {
-			router.push('/test')
-		} else {
-			error.value = "Failed to start quiz"
-		}
-	} catch (err) {
-		error.value = err instanceof Error ? err.message : "Failed to load quiz"
-	} finally {
-		isLoading.value = false
+onMounted(() => {
+	if (localStorage.getItem('quiz-locale')) {
+		languageSelected.value = true
 	}
-}
-
-// Load saved locale and determine initial step
-const initializeApp = () => {
-	// Check if language was already selected
-	if (locale.value !== 'en' || localStorage.getItem('quiz-locale')) {
-		currentStep.value = 'category'
-	}
-
-	// Load any existing quiz state
-	quizStore.loadState()
-
 	loadLocale()
-}
-
-// Initialize on mount
-initializeApp()
+})
 </script>

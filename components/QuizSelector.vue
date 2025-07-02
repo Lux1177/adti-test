@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center justify-center min-h-screen relative overflow-hidden">
+	<div class="flex items-center justify-center min-h-[calc(100vh-5rem)] flex items-center justify-center relative overflow-hidden">
 		<!-- Animated Background Elements -->
 		<div class="absolute inset-0 overflow-hidden pointer-events-none">
 			<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float"></div>
@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="w-full max-w-6xl animate-fade-in-scale gpu-accelerated relative z-10">
-			<div class="glass-ultra p-8 md:p-12 text-center shadow-2xl rounded-3xl card-ultra-hover">
+			<div class="glass-ultra p-6 md:p-8 text-center shadow-2xl rounded-3xl card-ultra-hover">
 				<!-- Category Badge -->
 				<div class="mb-8 animate-stagger-1">
 					<div class="inline-flex items-center px-6 py-3 glass-light-ultra rounded-full">
@@ -20,28 +20,28 @@
 				</div>
 
 				<!-- Enhanced Title -->
-				<h1 class="text-4xl md:text-6xl font-light mb-6 text-white animate-fade-in-up animate-stagger-2 bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
+				<h1 class="text-4xl md:text-6xl font-light mb-4 text-white animate-fade-in-up animate-stagger-2 bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
 					{{ t('quiz.select') }}
 				</h1>
 
 				<!-- Available Quizzes -->
-				<div v-if="availableQuizzes.length > 0" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+				<div v-if="availableQuizzes.length > 0" class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 					<div
 						v-for="(quiz, index) in availableQuizzes"
 						:key="quiz.id"
-						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110"
+						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110"
 						:style="{ animationDelay: `${0.1 + index * 0.1}s` }"
 					>
 						<div class="text-left">
-							<div class="flex items-center mb-6">
+							<div class="flex items-center mb-4">
 								<div
-									class="w-16 h-16 rounded-full bg-gradient-to-br flex items-center justify-center text-2xl mr-4"
+									class="w-14 h-14 rounded-full bg-gradient-to-br flex items-center justify-center text-2xl mr-4"
 									:class="quiz.color"
 								>
 									{{ quiz.icon }}
 								</div>
 								<div class="flex-1">
-									<h3 class="text-xl md:text-2xl font-semibold text-white mb-2">
+									<h3 class="text-lg md:text-xl font-semibold text-white mb-2">
 										{{ t(quiz.titleKey) }}
 									</h3>
 									<div class="flex items-center space-x-4 text-sm text-white/60">
@@ -57,12 +57,12 @@
 								</div>
 							</div>
 
-							<p class="text-white/80 text-base leading-relaxed mb-6">
+							<p class="text-white/80 text-base leading-relaxed mb-4">
 								{{ t(quiz.descriptionKey) }}
 							</p>
 
 							<!-- Features -->
-							<div class="grid grid-cols-3 gap-3 mb-6">
+							<div class="grid grid-cols-3 gap-3 mb-4">
 								<div class="glass-light-ultra rounded-xl p-3 micro-lift text-center">
 									<Icon name="heroicons:clock" class="w-6 h-6 text-white/80 mx-auto mb-1" />
 									<p class="text-white/70 text-xs font-medium">{{ t('feature.unlimited') }}</p>
@@ -93,7 +93,7 @@
 										{{ t('alert.incomplete_test') }}
 									</p>
 									<div class="flex flex-col sm:flex-row gap-3 justify-center">
-										<NuxtLink to="/test">
+										<NuxtLink :to="`/test/${quiz.id}`">
 											<button class="btn-ultra-smooth px-6 py-3 text-green-300 font-semibold rounded-xl flex items-center micro-bounce text-sm">
 												<Icon name="heroicons:play" class="w-4 h-4 mr-2" />
 												{{ t('alert.continue_test') }}
@@ -115,7 +115,7 @@
 								v-if="!hasActiveQuiz || currentQuizId !== quiz.id"
 								@click="startQuiz(quiz.id)"
 								:disabled="loading"
-								class="btn-ultra-smooth px-8 py-4 text-white font-semibold text-lg rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed micro-bounce group w-full"
+								class="btn-ultra-smooth px-6 py-3 text-white font-semibold text-base rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed micro-bounce group w-full"
 							>
                 <span v-if="!loading" class="flex items-center justify-center">
                   <Icon name="heroicons:play" class="w-5 h-5 mr-3 transition-transform group-hover:translate-x-1" />

@@ -9,6 +9,23 @@ interface Translations {
 }
 
 const translations: Translations = {
+	// Main Page
+	"main.welcome_title": {
+		en: "Welcome to Medical Quiz",
+		ru: "Добро пожаловать в Медицинский Тест",
+		uz: "Tibiiy Testga Xush Kelibsiz",
+	},
+	"main.welcome_subtitle": {
+		en: "Choose a category and test your knowledge.",
+		ru: "Выберите категорию и проверьте свои знания.",
+		uz: "Kategoriyani tanlang va bilimingizni sinab ko'ring.",
+	},
+	"main.start_button": {
+		en: "Choose a Test",
+		ru: "Выбрать тест",
+		uz: "Testni tanlash",
+	},
+
 	// Language Selection
 	"language.select": {
 		en: "Select Language",
@@ -75,9 +92,9 @@ const translations: Translations = {
 		uz: "Натижалар",
 	},
 	"nav.title": {
-		en: "Medical Quiz",
-		ru: "Медицинский Тест",
-		uz: "Тиббий Тест",
+		en: "ASMI",
+		ru: "АГМИ",
+		uz: "ADTI",
 	},
 
 	// Quiz Selection
@@ -157,6 +174,56 @@ const translations: Translations = {
 		en: "Comprehensive test covering basic medical sciences for entrance preparation.",
 		ru: "Комплексный тест по основным медицинским наукам для подготовки к поступлению.",
 		uz: "Кириш тайёргарлиги учун асосий тиббий фанлар бўйича комплекс тест.",
+	},
+	"quiz.medical_english.title": {
+		en: "Medical English",
+		ru: "Медицинский английский",
+		uz: "Tibbiy ingliz tili",
+	},
+	"quiz.medical_english.description": {
+		en: "English language skills for medical professionals.",
+		ru: "Навыки английского языка для медицинских работников.",
+		uz: "Tibbiy xodimlar uchun ingliz tili ko'nikmalari.",
+	},
+	"quiz.medical_anatomy.title": {
+		en: "Medical Anatomy",
+		ru: "Медицинская анатомия",
+		uz: "Tibbiy anatomiya",
+	},
+	"quiz.medical_anatomy.description": {
+		en: "Human anatomy knowledge for medical studies.",
+		ru: "Знания анатомии человека для медицинских исследований.",
+		uz: "Tibbiy tadqiqotlar uchun inson anatomiyasi bilimi.",
+	},
+	"quiz.student_english.title": {
+		en: "Student English",
+		ru: "Английский для студентов",
+		uz: "Talabalar uchun ingliz tili",
+	},
+	"quiz.student_english.description": {
+		en: "Basic English grammar for students.",
+		ru: "Основы английской грамматики для студентов.",
+		uz: "Talabalar uchun ingliz tili grammatikasi asoslari.",
+	},
+	"quiz.professor_management.title": {
+		en: "Healthcare Management",
+		ru: "Управление здравоохранением",
+		uz: "Sog'liqni saqlashni boshqarish",
+	},
+	"quiz.professor_management.description": {
+		en: "Management principles for healthcare professionals.",
+		ru: "Принципы управления для медицинских работников.",
+		uz: "Tibbiy xodimlar uchun boshqaruv tamoyillari.",
+	},
+	"quiz.applicant_entrance.title": {
+		en: "Medical Entrance Exam",
+		ru: "Вступительный медицинский экзамен",
+		uz: "Tibbiyot kirish imtihoni",
+	},
+	"quiz.applicant_entrance.description": {
+		en: "Preparation for medical school entrance exams.",
+		ru: "Подготовка к вступительным экзаменам в медицинский вуз.",
+		uz: "Tibbiyot institutiga kirish imtihonlariga tayyorgarlik.",
 	},
 
 	// Quiz Features
