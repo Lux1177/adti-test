@@ -19,7 +19,7 @@
 			/>
 			<QuizSelector
 				:has-active-quiz="quizStore.hasActiveQuiz.value"
-				:current-quiz-id="quizStore.state.currentQuizId"
+				:current-quiz-id="quizStore.state.activeQuiz.currentQuizId"
 				:selected-category="selectedCategory!"
 				:loading="isLoading"
 				@start="startQuiz"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter, navigateTo } from '#app'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
@@ -58,33 +58,20 @@ const startQuiz = async (quizId: string) => {
 	error.value = null
 
 	try {
-		// If there's an active quiz, reset it before starting a new one
-		if (quizStore.hasActiveQuiz.value) {
-			quizStore.resetTest()
+		// The startTest function now handles loading questions and clearing old state.
+		const success = await quizStore.startTest(quizId, locale.value)
+
+		if (success) {
+			router.push(`/test/${quizId}`)
+		} else {
+			// If startTest returns false, the error is already set in the store.
+			throw new Error(quizStore.state.error || "Failed to start quiz.")
 		}
-
-		await quizStore.loadQuestions(quizId, locale.value)
-
-		if (quizStore.state.error) {
-			throw new Error(quizStore.state.error)
-		}
-
-		const success = quizStore.startTest(quizId)
-		if (!success) {
-			throw new Error(quizStore.state.error || `Failed to start quiz.`)
-		}
-
-		router.push(`/test/${quizId}`)
-
 	} catch (err) {
 		console.error("Error starting quiz:", err)
-		error.value = err instanceof Error ? err.message : "An unknown error occurred while starting the quiz."
+		error.value = err instanceof Error ? err.message : "An unknown error occurred."
 	} finally {
 		isLoading.value = false
 	}
 }
-
-onMounted(() => {
-	quizStore.loadState()
-})
 </script>

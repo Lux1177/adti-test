@@ -1,262 +1,237 @@
 import { reactive, computed, readonly } from "vue"
-import type { Question, UserAnswer, Locale } from "~/types/quiz"
-
-interface QuizState {
-	allQuestions: Question[]
-	currentQuestions: Question[]
-	currentQuestionIndex: number
-	score: number
-	userAnswers: UserAnswer[]
-	isLoading: boolean
-	error: string | null
-	currentQuizId: string | null
-}
+import type { Question, Locale, QuizState, QuizResult } from "~/types/quiz"
+import { quizzes } from "~/data/quizzes"
 
 // Create reactive state
 const state = reactive<QuizState>({
-	allQuestions: [],
-	currentQuestions: [],
-	currentQuestionIndex: 0,
-	score: 0,
-	userAnswers: [],
+	activeQuiz: {
+		currentQuestions: [],
+		currentQuestionIndex: 0,
+		score: 0,
+		userAnswers: [],
+		currentQuizId: null,
+	},
+	resultsHistory: [],
 	isLoading: false,
 	error: null,
-	currentQuizId: null,
 })
 
 // localStorage keys
 const STORAGE_KEYS = {
-	QUIZ_STATE: "quiz-state",
+	ACTIVE_QUIZ_STATE: "quiz-active-state",
+	RESULTS_HISTORY: "quiz-results-history",
 	QUIZ_CACHE: "quiz-cache",
 }
 
-// Save state to localStorage
-const saveState = () => {
+// --- State Management ---
+
+const saveActiveState = () => {
 	if (typeof window !== "undefined") {
-		const stateToSave = {
-			currentQuestions: state.currentQuestions,
-			currentQuestionIndex: state.currentQuestionIndex,
-			score: state.score,
-			userAnswers: state.userAnswers,
-			currentQuizId: state.currentQuizId,
-			timestamp: Date.now(),
-			isTestComplete: isTestComplete.value,
-		}
-		localStorage.setItem(STORAGE_KEYS.QUIZ_STATE, JSON.stringify(stateToSave))
+		localStorage.setItem(STORAGE_KEYS.ACTIVE_QUIZ_STATE, JSON.stringify(state.activeQuiz))
 	}
 }
 
-// Load state from localStorage
-const loadState = (): boolean => {
+const loadActiveState = (): boolean => {
 	if (typeof window !== "undefined") {
-		const savedState = localStorage.getItem(STORAGE_KEYS.QUIZ_STATE)
+		const savedState = localStorage.getItem(STORAGE_KEYS.ACTIVE_QUIZ_STATE)
 		if (savedState) {
 			try {
 				const parsed = JSON.parse(savedState)
-				if (parsed.currentQuestions && parsed.currentQuestions.length > 0) {
-					state.currentQuestions = parsed.currentQuestions
-					state.currentQuestionIndex = parsed.currentQuestionIndex || 0
-					state.score = parsed.score || 0
-					state.userAnswers = parsed.userAnswers || []
-					state.currentQuizId = parsed.currentQuizId || null
+				if (parsed.currentQuizId) {
+					state.activeQuiz = parsed
 					return true
 				}
-			} catch (error) {
-				console.error("Error loading quiz state:", error)
-				clearState()
+			} catch (e) {
+				console.error("Error loading active quiz state:", e)
 			}
 		}
 	}
 	return false
 }
 
-// Clear saved state
-const clearState = () => {
+const clearActiveState = () => {
+	state.activeQuiz = {
+		currentQuestions: [],
+		currentQuestionIndex: 0,
+		score: 0,
+		userAnswers: [],
+		currentQuizId: null,
+	}
 	if (typeof window !== "undefined") {
-		localStorage.removeItem(STORAGE_KEYS.QUIZ_STATE)
+		localStorage.removeItem(STORAGE_KEYS.ACTIVE_QUIZ_STATE)
 	}
 }
 
-// Save quiz data to cache
+const saveResultsHistory = () => {
+	if (typeof window !== "undefined") {
+		localStorage.setItem(STORAGE_KEYS.RESULTS_HISTORY, JSON.stringify(state.resultsHistory))
+	}
+}
+
+const loadResultsHistory = () => {
+	if (typeof window !== "undefined") {
+		const savedHistory = localStorage.getItem(STORAGE_KEYS.RESULTS_HISTORY)
+		if (savedHistory) {
+			try {
+				state.resultsHistory = JSON.parse(savedHistory)
+			} catch (e) {
+				console.error("Error loading results history:", e)
+			}
+		}
+	}
+}
+
+// --- Cache Management ---
+
 const saveQuizCache = (quizId: string, locale: Locale, questions: Question[]) => {
 	if (typeof window !== "undefined") {
 		const cache = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_CACHE) || "{}")
-		cache[`${quizId}-${locale}`] = {
-			questions,
-			timestamp: Date.now(),
-		}
+		cache[`${quizId}-${locale}`] = { questions, timestamp: Date.now() }
 		localStorage.setItem(STORAGE_KEYS.QUIZ_CACHE, JSON.stringify(cache))
 	}
 }
 
-// Load quiz data from cache
 const loadQuizCache = (quizId: string, locale: Locale): Question[] | null => {
 	if (typeof window !== "undefined") {
 		const cache = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_CACHE) || "{}")
 		const cached = cache[`${quizId}-${locale}`]
 		if (cached && Date.now() - cached.timestamp < 3600000) {
-			// 1 hour cache
 			return cached.questions
 		}
 	}
 	return null
 }
 
-// Shuffle array in place
-const shuffleArray = (array: any[]): void => {
-	for (let i = array.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1))
-		;[array[i], array[j]] = [array[j], array[i]]
-	}
-}
+// --- Computed Properties ---
 
-// Computed properties
-const getCurrentQuestion = computed(() => {
-	return state.currentQuestions[state.currentQuestionIndex]
-})
+const getCurrentQuestion = computed(() => state.activeQuiz.currentQuestions[state.activeQuiz.currentQuestionIndex])
+const getProgress = computed(() =>
+		state.activeQuiz.currentQuestions.length > 0
+				? (state.activeQuiz.currentQuestionIndex / state.activeQuiz.currentQuestions.length) * 100
+				: 0,
+)
+const isLastQuestion = computed(
+		() => state.activeQuiz.currentQuestionIndex === state.activeQuiz.currentQuestions.length - 1,
+)
+const isTestComplete = computed(
+		() =>
+				state.activeQuiz.currentQuestions.length > 0 &&
+				state.activeQuiz.currentQuestionIndex >= state.activeQuiz.currentQuestions.length,
+)
+const hasActiveQuiz = computed(() => state.activeQuiz.currentQuestions.length > 0 && !isTestComplete.value)
 
-const getProgress = computed(() => {
-	return state.currentQuestions.length > 0 ? (state.currentQuestionIndex / state.currentQuestions.length) * 100 : 0
-})
+// --- Actions ---
 
-const getPercentage = computed(() => {
-	return state.currentQuestions.length > 0 ? (state.score / state.currentQuestions.length) * 100 : 0
-})
-
-const isLastQuestion = computed(() => {
-	return state.currentQuestionIndex === state.currentQuestions.length - 1
-})
-
-const isTestComplete = computed(() => {
-	return state.currentQuestionIndex >= state.currentQuestions.length
-})
-
-const hasActiveQuiz = computed(() => {
-	return state.currentQuestions.length > 0 && state.currentQuestionIndex < state.currentQuestions.length
-})
-
-// Actions
 const loadQuestions = async (quizId: string, locale: Locale) => {
 	state.isLoading = true
 	state.error = null
-
 	try {
-		// Try to load from cache first
 		const cachedQuestions = loadQuizCache(quizId, locale)
-		if (cachedQuestions && cachedQuestions.length > 0) {
-			state.allQuestions = cachedQuestions
-			state.isLoading = false
-			return
+		if (cachedQuestions) {
+			return cachedQuestions
 		}
-
-		// Fetch from API if no cache
 		const response = await $fetch(`/api/questions/${quizId}`)
+		if (!response || !response.data) throw new Error(`No data for quiz ${quizId}`)
 		const questions = response.data[locale] || []
-
-		if (questions.length === 0) {
-			throw new Error("No questions found for this quiz and language")
-		}
-
-		state.allQuestions = questions
-		saveQuizCache(quizId, locale, questions) // Cache the questions
+		if (questions.length === 0) throw new Error(`No questions for quiz '${quizId}' in '${locale}'`)
+		saveQuizCache(quizId, locale, questions)
+		return questions
 	} catch (error) {
-		state.error = error instanceof Error ? error.message : "Failed to load questions"
 		console.error("Error loading questions:", error)
+		state.error = error instanceof Error ? error.message : "Failed to load questions"
+		return []
 	} finally {
 		state.isLoading = false
 	}
 }
 
-const startTest = (quizId: string): boolean => {
-	if (state.allQuestions.length === 0) {
-		state.error = "No questions loaded. Please load questions first."
+const startTest = async (quizId: string, locale: Locale) => {
+	const allQuestions = await loadQuestions(quizId, locale)
+	if (state.error || allQuestions.length === 0) {
 		return false
 	}
 
-	state.score = 0
-	state.currentQuestionIndex = 0
-	state.userAnswers = []
-	state.currentQuizId = quizId
+	clearActiveState()
+	state.activeQuiz.currentQuizId = quizId
 
-	// Create a copy and shuffle
-	const shuffledQuestions = [...state.allQuestions]
-	shuffleArray(shuffledQuestions)
+	const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
+	state.activeQuiz.currentQuestions = shuffled.map((q) => ({
+		...q,
+		options: [...q.options].sort(() => Math.random() - 0.5),
+	}))
 
-	// Take all questions or limit based on quiz configuration
-	state.currentQuestions = shuffledQuestions
-
-	if (state.currentQuestions.length === 0) {
-		state.error = "No questions available to start the test"
-		return false
-	}
-
-	// Shuffle options for each question
-	state.currentQuestions.forEach((q) => shuffleArray(q.options))
-
-	saveState()
+	saveActiveState()
 	return true
 }
 
 const selectAnswer = (userAnswerText: string) => {
+	if (!hasActiveQuiz.value) return
 	const currentQuestion = getCurrentQuestion.value
 	const isCorrect = userAnswerText === currentQuestion.correctAnswer
-
 	if (isCorrect) {
-		state.score++
+		state.activeQuiz.score++
 	}
-
-	state.userAnswers.push({
+	state.activeQuiz.userAnswers.push({
 		question: currentQuestion.questionText,
 		selected: userAnswerText,
 		correct: currentQuestion.correctAnswer,
-		isCorrect: isCorrect,
+		isCorrect,
 	})
-
-	saveState()
+	saveActiveState()
 }
 
 const nextQuestion = () => {
-	state.currentQuestionIndex++
-	saveState()
-}
-
-const resetTest = () => {
-	clearState()
-	state.currentQuestions = []
-	state.currentQuestionIndex = 0
-	state.score = 0
-	state.userAnswers = []
-	state.currentQuizId = null
+	if (hasActiveQuiz.value) {
+		state.activeQuiz.currentQuestionIndex++
+		saveActiveState()
+	}
 }
 
 const finishTest = () => {
-	// Mark test as completed and save final state
-	saveState()
+	const quizInfo = quizzes.find((q) => q.id === state.activeQuiz.currentQuizId)
+	if (!quizInfo) return
+
+	const result: QuizResult = {
+		id: `${state.activeQuiz.currentQuizId}-${Date.now()}`,
+		quizId: state.activeQuiz.currentQuizId!,
+		quizTitleKey: quizInfo.titleKey,
+		score: state.activeQuiz.score,
+		totalQuestions: state.activeQuiz.currentQuestions.length,
+		percentage: (state.activeQuiz.score / state.activeQuiz.currentQuestions.length) * 100,
+		userAnswers: state.activeQuiz.userAnswers,
+		completedAt: Date.now(),
+	}
+
+	state.resultsHistory.unshift(result) // Add to the beginning of the array
+	saveResultsHistory()
+	clearActiveState()
+}
+
+const getResultById = (resultId: string) => {
+	return state.resultsHistory.find((r) => r.id === resultId)
 }
 
 // Export the composable
 export const useQuizStore = () => {
-	return {
-		// Readonly state
-		state: readonly(state),
+	// Load initial state from localStorage
+	if (typeof window !== "undefined") {
+		loadActiveState()
+		loadResultsHistory()
+	}
 
-		// Computed properties
+	return {
+		state: readonly(state),
 		getCurrentQuestion,
 		getProgress,
-		getPercentage,
 		isLastQuestion,
 		isTestComplete,
 		hasActiveQuiz,
-
-		// Actions
 		loadQuestions,
 		startTest,
 		selectAnswer,
 		nextQuestion,
-		resetTest,
-		loadState,
-		saveState,
-		clearState,
 		finishTest,
+		getResultById,
+		clearActiveState,
 	}
 }

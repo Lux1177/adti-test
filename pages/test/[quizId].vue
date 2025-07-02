@@ -39,8 +39,8 @@
 		<QuizQuestion
 			v-else
 			:question="quizStore.getCurrentQuestion.value"
-			:current-question-index="quizStore.state.currentQuestionIndex"
-			:total-questions="quizStore.state.currentQuestions.length"
+			:current-question-index="quizStore.state.activeQuiz.currentQuestionIndex"
+			:total-questions="quizStore.state.activeQuiz.currentQuestions.length"
 			:progress="quizStore.getProgress.value"
 			:is-last-question="quizStore.isLastQuestion.value"
 			@answer="handleAnswer"
@@ -64,26 +64,24 @@ const isLoading = ref(true)
 const quizId = route.params.quizId as string
 
 onMounted(() => {
-	const hasState = quizStore.loadState()
-
-	if (!hasState || quizStore.state.currentQuizId !== quizId) {
-		quizStore.resetTest()
-		router.push('/test')
-	} else {
-		isLoading.value = false
+	isLoading.value = false;
+	if (quizStore.state.activeQuiz.currentQuizId !== quizId) {
+		// If the active quiz from the store doesn't match the URL,
+		// the user shouldn't be here. Redirect them.
+		router.push('/test');
 	}
-})
+});
 
 const handleAnswer = (answer: string) => {
 	quizStore.selectAnswer(answer)
 }
 
 const handleNext = () => {
-	quizStore.nextQuestion()
-
-	if (quizStore.isTestComplete.value) {
+	if (quizStore.isLastQuestion.value) {
 		quizStore.finishTest()
 		router.push('/results')
+	} else {
+		quizStore.nextQuestion()
 	}
 }
 </script>

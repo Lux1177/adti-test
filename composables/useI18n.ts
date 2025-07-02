@@ -92,9 +92,9 @@ const translations: Translations = {
 		uz: "Натижалар",
 	},
 	"nav.title": {
-		en: "ASMI",
-		ru: "АГМИ",
-		uz: "АДТИ",
+		en: "Medical Quiz",
+		ru: "Медицинский Тест",
+		uz: "Тиббий Тест",
 	},
 
 	// Quiz Selection
@@ -213,7 +213,7 @@ const translations: Translations = {
 	"quiz.student_english.description": {
 		en: "Basic English grammar for students.",
 		ru: "Основы английской грамматики для студентов.",
-		uz: "Talabalar uchun ingliz tili grammatikasi asoslari.",
+		uz: "Talabalar учун ingliz tili grammatikasi asoslari.",
 	},
 	"quiz.professor_management.title": {
 		en: "Healthcare Management",
@@ -286,6 +286,11 @@ const translations: Translations = {
 		ru: "Результаты теста",
 		uz: "Тест натижалари",
 	},
+	"results.history": {
+		en: "Results History",
+		ru: "История результатов",
+		uz: "Натижалар тарихи",
+	},
 	"results.score": {
 		en: "You answered {score} out of {total} questions correctly",
 		ru: "Вы правильно ответили на {score} из {total} вопросов",
@@ -315,6 +320,11 @@ const translations: Translations = {
 		en: "Back to Home",
 		ru: "Вернуться на главную",
 		uz: "Бош саҳифага қайтиш",
+	},
+	"results.all_results": {
+		en: "All Results",
+		ru: "Все результаты",
+		uz: "Барча натижалар",
 	},
 
 	// Score Messages
@@ -379,6 +389,11 @@ const translations: Translations = {
 		en: "No results found",
 		ru: "Результаты не найдены",
 		uz: "Натижалар топилмади",
+	},
+	"alert.result_not_found": {
+		en: "The requested result could not be found.",
+		ru: "Запрошенный результат не найден.",
+		uz: "So'ralgan natija topilmadi.",
 	},
 	"alert.complete_test_first": {
 		en: "You need to complete a test first to see results.",
