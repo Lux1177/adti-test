@@ -92,9 +92,9 @@ const translations: Translations = {
 		uz: "Натижалар",
 	},
 	"nav.title": {
-		en: "ASMI",
-		ru: "АГМИ",
-		uz: "АДТИ",
+		en: "Medical Quiz",
+		ru: "Медицинский Тест",
+		uz: "Тиббий Тест",
 	},
 
 	// Quiz Selection
@@ -438,7 +438,7 @@ const translations: Translations = {
 	},
 }
 
-const currentLocale = ref<Locale>("en")
+const currentLocale = ref<Locale>("uz")
 
 export const useI18n = () => {
 	// Load saved locale from localStorage

@@ -27,11 +27,11 @@
 							v-for="lang in languages"
 							:key="lang.code"
 							@click="changeLanguage(lang.code)"
-							class="glass-light-ultra rounded-xl p-6 card-ultra-hover transition-all duration-300 hover:brightness-110"
+							class="glass-light-ultra rounded-2xl p-6 card-ultra-hover transition-all duration-300 hover:brightness-110 flex flex-col items-center justify-center"
 							:class="{ 'ring-2 ring-white/50': locale === lang.code }"
 						>
-							<div class="text-3xl mb-3">{{ lang.flag }}</div>
-							<h3 class="text-lg font-semibold text-white mb-1">{{ lang.name }}</h3>
+							<div class="text-5xl mb-3">{{ lang.flag }}</div>
+							<h3 class="text-lg font-semibold text-white">{{ lang.name }}</h3>
 							<p class="text-white/70 text-sm">{{ lang.nativeName }}</p>
 						</button>
 					</div>
@@ -58,10 +58,10 @@ const showLanguageSelector = ref(false)
 
 const languages = [
 	{
-		code: 'en' as Locale,
-		name: 'English',
-		nativeName: 'English',
-		flag: '🇺🇸'
+		code: 'uz' as Locale,
+		name: 'Uzbek',
+		nativeName: 'Ўзбекча',
+		flag: '🇺🇿'
 	},
 	{
 		code: 'ru' as Locale,
@@ -70,10 +70,10 @@ const languages = [
 		flag: '🇷🇺'
 	},
 	{
-		code: 'uz' as Locale,
-		name: 'Uzbek',
-		nativeName: 'Ўзбекча',
-		flag: '🇺🇿'
+		code: 'en' as Locale,
+		name: 'English',
+		nativeName: 'English',
+		flag: '🇺🇸'
 	}
 ]
 

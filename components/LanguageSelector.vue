@@ -27,10 +27,10 @@
 						v-for="(lang, index) in languages"
 						:key="lang.code"
 						@click="selectLanguage(lang.code)"
-						class="glass-light-ultra rounded-2xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110"
+						class="glass-light-ultra rounded-3xl p-8 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110 flex flex-col items-center justify-center"
 						:style="{ animationDelay: `${0.3 + index * 0.1}s` }"
 					>
-						<div class="text-4xl mb-4">{{ lang.flag }}</div>
+						<div class="text-6xl mb-4">{{ lang.flag }}</div>
 						<h3 class="text-xl font-semibold text-white mb-2">{{ lang.name }}</h3>
 						<p class="text-white/70 text-sm">{{ lang.nativeName }}</p>
 					</button>
@@ -62,10 +62,10 @@ const selectedLanguage = ref<Locale | null>(null)
 
 const languages = [
 	{
-		code: 'en' as Locale,
-		name: 'English',
-		nativeName: 'English',
-		flag: '🇺🇸'
+		code: 'uz' as Locale,
+		name: 'Uzbek',
+		nativeName: 'Ўзбекча',
+		flag: '🇺🇿'
 	},
 	{
 		code: 'ru' as Locale,
@@ -74,10 +74,10 @@ const languages = [
 		flag: '🇷🇺'
 	},
 	{
-		code: 'uz' as Locale,
-		name: 'Uzbek',
-		nativeName: 'Ўзбекча',
-		flag: '🇺🇿'
+		code: 'en' as Locale,
+		name: 'English',
+		nativeName: 'English',
+		flag: '🇺🇸'
 	}
 ]
 

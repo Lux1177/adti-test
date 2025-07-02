@@ -41,10 +41,10 @@
 				<div class="hidden md:flex items-center space-x-4">
 					<button
 						@click="$emit('change-language')"
-						class="p-3 rounded-full text-white/70 hover:text-white glass-light-ultra transition-all duration-300 hover:brightness-110 micro-bounce"
+						class="w-12 h-12 flex items-center justify-center rounded-full text-white/70 hover:text-white glass-light-ultra transition-all duration-300 hover:brightness-110 micro-bounce text-2xl"
 						:title="t('language.select')"
 					>
-						<Icon name="heroicons:language" class="w-6 h-6" />
+						<span>{{ currentFlag }}</span>
 					</button>
 				</div>
 
@@ -99,7 +99,7 @@
 							@click="$emit('change-language'); mobileMenuOpen = false"
 							class="nav-link-ultra px-6 py-4 rounded-2xl text-white/70 hover:text-white hover:bg-white/10 animate-fade-in-up animate-stagger-4 transition-all duration-300 font-medium text-left flex items-center"
 						>
-							<Icon name="heroicons:language" class="w-5 h-5 mr-3" />
+							<span class="text-2xl mr-3">{{ currentFlag }}</span>
 							{{ t('language.select') }}
 						</button>
 					</nav>
@@ -110,14 +110,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useRoute } from '#app'
-import { useI18n } from '~/composables/useI18n'
+import { useI18n, type Locale } from '~/composables/useI18n'
 
 const route = useRoute()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const mobileMenuOpen = ref(false)
+
+const languages = [
+	{ code: 'uz' as Locale, flag: '🇺🇿' },
+	{ code: 'ru' as Locale, flag: '🇷🇺' },
+	{ code: 'en' as Locale, flag: '🇺🇸' }
+]
+
+const currentFlag = computed(() => {
+	return languages.find(lang => lang.code === locale.value)?.flag || '🌐'
+})
 
 defineEmits<{
 	'change-language': []
