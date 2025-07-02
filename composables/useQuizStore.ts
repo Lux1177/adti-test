@@ -96,6 +96,7 @@ const loadQuizCache = (quizId: string, locale: Locale): Question[] | null => {
 		const cache = JSON.parse(localStorage.getItem(STORAGE_KEYS.QUIZ_CACHE) || "{}")
 		const cached = cache[`${quizId}-${locale}`]
 		if (cached && Date.now() - cached.timestamp < 3600000) {
+			// 1 hour cache
 			return cached.questions
 		}
 	}
@@ -122,9 +123,11 @@ const hasActiveQuiz = computed(() => state.activeQuiz.currentQuestions.length > 
 
 // --- Actions ---
 
-const loadQuestions = async (quizId: string, locale: Locale) => {
-	state.isLoading = true
-	state.error = null
+const loadQuestions = async (quizId: string, locale: Locale, isPrefetch = false) => {
+	if (!isPrefetch) {
+		state.isLoading = true
+		state.error = null
+	}
 	try {
 		const cachedQuestions = loadQuizCache(quizId, locale)
 		if (cachedQuestions) {
@@ -138,11 +141,20 @@ const loadQuestions = async (quizId: string, locale: Locale) => {
 		return questions
 	} catch (error) {
 		console.error("Error loading questions:", error)
-		state.error = error instanceof Error ? error.message : "Failed to load questions"
+		if (!isPrefetch) {
+			state.error = error instanceof Error ? error.message : "Failed to load questions"
+		}
 		return []
 	} finally {
-		state.isLoading = false
+		if (!isPrefetch) {
+			state.isLoading = false
+		}
 	}
+}
+
+const prefetchQuestions = (quizId: string, locale: Locale) => {
+	// Fire and forget prefetch
+	loadQuestions(quizId, locale, true)
 }
 
 const startTest = async (quizId: string, locale: Locale) => {
@@ -202,7 +214,7 @@ const finishTest = () => {
 		completedAt: Date.now(),
 	}
 
-	state.resultsHistory.unshift(result) // Add to the beginning of the array
+	state.resultsHistory.unshift(result)
 	saveResultsHistory()
 	clearActiveState()
 }
@@ -213,7 +225,6 @@ const getResultById = (resultId: string) => {
 
 // Export the composable
 export const useQuizStore = () => {
-	// Load initial state from localStorage
 	if (typeof window !== "undefined") {
 		loadActiveState()
 		loadResultsHistory()
@@ -226,12 +237,12 @@ export const useQuizStore = () => {
 		isLastQuestion,
 		isTestComplete,
 		hasActiveQuiz,
-		loadQuestions,
 		startTest,
 		selectAnswer,
 		nextQuestion,
 		finishTest,
 		getResultById,
 		clearActiveState,
+		prefetchQuestions, // Expose prefetch
 	}
 }

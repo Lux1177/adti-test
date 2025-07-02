@@ -25,30 +25,31 @@
 			</div>
 
 			<!-- Results List -->
-			<div v-else class="space-y-4">
-				<TransitionGroup name="list-ultra" tag="div">
-					<NuxtLink
-						v-for="result in results"
-						:key="result.id"
-						:to="`/results/${result.id}`"
-						class="block glass-light-ultra rounded-3xl p-6 card-ultra-hover transition-all duration-300 hover:border-white/30"
-					>
-						<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-							<div class="flex-1">
-								<p class="text-sm text-white/60 mb-2">{{ formatDate(result.completedAt) }}</p>
-								<h3 class="text-xl font-semibold text-white mb-2">{{ t(result.quizTitleKey) }}</h3>
-								<p class="text-white/80">
-									{{ t('results.score', { score: result.score, total: result.totalQuestions }) }}
-								</p>
-							</div>
-							<div class="flex items-center gap-4">
-								<div class="text-2xl font-light" :class="getScoreColorClass(result.percentage)">
-									{{ result.percentage.toFixed(1) }}%
+			<div v-else>
+				<TransitionGroup name="list-ultra" tag="div" class="space-y-6">
+					<!-- v-memo helps Vue skip re-rendering this component if the result object hasn't changed -->
+					<div v-for="result in results" :key="result.id" v-memo="[result]">
+						<NuxtLink
+							:to="`/results/${result.id}`"
+							class="block glass-light-ultra rounded-3xl p-6 card-ultra-hover transition-all duration-300 hover:border-white/30"
+						>
+							<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+								<div class="flex-1">
+									<p class="text-sm text-white/60 mb-2">{{ formatDate(result.completedAt) }}</p>
+									<h3 class="text-xl font-semibold text-white mb-2">{{ t(result.quizTitleKey) }}</h3>
+									<p class="text-white/80">
+										{{ t('results.score', { score: result.score, total: result.totalQuestions }) }}
+									</p>
 								</div>
-								<Icon name="heroicons:chevron-right" class="w-6 h-6 text-white/50" />
+								<div class="flex items-center gap-4">
+									<div class="text-2xl font-light" :class="getScoreColorClass(result.percentage)">
+										{{ result.percentage.toFixed(1) }}%
+									</div>
+									<Icon name="heroicons:chevron-right" class="w-6 h-6 text-white/50" />
+								</div>
 							</div>
-						</div>
-					</NuxtLink>
+						</NuxtLink>
+					</div>
 				</TransitionGroup>
 			</div>
 		</div>

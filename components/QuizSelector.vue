@@ -36,6 +36,7 @@
 					<div
 						v-for="(quiz, index) in availableQuizzes"
 						:key="quiz.id"
+						@mouseenter="prefetchQuiz(quiz.id)"
 						class="glass-light-ultra rounded-3xl p-6 card-ultra-hover animate-fade-in-up micro-lift transition-all duration-300 hover:brightness-110"
 						:style="{ animationDelay: `${0.1 + index * 0.1}s` }"
 					>
@@ -174,10 +175,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '~/composables/useI18n'
+import { useQuizStore } from '~/composables/useQuizStore'
 import { quizzes } from '~/data/quizzes'
 import type { UserCategory } from '~/types/quiz'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const quizStore = useQuizStore()
 
 interface Props {
 	loading?: boolean
@@ -202,6 +205,10 @@ const availableQuizzes = computed(() => {
 
 const startQuiz = (quizId: string) => {
 	emit('start', quizId)
+}
+
+const prefetchQuiz = (quizId: string) => {
+	quizStore.prefetchQuestions(quizId, locale.value)
 }
 
 const getCategoryImage = (category: UserCategory) => {

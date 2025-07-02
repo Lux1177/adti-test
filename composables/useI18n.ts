@@ -13,17 +13,17 @@ const translations: Translations = {
 	"main.welcome_title": {
 		en: "Welcome to Medical Quiz",
 		ru: "Добро пожаловать в Медицинский Тест",
-		uz: "Tibiiy Testga Xush Kelibsiz",
+		uz: "Тиббий Тестга Хуш Келибсиз",
 	},
 	"main.welcome_subtitle": {
 		en: "Choose a category and test your knowledge.",
 		ru: "Выберите категорию и проверьте свои знания.",
-		uz: "Kategoriyani tanlang va bilimingizni sinab ko'ring.",
+		uz: "Категорияни танланг ва билимингизни синаб кўринг.",
 	},
 	"main.start_button": {
 		en: "Choose a Test",
 		ru: "Выбрать тест",
-		uz: "Testni tanlash",
+		uz: "Тестни танлаш",
 	},
 
 	// Language Selection
@@ -72,7 +72,7 @@ const translations: Translations = {
 	"category.academic_lyceum": {
 		en: "For Academic Lyceums",
 		ru: "Для академических лицеев",
-		uz: "Akademik litseylar uchun",
+		uz: "Академик лицейлар учун",
 	},
 
 	// Navigation
@@ -92,9 +92,9 @@ const translations: Translations = {
 		uz: "Натижалар",
 	},
 	"nav.title": {
-		en: "Medical Quiz",
-		ru: "Медицинский Тест",
-		uz: "Тиббий Тест",
+		en: "ASMI",
+		ru: "АГМИ",
+		uz: "АДТИ",
 	},
 
 	// Quiz Selection
@@ -118,12 +118,12 @@ const translations: Translations = {
 	"quiz.lyceum_physics.title": {
 		en: "Physics for Lyceums",
 		ru: "Физика для лицеев",
-		uz: "Litseylar uchun fizika",
+		uz: "Лицейлар учун физика",
 	},
 	"quiz.lyceum_physics.description": {
 		en: "Fundamental physics concepts for lyceum students.",
 		ru: "Основные концепции физики для учащихся лицеев.",
-		uz: "Litsey o'quvchilari uchun fundamental fizika tushunchalari.",
+		uz: "Лицей ўқувчилари учун фундаментал физика тушунчалари.",
 	},
 	"quiz.english.title": {
 		en: "English Grammar Test",
@@ -188,52 +188,52 @@ const translations: Translations = {
 	"quiz.medical_english.title": {
 		en: "Medical English",
 		ru: "Медицинский английский",
-		uz: "Tibbiy ingliz tili",
+		uz: "Тиббий инглиз тили",
 	},
 	"quiz.medical_english.description": {
 		en: "English language skills for medical professionals.",
 		ru: "Навыки английского языка для медицинских работников.",
-		uz: "Tibbiy xodimlar uchun ingliz tili ko'nikmalari.",
+		uz: "Тиббий ходимлар учун инглиз тили кўникмалари.",
 	},
 	"quiz.medical_anatomy.title": {
 		en: "Medical Anatomy",
 		ru: "Медицинская анатомия",
-		uz: "Tibbiy anatomiya",
+		uz: "Тиббий анатомия",
 	},
 	"quiz.medical_anatomy.description": {
 		en: "Human anatomy knowledge for medical studies.",
 		ru: "Знания анатомии человека для медицинских исследований.",
-		uz: "Tibbiy tadqiqotlar uchun inson anatomiyasi bilimi.",
+		uz: "Тиббий тадқиқотлар учун инсон анатомияси билими.",
 	},
 	"quiz.student_english.title": {
 		en: "Student English",
 		ru: "Английский для студентов",
-		uz: "Talabalar uchun ingliz tili",
+		uz: "Талабалар учун инглиз тили",
 	},
 	"quiz.student_english.description": {
 		en: "Basic English grammar for students.",
 		ru: "Основы английской грамматики для студентов.",
-		uz: "Talabalar учун ingliz tili grammatikasi asoslari.",
+		uz: "Талабалар учун инглиз тили грамматикаси асослари.",
 	},
 	"quiz.professor_management.title": {
 		en: "Healthcare Management",
 		ru: "Управление здравоохранением",
-		uz: "Sog'liqni saqlashni boshqarish",
+		uz: "Соғлиқни сақлашни бошқариш",
 	},
 	"quiz.professor_management.description": {
 		en: "Management principles for healthcare professionals.",
 		ru: "Принципы управления для медицинских работников.",
-		uz: "Tibbiy xodimlar uchun boshqaruv tamoyillari.",
+		uz: "Тиббий ходимлар учун бошқарув тамойиллари.",
 	},
 	"quiz.applicant_entrance.title": {
 		en: "Medical Entrance Exam",
 		ru: "Вступительный медицинский экзамен",
-		uz: "Tibbiyot kirish imtihoni",
+		uz: "Тиббиёт кириш имтиҳони",
 	},
 	"quiz.applicant_entrance.description": {
 		en: "Preparation for medical school entrance exams.",
 		ru: "Подготовка к вступительным экзаменам в медицинский вуз.",
-		uz: "Tibbiyot institutiga kirish imtihonlariga tayyorgarlik.",
+		uz: "Тиббиёт институтига кириш имтиҳонларига тайёргарлик.",
 	},
 
 	// Quiz Features
@@ -393,7 +393,7 @@ const translations: Translations = {
 	"alert.result_not_found": {
 		en: "The requested result could not be found.",
 		ru: "Запрошенный результат не найден.",
-		uz: "So'ralgan natija topilmadi.",
+		uz: "Сўралган натижа топилмади.",
 	},
 	"alert.complete_test_first": {
 		en: "You need to complete a test first to see results.",
