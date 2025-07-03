@@ -11,9 +11,9 @@ interface Translations {
 const translations: Translations = {
 	// Main Page
 	"main.welcome_title": {
-		en: "Welcome to Medical Quiz",
-		ru: "Добро пожаловать в Медицинский Тест",
-		uz: "Тиббий Тестга Хуш Келибсиз",
+		en: "ASMI Test Center",
+		ru: "АГМИ Тестовый Центр",
+		uz: "АДТИ Тест Маркази",
 	},
 	"main.welcome_subtitle": {
 		en: "Choose a category and test your knowledge.",
@@ -92,9 +92,9 @@ const translations: Translations = {
 		uz: "Натижалар",
 	},
 	"nav.title": {
-		en: "Medical Quiz",
-		ru: "Медицинский Тест",
-		uz: "Тиббий Тест",
+		en: "ASMI",
+		ru: "АГМИ",
+		uz: "АДТИ",
 	},
 
 	// Quiz Selection

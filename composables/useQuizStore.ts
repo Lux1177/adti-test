@@ -166,8 +166,14 @@ const startTest = async (quizId: string, locale: Locale) => {
 	clearActiveState()
 	state.activeQuiz.currentQuizId = quizId
 
+	// Shuffle all available questions
 	const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
-	state.activeQuiz.currentQuestions = shuffled.map((q) => ({
+
+	// Select 20 random questions
+	const selectedQuestions = shuffled.slice(0, 20)
+
+	// Set the current questions for the quiz, and shuffle options for each
+	state.activeQuiz.currentQuestions = selectedQuestions.map((q) => ({
 		...q,
 		options: [...q.options].sort(() => Math.random() - 0.5),
 	}))
