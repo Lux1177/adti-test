@@ -1,10 +1,12 @@
 import type { QuizInfo } from "~/types/quiz"
 
 // Import all question sets
+import { medicalPharmacyQuestions } from "./medical/pharmacy"
 import { medicalEnglishQuestions } from "./medical/english"
 import { medicalTerminologyQuestions } from "./medical/terminology"
 import { medicalAnatomyQuestions } from "./medical/anatomy"
 import { studentEnglishQuestions } from "./student/english"
+import { studentComputerScienceQuestions } from "./student/computerScience"
 import { professorManagementQuestions } from "./professor/management"
 import { applicantEntranceQuestions } from "./applicant/entrance"
 import { lyceumPhysicsQuestions } from "./lyceum/physics"
@@ -12,6 +14,19 @@ import { lyceumPhysicsQuestions } from "./lyceum/physics"
 // Quiz metadata
 export const quizzes: QuizInfo[] = [
 	// Medical Worker Quizzes
+	{
+		id: "medical-pharmacy",
+		titleKey: "quiz.medical_pharmacy.title",
+		descriptionKey: "quiz.medical_pharmacy.description",
+		category: ["medical"],
+		difficulty: "hard",
+		questionCount: 20,
+		available: true,
+		icon: "💊",
+		color: "from-green-500 to-indigo-600",
+		subject: "english",
+		categoryFolder: "medical",
+	},
 	{
 		id: "medical-english",
 		titleKey: "quiz.medical_english.title",
@@ -53,6 +68,19 @@ export const quizzes: QuizInfo[] = [
 	},
 
 	// Student Quizzes
+	{
+		id: "student-computer-science",
+		titleKey: "quiz.student_computer_science.title",
+		descriptionKey: "quiz.student_computer_science.description",
+		category: ["student"],
+		difficulty: "easy",
+		questionCount: 20,
+		available: true,
+		icon: "💻",
+		color: "from-orange-400 to-teal-500",
+		subject: "computer science",
+		categoryFolder: "student",
+	},
 	{
 		id: "student-english",
 		titleKey: "quiz.student_english.title",
@@ -115,10 +143,12 @@ export const quizzes: QuizInfo[] = [
 
 // Quiz questions data - organized by quiz ID
 export const quizData = {
+	"medical-pharmacy": medicalPharmacyQuestions,
 	"medical-english": medicalEnglishQuestions,
 	"medical-terminology": medicalTerminologyQuestions,
 	"medical-anatomy": medicalAnatomyQuestions,
 	"student-english": studentEnglishQuestions,
+	"student-computer-science": studentComputerScienceQuestions,
 	"professor-management": professorManagementQuestions,
 	"applicant-entrance": applicantEntranceQuestions,
 	"lyceum-physics": lyceumPhysicsQuestions,

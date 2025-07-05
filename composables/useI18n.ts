@@ -125,6 +125,26 @@ const translations: Translations = {
 		ru: "Основные концепции физики для учащихся лицеев.",
 		uz: "Лицей ўқувчилари учун фундаментал физика тушунчалари.",
 	},
+	"quiz.student_computer_science.title": {
+		en: "Computer science for students",
+		ru: "Компьютерные технологии для студентов",
+		uz: "Талабалар учун компьютер фанлари",
+	},
+	"quiz.student_computer_science.description": {
+		en: "Fundamental Computer science for students.",
+		ru: "Основные концепции компьютерных технологий для студентов.",
+		uz: "Талабалар учун фундаментал компьютер фанлари тушунчалари.",
+	},
+	"quiz.medical_pharmacy.title": {
+		en: "Pharmacy test",
+		ru: "Тест по фармации",
+		uz: "Фармациядан тест",
+	},
+	"quiz.medical_pharmacy.description": {
+		en: "Test your Pharmacy knowledge with selected questions.",
+		ru: "Проверьте свои знания по Фармации.",
+		uz: "Фармациядан билимингизни синаб кўринг.",
+	},
 	"quiz.english.title": {
 		en: "English Grammar Test",
 		ru: "Тест по английской грамматике",
