@@ -9,6 +9,7 @@ import { studentEnglishQuestions } from "./student/english"
 import { studentComputerScienceQuestions } from "./student/computerScience"
 import { professorManagementQuestions } from "./professor/management"
 import { applicantEntranceQuestions } from "./applicant/entrance"
+import { applicantHistoryQuestions } from "./applicant/history"
 import { lyceumPhysicsQuestions } from "./lyceum/physics"
 
 // Quiz metadata
@@ -124,6 +125,19 @@ export const quizzes: QuizInfo[] = [
 		subject: "entrance",
 		categoryFolder: "applicant",
 	},
+	{
+		id: "applicant-history",
+		titleKey: "quiz.applicant_history.title",
+		descriptionKey: "quiz.applicant_history.description",
+		category: ["applicant"],
+		difficulty: "easy",
+		questionCount: 20,
+		available: true,
+		icon: "📜",
+		color: "from-indigo-400 to-purple-500",
+		subject: "history",
+		categoryFolder: "applicant",
+	},
 
 	// Academic Lyceum Quizzes
 	{
@@ -151,5 +165,6 @@ export const quizData = {
 	"student-computer-science": studentComputerScienceQuestions,
 	"professor-management": professorManagementQuestions,
 	"applicant-entrance": applicantEntranceQuestions,
+	"applicant-history": applicantHistoryQuestions,
 	"lyceum-physics": lyceumPhysicsQuestions,
 }

@@ -255,6 +255,16 @@ const translations: Translations = {
 		ru: "Подготовка к вступительным экзаменам в медицинский вуз.",
 		uz: "Тиббиёт институтига кириш имтиҳонларига тайёргарлик.",
 	},
+	"quiz.applicant_history.title": {
+		en: "History for applicants",
+		ru: "История для абитуриентов",
+		uz: "Абитуриентлар учун тарих",
+	},
+	"quiz.applicant_history.description": {
+		en: "History subject basics for applicants.",
+		ru: "Базовые знания по истории для абитуриентов.",
+		uz: "Абитуриентлар учун тарих фанидан асосий билилар.",
+	},
 
 	// Quiz Features
 	"feature.unlimited": {

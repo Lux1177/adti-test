@@ -1,6 +1,6 @@
 import type { Question, Locale } from "~/types/quiz"
 
-export const historyQuestions: Record<Locale, Question[]> = {
+export const applicantHistoryQuestions: Record<Locale, Question[]> = {
   en: [
     {
       questionText: "[EN] Amir Temur davlatining poytaxti bo\u2018lgan shaharni toping.",
