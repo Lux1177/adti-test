@@ -3,158 +3,160 @@ import type { Question, Locale } from "~/types/quiz"
 export const applicantHistoryQuestions: Record<Locale, Question[]> = {
   en: [
     {
-      questionText: "[EN] Amir Temur davlatining poytaxti bo\u2018lgan shaharni toping.",
-      options: ["[EN] Samarqand", "[EN] Buxoro", "[EN] Kesh", "[EN] Shosh"],
-      correctAnswer: "[EN] Samarqand",
+      questionText: "Find the city that was the capital of Amir Temur's state.",
+      options: ["Samarkand", "Bukhara", "Kesh", "Shash"],
+      correctAnswer: "Samarkand"
     },
     {
-      questionText: "[EN] XIV asrda Chig\u2018atoy xonlaridan kim birinchi bo\u2018lib o\u2018z qarorgohini Movarounnahrga ko\u2018chirgan?",
-      options: ["[EN] Kebek", "[EN] Munke", "[EN] Tug\u2018luq Temur", "[EN] Abulxayrxon"],
-      correctAnswer: "[EN] Kebek",
+      questionText: "Which Chagatai Khan was the first to move his headquarters to Transoxiana in the 14th century?",
+      options: ["Kebek", "Munke", "Tughluq Temur", "Abulkhayr Khan"],
+      correctAnswer: "Kebek"
     },
     {
-      questionText: "[EN] O\u2018zbekiston hududidagi qaysi manzilgohda ilk shahar alomatlari ko\u2018zga tashlanadi?",
-      options: ["[EN] Jarqo\u2018ton", "[EN] Obishir", "[EN] Selengur", "[EN] Ko\u2018lbuloq"],
-      correctAnswer: "[EN] Jarqo\u2018ton",
+      questionText: "Which location in Uzbekistan shows the earliest signs of urban settlement?",
+      options: ["Jarkutan", "Obishir", "Selengur", "Kulbulak"],
+      correctAnswer: "Jarkutan"
     },
     {
-      questionText: "[EN] Rus podshosi Ivan IV bilan elchilik aloqalarini o\u2018rnatgan Buxoro xonini toping.",
-      options: ["[EN] Abdullaxon II", "[EN] Ko\u2018chkunchixon", "[EN] Ubaydullaxon", "[EN] Imomqulixon"],
-      correctAnswer: "[EN] Abdullaxon II",
+      questionText: "Which Bukhara Khan established diplomatic relations with Russian Tsar Ivan IV?",
+      options: ["Abdullakhan II", "Kuchkunchikhan", "Ubaydullakhan", "Imamqulikhan"],
+      correctAnswer: "Abdullakhan II"
     },
     {
-      questionText: "[EN] Toshkent shahri kim boshchiligidagi podsho Rossiyasi qo\u2018shinlari tomonidan egallangan? (1865-yil)",
-      options: ["[EN] M.Chernyayev", "[EN] M.Skobelev", "[EN] F.Romanovskiy", "[EN] fon Kaufman"],
-      correctAnswer: "[EN] M.Chernyayev",
+      questionText: "Who led the Russian Tsarist army that captured Tashkent in 1865?",
+      options: ["M. Chernyaev", "M. Skobelev", "F. Romanovsky", "von Kaufman"],
+      correctAnswer: "M. Chernyaev"
     },
     {
-      questionText: "[EN] Rossiya imperiyasi tarkibidagi Turkiston general-gubernatorligi nechanchi yilda tashkil etilgan?",
-      options: ["[EN] 1867-yilda", "[EN] 1875-yilda", "[EN] 1856-yilda", "[EN] 1881-yilda"],
-      correctAnswer: "[EN] 1867-yilda",
+      questionText: "In what year was the Turkestan General-Governorship established as part of the Russian Empire?",
+      options: ["In 1867", "In 1875", "In 1856", "In 1881"],
+      correctAnswer: "In 1867"
     },
     {
-      questionText: "[EN] Sovetlar boshqaruvi davrida o\u2018zbek xotin-qizlarini ozodlikka chiqarish jarayoni qanday nom ostida o\u2018tkazilgan?",
-      options: ["[EN] \u201cHujum\u201d harakati", "[EN] \u201cBosmachilik\u201d harakati", "[EN] \u201cOzodlik\u201d harakati", "[EN] \u201cKolxozchilar\u201d harakati"],
-      correctAnswer: "[EN] \u201cHujum\u201d harakati",
+      questionText: "What was the name of the campaign aimed at liberating Uzbek women during the Soviet era?",
+      options: ["'Hujum' movement", "'Basmachilik' movement", "'Freedom' movement", "'Collectivist' movement"],
+      correctAnswer: "'Hujum' movement"
     },
     {
-      questionText: "[EN] 1993-yilda O\u2018zbekiston qaysi xalqaro tashkilotga a\u2019zo bo\u2018lgan?",
-      options: ["[EN] YuNESKO", "[EN] ShHT", "[EN] MDH", "[EN] BMT"],
-      correctAnswer: "[EN] YuNESKO",
+      questionText: "Which international organization did Uzbekistan join in 1993?",
+      options: ["UNESCO", "SCO", "CIS", "UN"],
+      correctAnswer: "UNESCO"
     },
     {
-      questionText: "[EN] O\u2018zbekiston Respublikasida ijro etuvchi hokimiyat hisoblanadigan organni toping.",
-      options: ["[EN] Vazirlar Mahkamasi", "[EN] Oliy Majlis", "[EN] Oliy Sud", "[EN] Konstitutsiyaviy sud"],
-      correctAnswer: "[EN] Vazirlar Mahkamasi",
+      questionText: "Which body is considered the executive authority in the Republic of Uzbekistan?",
+      options: ["Cabinet of Ministers", "Oliy Majlis", "Supreme Court", "Constitutional Court"],
+      correctAnswer: "Cabinet of Ministers"
     },
     {
-      questionText: "[EN] Qaysi daryo qadimda Yaksart deb atalgan?",
-      options: ["[EN] Sirdaryo", "[EN] Amudaryo", "[EN] Zarafshon", "[EN] Qashqadaryo"],
-      correctAnswer: "[EN] Sirdaryo",
+      questionText: "Which river was historically known as Yaksart?",
+      options: ["Syr Darya", "Amu Darya", "Zarafshan", "Qashqadarya"],
+      correctAnswer: "Syr Darya"
     },
     {
-      questionText: "[EN] XIX asrning o\u2018rtalarida Toshkent shahrining nechta darvozasi bo\u2018lgan?",
-      options: ["[EN] 12 ta", "[EN] 9 ta", "[EN] 6 ta", "[EN] 14 ta"],
-      correctAnswer: "[EN] 12 ta",
+      questionText: "How many gates did the city of Tashkent have in the mid-19th century?",
+      options: ["12", "9", "6", "14"],
+      correctAnswer: "12"
     },
     {
-      questionText: "[EN] Ikkinchi jahon urushi yillarida O\u2018zbekistonning qaysi shahrida metallurgiya zavodi bunyod etilgan?",
-      options: ["[EN] Bekobod", "[EN] Qo\u2018qon", "[EN] Buxoro", "[EN] Navoiy"],
-      correctAnswer: "[EN] Bekobod",
+      questionText: "During World War II, a metallurgy plant was built in which city of Uzbekistan?",
+      options: ["Bekabad", "Kokand", "Bukhara", "Navoi"],
+      correctAnswer: "Bekabad"
     },
     {
-      questionText: "[EN] VI-VII asrlarda O\u2018rta Osiyo aholisining asosiy qismi qaysi dinga e\u2019tiqod qilgan?",
-      options: ["[EN] zardushtiylik", "[EN] moniylik", "[EN] nasroniylik", "[EN] buddaviylik"],
-      correctAnswer: "[EN] zardushtiylik",
+      questionText: "Which religion was mainly practiced by the majority of Central Asia's population in the 6th–7th centuries?",
+      options: ["Zoroastrianism", "Manichaeism", "Christianity", "Buddhism"],
+      correctAnswer: "Zoroastrianism"
     },
     {
-      questionText: "[EN] XIX asr boshida qaysi hukmdorning hukmronligi davrida Qo\u2018qon adabiy muhiti shakllangan?",
-      options: ["[EN] Umarxon", "[EN] Sheralixon", "[EN] Xudoyorxon", "[EN] Erdonabiy"],
-      correctAnswer: "[EN] Umarxon",
+      questionText: "Under which ruler did the literary environment of Kokand develop in the early 19th century?",
+      options: ["Umarkhan", "Sheralikhon", "Khudoyorkhan", "Erdonabiy"],
+      correctAnswer: "Umarkhan"
     },
     {
-      questionText: "[EN] Vazirlar Mahkamasining 1997-yildagi qarori bilan har ikki yilda bir marotaba qaysi shaharda \u201cSharq taronalari\u201d xalqaro musiqa festivali o\u2018tkazilib kelinmoqda?",
-      options: ["[EN] Samarqand", "[EN] Buxoro", "[EN] Xiva", "[EN] Qo\u2018qon"],
-      correctAnswer: "[EN] Samarqand",
-    },
-  ],
+      questionText: "According to a 1997 decision of the Cabinet of Ministers, the international music festival 'Sharq Taronalari' is held every two years in which city?",
+      options: ["Samarkand", "Bukhara", "Khiva", "Kokand"],
+      correctAnswer: "Samarkand"
+    }
+  ]
+  ,
   ru: [
     {
-      questionText: "[RU] Amir Temur davlatining poytaxti bo\u2018lgan shaharni toping.",
-      options: ["[RU] Samarqand", "[RU] Buxoro", "[RU] Kesh", "[RU] Shosh"],
-      correctAnswer: "[RU] Samarqand",
+      questionText: "Найдите город, который был столицей государства Амир Темура.",
+      options: ["Самарканд", "Бухара", "Кеш", "Шаш"],
+      correctAnswer: "Самарканд"
     },
     {
-      questionText: "[RU] XIV asrda Chig\u2018atoy xonlaridan kim birinchi bo\u2018lib o\u2018z qarorgohini Movarounnahrga ko\u2018chirgan?",
-      options: ["[RU] Kebek", "[RU] Munke", "[RU] Tug\u2018luq Temur", "[RU] Abulxayrxon"],
-      correctAnswer: "[RU] Kebek",
+      questionText: "Кто из ханов Чагатая первым перенёс свою ставку в Мавераннахр в XIV веке?",
+      options: ["Кебек", "Мунке", "Туглук Темур", "Абулхайрхан"],
+      correctAnswer: "Кебек"
     },
     {
-      questionText: "[RU] O\u2018zbekiston hududidagi qaysi manzilgohda ilk shahar alomatlari ko\u2018zga tashlanadi?",
-      options: ["[RU] Jarqo\u2018ton", "[RU] Obishir", "[RU] Selengur", "[RU] Ko\u2018lbuloq"],
-      correctAnswer: "[RU] Jarqo\u2018ton",
+      questionText: "В каком месте на территории Узбекистана впервые проявились признаки городского поселения?",
+      options: ["Жаркутан", "Обишир", "Селенгур", "Кульбулак"],
+      correctAnswer: "Жаркутан"
     },
     {
-      questionText: "[RU] Rus podshosi Ivan IV bilan elchilik aloqalarini o\u2018rnatgan Buxoro xonini toping.",
-      options: ["[RU] Abdullaxon II", "[RU] Ko\u2018chkunchixon", "[RU] Ubaydullaxon", "[RU] Imomqulixon"],
-      correctAnswer: "[RU] Abdullaxon II",
+      questionText: "Какой бухарский хан установил дипломатические отношения с русским царём Иваном IV?",
+      options: ["Абдуллахан II", "Кучкунчихан", "Убайдуллахан", "Имамкулихан"],
+      correctAnswer: "Абдуллахан II"
     },
     {
-      questionText: "[RU] Toshkent shahri kim boshchiligidagi podsho Rossiyasi qo\u2018shinlari tomonidan egallangan? (1865-yil)",
-      options: ["[RU] M.Chernyayev", "[RU] M.Skobelev", "[RU] F.Romanovskiy", "[RU] fon Kaufman"],
-      correctAnswer: "[RU] M.Chernyayev",
+      questionText: "Под командованием кого армия царской России захватила Ташкент в 1865 году?",
+      options: ["М. Черняев", "М. Скобелев", "Ф. Романовский", "фон Кауфман"],
+      correctAnswer: "М. Черняев"
     },
     {
-      questionText: "[RU] Rossiya imperiyasi tarkibidagi Turkiston general-gubernatorligi nechanchi yilda tashkil etilgan?",
-      options: ["[RU] 1867-yilda", "[RU] 1875-yilda", "[RU] 1856-yilda", "[RU] 1881-yilda"],
-      correctAnswer: "[RU] 1867-yilda",
+      questionText: "В каком году было создано Туркестанское генерал-губернаторство в составе Российской империи?",
+      options: ["В 1867 году", "В 1875 году", "В 1856 году", "В 1881 году"],
+      correctAnswer: "В 1867 году"
     },
     {
-      questionText: "[RU] Sovetlar boshqaruvi davrida o\u2018zbek xotin-qizlarini ozodlikka chiqarish jarayoni qanday nom ostida o\u2018tkazilgan?",
-      options: ["[RU] \u201cHujum\u201d harakati", "[RU] \u201cBosmachilik\u201d harakati", "[RU] \u201cOzodlik\u201d harakati", "[RU] \u201cKolxozchilar\u201d harakati"],
-      correctAnswer: "[RU] \u201cHujum\u201d harakati",
+      questionText: "Под каким названием проходил процесс освобождения узбекских женщин в советский период?",
+      options: ["Движение «Хужум»", "Движение «Басмаческое»", "Движение «Свобода»", "Движение «Колхозники»"],
+      correctAnswer: "Движение «Хужум»"
     },
     {
-      questionText: "[RU] 1993-yilda O\u2018zbekiston qaysi xalqaro tashkilotga a\u2019zo bo\u2018lgan?",
-      options: ["[RU] YuNESKO", "[RU] ShHT", "[RU] MDH", "[RU] BMT"],
-      correctAnswer: "[RU] YuNESKO",
+      questionText: "В какую международную организацию Узбекистан вступил в 1993 году?",
+      options: ["ЮНЕСКО", "ШОС", "СНГ", "ООН"],
+      correctAnswer: "ЮНЕСКО"
     },
     {
-      questionText: "[RU] O\u2018zbekiston Respublikasida ijro etuvchi hokimiyat hisoblanadigan organni toping.",
-      options: ["[RU] Vazirlar Mahkamasi", "[RU] Oliy Majlis", "[RU] Oliy Sud", "[RU] Konstitutsiyaviy sud"],
-      correctAnswer: "[RU] Vazirlar Mahkamasi",
+      questionText: "Какой орган является исполнительной властью в Республике Узбекистан?",
+      options: ["Кабинет Министров", "Олий Мажлис", "Верховный суд", "Конституционный суд"],
+      correctAnswer: "Кабинет Министров"
     },
     {
-      questionText: "[RU] Qaysi daryo qadimda Yaksart deb atalgan?",
-      options: ["[RU] Sirdaryo", "[RU] Amudaryo", "[RU] Zarafshon", "[RU] Qashqadaryo"],
-      correctAnswer: "[RU] Sirdaryo",
+      questionText: "Какая река в древности называлась Яксарт?",
+      options: ["Сырдарья", "Амударья", "Зарафшан", "Кашкадарья"],
+      correctAnswer: "Сырдарья"
     },
     {
-      questionText: "[RU] XIX asrning o\u2018rtalarida Toshkent shahrining nechta darvozasi bo\u2018lgan?",
-      options: ["[RU] 12 ta", "[RU] 9 ta", "[RU] 6 ta", "[RU] 14 ta"],
-      correctAnswer: "[RU] 12 ta",
+      questionText: "Сколько ворот было у Ташкента в середине XIX века?",
+      options: ["12", "9", "6", "14"],
+      correctAnswer: "12"
     },
     {
-      questionText: "[RU] Ikkinchi jahon urushi yillarida O\u2018zbekistonning qaysi shahrida metallurgiya zavodi bunyod etilgan?",
-      options: ["[RU] Bekobod", "[RU] Qo\u2018qon", "[RU] Buxoro", "[RU] Navoiy"],
-      correctAnswer: "[RU] Bekobod",
+      questionText: "Во время Второй мировой войны в каком городе Узбекистана был построен металлургический завод?",
+      options: ["Бекабад", "Коканд", "Бухара", "Навои"],
+      correctAnswer: "Бекабад"
     },
     {
-      questionText: "[RU] VI-VII asrlarda O\u2018rta Osiyo aholisining asosiy qismi qaysi dinga e\u2019tiqod qilgan?",
-      options: ["[RU] zardushtiylik", "[RU] moniylik", "[RU] nasroniylik", "[RU] buddaviylik"],
-      correctAnswer: "[RU] zardushtiylik",
+      questionText: "Какую религию в основном исповедовало население Средней Азии в VI–VII веках?",
+      options: ["Зороастризм", "Манихейство", "Христианство", "Буддизм"],
+      correctAnswer: "Зороастризм"
     },
     {
-      questionText: "[RU] XIX asr boshida qaysi hukmdorning hukmronligi davrida Qo\u2018qon adabiy muhiti shakllangan?",
-      options: ["[RU] Umarxon", "[RU] Sheralixon", "[RU] Xudoyorxon", "[RU] Erdonabiy"],
-      correctAnswer: "[RU] Umarxon",
+      questionText: "При каком правителе в начале XIX века сформировалась литературная среда Коканда?",
+      options: ["Умархан", "Шералихан", "Худоярхан", "Эрдонабий"],
+      correctAnswer: "Умархан"
     },
     {
-      questionText: "[RU] Vazirlar Mahkamasining 1997-yildagi qarori bilan har ikki yilda bir marotaba qaysi shaharda \u201cSharq taronalari\u201d xalqaro musiqa festivali o\u2018tkazilib kelinmoqda?",
-      options: ["[RU] Samarqand", "[RU] Buxoro", "[RU] Xiva", "[RU] Qo\u2018qon"],
-      correctAnswer: "[RU] Samarqand",
-    },
-  ],
+      questionText: "Согласно постановлению Кабинета Министров 1997 года, в каком городе каждые два года проводится международный музыкальный фестиваль «Шарк тароналари»?",
+      options: ["Самарканд", "Бухара", "Хива", "Коканд"],
+      correctAnswer: "Самарканд"
+    }
+  ]
+  ,
   uz: [
     {
       questionText: "Amir Temur davlatining poytaxti bo\u2018lgan shaharni toping.",
