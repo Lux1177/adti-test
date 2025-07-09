@@ -2,11 +2,211 @@ import type { Question, Locale } from "~/types/quiz"
 
 export const studentComputerScienceQuestions: Record<Locale, Question[]> = {
   en: [
-
-  ],
+    {
+      questionText: "What is a computer network?",
+      options: ["Interconnection of multiple computers", "Only computers connected to the Internet", "A program installed on a computer", "A set of printers and scanners"],
+      correctAnswer: "Interconnection of multiple computers",
+    },
+    {
+      questionText: "What does a LAN network mean?",
+      options: ["Local network", "Global network", "Internet service", "Software"],
+      correctAnswer: "Local network",
+    },
+    {
+      questionText: "What is the purpose of an IP address?",
+      options: ["To identify devices on a network", "To shut down the computer", "Only to increase internet speed", "Only to connect a USB device"],
+      correctAnswer: "To identify devices on a network",
+    },
+    {
+      questionText: "What is a router?",
+      options: ["A device that connects networks", "A device connected to a printer", "Only a power supply device", "Only an audio amplifier"],
+      correctAnswer: "A device that connects networks",
+    },
+    {
+      questionText: "What kind of communication is done via Wi-Fi?",
+      options: ["Wireless communication", "Only optical communication", "Cable communication", "Paper communication"],
+      correctAnswer: "Wireless communication",
+    },
+    {
+      questionText: "What is a MAC address?",
+      options: ["A unique identifier of a network device", "An email address", "A webpage address", "A keyboard key"],
+      correctAnswer: "A unique identifier of a network device",
+    },
+    {
+      questionText: "What is the Internet?",
+      options: ["A network of networks connected worldwide", "Only a local network", "A network of printers", "An electricity transmission network"],
+      correctAnswer: "A network of networks connected worldwide",
+    },
+    {
+      questionText: "What does the HTTP protocol mean?",
+      options: ["Protocol for transferring web pages", "Email protocol", "File system management", "Deleting text files"],
+      correctAnswer: "Protocol for transferring web pages",
+    },
+    {
+      questionText: "What is the FTP protocol used for?",
+      options: ["For file transfer", "For listening to music", "To block web pages", "For printer settings"],
+      correctAnswer: "For file transfer",
+    },
+    {
+      questionText: "What does the DNS service do?",
+      options: ["Converts domain names to IP addresses", "Only displays graphics", "Increases internet speed", "Compresses files"],
+      correctAnswer: "Converts domain names to IP addresses",
+    },
+    {
+      questionText: "What does a modem do?",
+      options: ["Converts analog signals into digital form", "Edits video recordings", "Sends data to the printer", "Controls screen brightness"],
+      correctAnswer: "Converts analog signals into digital form",
+    },
+    {
+      questionText: "What kind of network is a WAN?",
+      options: ["Wide area network", "Local network", "Only home network", "Wireless connection"],
+      correctAnswer: "Wide area network",
+    },
+    {
+      questionText: "What does a switch do?",
+      options: ["Connects devices in a network", "Connects network cables", "Configures a printer", "Shuts down a computer"],
+      correctAnswer: "Connects devices in a network",
+    },
+    {
+      questionText: "What is a server?",
+      options: ["A computer that provides data and services", "Only a user computer", "A device for installing Skype", "A software for computer games"],
+      correctAnswer: "A computer that provides data and services",
+    },
+    {
+      questionText: "What is ping?",
+      options: ["A command to check a computer on the network", "A method to shut down a computer", "Only a file-saving function", "A music format"],
+      correctAnswer: "A command to check a computer on the network",
+    },
+    {
+      questionText: "What does DHCP do?",
+      options: ["Automatically assigns an IP address", "Downloads a file", "Plays music", "Deletes a password"],
+      correctAnswer: "Automatically assigns an IP address",
+    },
+    {
+      questionText: "What is meant by network security?",
+      options: ["Protection of data from unauthorized access", "Configuring a printer", "Changing computer wallpaper", "Turning on keyboard backlight"],
+      correctAnswer: "Protection of data from unauthorized access",
+    },
+    {
+      questionText: "Which is a type of network cable?",
+      options: ["Twisted Pair", "Pointer", "RAM memory", "HDMI"],
+      correctAnswer: "Twisted Pair",
+    },
+    {
+      questionText: "What is the function of an internet browser?",
+      options: ["To display web pages", "To store files", "To send to a printer", "To type text"],
+      correctAnswer: "To display web pages",
+    },
+    {
+      questionText: "What is a firewall?",
+      options: ["A system that ensures network security", "Only a video viewing device", "Printer driver", "Antivirus software"],
+      correctAnswer: "A system that ensures network security",
+    },
+  ]
+  ,
   ru: [
-
-  ],
+    {
+      questionText: "Что такое компьютерная сеть?",
+      options: ["Взаимосвязь нескольких компьютеров", "Только компьютеры, подключенные к интернету", "Программа, установленная на компьютере", "Набор принтеров и сканеров"],
+      correctAnswer: "Взаимосвязь нескольких компьютеров",
+    },
+    {
+      questionText: "Что означает сеть LAN?",
+      options: ["Локальная сеть", "Глобальная сеть", "Интернет-сервис", "Программное обеспечение"],
+      correctAnswer: "Локальная сеть",
+    },
+    {
+      questionText: "Для чего нужен IP-адрес?",
+      options: ["Для идентификации устройств в сети", "Для выключения компьютера", "Только для увеличения скорости интернета", "Только для подключения USB-устройства"],
+      correctAnswer: "Для идентификации устройств в сети",
+    },
+    {
+      questionText: "Что такое роутер?",
+      options: ["Устройство для объединения сетей", "Устройство, подключающееся к принтеру", "Только источник питания", "Только аудиоусилитель"],
+      correctAnswer: "Устройство для объединения сетей",
+    },
+    {
+      questionText: "Какой тип связи осуществляется по Wi-Fi?",
+      options: ["Беспроводная связь", "Только оптическая связь", "Связь через кабель", "Связь через бумагу"],
+      correctAnswer: "Беспроводная связь",
+    },
+    {
+      questionText: "Что такое MAC-адрес?",
+      options: ["Уникальный идентификатор сетевого устройства", "Адрес электронной почты", "Адрес веб-страницы", "Клавиша на клавиатуре"],
+      correctAnswer: "Уникальный идентификатор сетевого устройства",
+    },
+    {
+      questionText: "Что такое интернет?",
+      options: ["Система сетей, соединенных по всему миру", "Только локальная сеть", "Сеть принтеров", "Сеть электроснабжения"],
+      correctAnswer: "Система сетей, соединенных по всему миру",
+    },
+    {
+      questionText: "Что означает протокол HTTP?",
+      options: ["Протокол передачи веб-страниц", "Протокол электронной почты", "Управление файловой системой", "Удаление текстовых файлов"],
+      correctAnswer: "Протокол передачи веб-страниц",
+    },
+    {
+      questionText: "Для чего используется протокол FTP?",
+      options: ["Для передачи файлов", "Для прослушивания музыки", "Для блокировки веб-страниц", "Для настройки принтера"],
+      correctAnswer: "Для передачи файлов",
+    },
+    {
+      questionText: "Что делает служба DNS?",
+      options: ["Преобразует доменные имена в IP-адреса", "Показывает только графику", "Увеличивает скорость интернета", "Сжимает файлы"],
+      correctAnswer: "Преобразует доменные имена в IP-адреса",
+    },
+    {
+      questionText: "Какова функция модема?",
+      options: ["Преобразует аналоговые сигналы в цифровую форму", "Редактирует видеозаписи", "Передает данные на принтер", "Управляет яркостью экрана"],
+      correctAnswer: "Преобразует аналоговые сигналы в цифровую форму",
+    },
+    {
+      questionText: "Что такое сеть WAN?",
+      options: ["Сеть широкого охвата", "Локальная сеть", "Только домашняя сеть", "Беспроводная связь"],
+      correctAnswer: "Сеть широкого охвата",
+    },
+    {
+      questionText: "Что делает коммутатор (switch)?",
+      options: ["Соединяет устройства в сети", "Соединяет сетевые кабели", "Настраивает принтер", "Выключает компьютер"],
+      correctAnswer: "Соединяет устройства в сети",
+    },
+    {
+      questionText: "Что такое сервер?",
+      options: ["Компьютер, предоставляющий данные и услуги", "Только пользовательский компьютер", "Устройство для установки Skype", "Программа для компьютерных игр"],
+      correctAnswer: "Компьютер, предоставляющий данные и услуги",
+    },
+    {
+      questionText: "Что такое ping?",
+      options: ["Команда для проверки компьютера в сети", "Способ выключения компьютера", "Только функция сохранения файлов", "Музыкальный формат"],
+      correctAnswer: "Команда для проверки компьютера в сети",
+    },
+    {
+      questionText: "Что делает DHCP?",
+      options: ["Автоматически присваивает IP-адрес", "Загружает файл", "Воспроизводит музыку", "Удаляет пароль"],
+      correctAnswer: "Автоматически присваивает IP-адрес",
+    },
+    {
+      questionText: "Что понимается под сетевой безопасностью?",
+      options: ["Защита данных от несанкционированного доступа", "Настройка принтера", "Изменение фона компьютера", "Включение подсветки клавиатуры"],
+      correctAnswer: "Защита данных от несанкционированного доступа",
+    },
+    {
+      questionText: "Какой тип сетевого кабеля существует?",
+      options: ["Витая пара (Twisted Pair)", "Указатель", "Оперативная память", "HDMI"],
+      correctAnswer: "Витая пара (Twisted Pair)",
+    },
+    {
+      questionText: "Какова функция интернет-браузера?",
+      options: ["Показ веб-страниц", "Сохранение файлов", "Отправка на принтер", "Набор текста"],
+      correctAnswer: "Показ веб-страниц",
+    },
+    {
+      questionText: "Что такое межсетевой экран (firewall)?",
+      options: ["Система, обеспечивающая сетевую безопасность", "Только устройство просмотра видео", "Драйвер принтера", "Антивирусная программа"],
+      correctAnswer: "Система, обеспечивающая сетевую безопасность",
+    },
+  ]
+  ,
   uz: [
     {
       questionText: "Kompyuter tarmog\u2018i nima?",
