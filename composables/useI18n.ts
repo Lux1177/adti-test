@@ -115,16 +115,7 @@ const translations: Translations = {
 	},
 
 	// Quiz Titles and Descriptions
-	"quiz.lyceum_physics.title": {
-		en: "Physics for Lyceums",
-		ru: "Физика для лицеев",
-		uz: "Лицейлар учун физика",
-	},
-	"quiz.lyceum_physics.description": {
-		en: "Fundamental physics concepts for lyceum students.",
-		ru: "Основные концепции физики для учащихся лицеев.",
-		uz: "Лицей ўқувчилари учун фундаментал физика тушунчалари.",
-	},
+
 	"quiz.student_computer_science.title": {
 		en: "Computer science for students",
 		ru: "Компьютерные технологии для студентов",
@@ -155,56 +146,6 @@ const translations: Translations = {
 		ru: "Проверьте свои знания английской грамматики.",
 		uz: "Инглиз тили грамматикаси билимингизни синаб кўринг.",
 	},
-	"quiz.medical_terminology.title": {
-		en: "Medical Terminology",
-		ru: "Медицинская терминология",
-		uz: "Тиббий терминология",
-	},
-	"quiz.medical_terminology.description": {
-		en: "Test your knowledge of medical terms and definitions.",
-		ru: "Проверьте знание медицинских терминов и определений.",
-		uz: "Тиббий атамалар ва таърифлар билимингизни синанг.",
-	},
-	"quiz.anatomy.title": {
-		en: "Human Anatomy",
-		ru: "Анатомия человека",
-		uz: "Инсон анатомияси",
-	},
-	"quiz.anatomy.description": {
-		en: "Test your knowledge of human body structure and systems.",
-		ru: "Проверьте знания строения и систем человеческого тела.",
-		uz: "Инсон танаси тузилиши ва тизимлари билимингизни синанг.",
-	},
-	"quiz.ethics.title": {
-		en: "Medical Ethics",
-		ru: "Медицинская этика",
-		uz: "Тиббий этика",
-	},
-	"quiz.ethics.description": {
-		en: "Test your understanding of medical ethics and professional conduct.",
-		ru: "Проверьте понимание медицинской этики и профессионального поведения.",
-		uz: "Тиббий этика ва касбий одоб-ахлоқ тушунчангизни синанг.",
-	},
-	"quiz.management.title": {
-		en: "Healthcare Management",
-		ru: "Управление здравоохранением",
-		uz: "Соғлиқни сақлашни бошқариш",
-	},
-	"quiz.management.description": {
-		en: "Test your knowledge of healthcare administration and management principles.",
-		ru: "Проверьте знания администрирования и принципов управления здравоохранением.",
-		uz: "Соғлиқни сақлаш бошқаруви ва принциплари билимингизни синанг.",
-	},
-	"quiz.entrance.title": {
-		en: "Medical Entrance Exam",
-		ru: "Вступительный медицинский экзамен",
-		uz: "Тиббиёт кириш имтиҳони",
-	},
-	"quiz.entrance.description": {
-		en: "Comprehensive test covering basic medical sciences for entrance preparation.",
-		ru: "Комплексный тест по основным медицинским наукам для подготовки к поступлению.",
-		uz: "Кириш тайёргарлиги учун асосий тиббий фанлар бўйича комплекс тест.",
-	},
 	"quiz.medical_english.title": {
 		en: "Medical English",
 		ru: "Медицинский английский",
@@ -214,16 +155,6 @@ const translations: Translations = {
 		en: "English language skills for medical professionals.",
 		ru: "Навыки английского языка для медицинских работников.",
 		uz: "Тиббий ходимлар учун инглиз тили кўникмалари.",
-	},
-	"quiz.medical_anatomy.title": {
-		en: "Medical Anatomy",
-		ru: "Медицинская анатомия",
-		uz: "Тиббий анатомия",
-	},
-	"quiz.medical_anatomy.description": {
-		en: "Human anatomy knowledge for medical studies.",
-		ru: "Знания анатомии человека для медицинских исследований.",
-		uz: "Тиббий тадқиқотлар учун инсон анатомияси билими.",
 	},
 	"quiz.student_english.title": {
 		en: "Student English",
@@ -235,25 +166,15 @@ const translations: Translations = {
 		ru: "Основы английской грамматики для студентов.",
 		uz: "Талабалар учун инглиз тили грамматикаси асослари.",
 	},
-	"quiz.professor_management.title": {
-		en: "Healthcare Management",
-		ru: "Управление здравоохранением",
-		uz: "Соғлиқни сақлашни бошқариш",
+	"quiz.professor_neonatology.title": {
+		en: "Neonatology specialty",
+		ru: "Специальность неонатология",
+		uz: "Неонатология мутахассислиги",
 	},
-	"quiz.professor_management.description": {
-		en: "Management principles for healthcare professionals.",
-		ru: "Принципы управления для медицинских работников.",
-		uz: "Тиббий ходимлар учун бошқарув тамойиллари.",
-	},
-	"quiz.applicant_entrance.title": {
-		en: "Medical Entrance Exam",
-		ru: "Вступительный медицинский экзамен",
-		uz: "Тиббиёт кириш имтиҳони",
-	},
-	"quiz.applicant_entrance.description": {
-		en: "Preparation for medical school entrance exams.",
-		ru: "Подготовка к вступительным экзаменам в медицинский вуз.",
-		uz: "Тиббиёт институтига кириш имтиҳонларига тайёргарлик.",
+	"quiz.professor_neonatology.description": {
+		en: "Test of knowledge in neonatology.",
+		ru: "Тест на знания в области неонатологии.",
+		uz: "Неонатология соҳаси бўйича билимлар тести.",
 	},
 	"quiz.applicant_history.title": {
 		en: "History for applicants",
