@@ -5,8 +5,10 @@ import { medicalPharmacyQuestions } from "./medical/pharmacy"
 import { medicalEnglishQuestions } from "./medical/english"
 import { studentEnglishQuestions } from "./student/english"
 import { studentComputerScienceQuestions } from "./student/computerScience"
-import { professorNeonatologyQuestions } from "./professor/neonatology"
+import { medicalNeonatologyQuestions } from "./medical/neonatology"
 import { applicantHistoryQuestions } from "./applicant/history"
+import { lyceumTherapyQuestions } from "./lyceum/therapy"
+import { lyceumNursingQuestions } from "./lyceum/nursing"
 
 
 // Quiz metadata
@@ -25,20 +27,32 @@ export const quizzes: QuizInfo[] = [
 		subject: "english",
 		categoryFolder: "medical",
 	},
+	// {
+	// 	id: "medical-english",
+	// 	titleKey: "quiz.medical_english.title",
+	// 	descriptionKey: "quiz.medical_english.description",
+	// 	category: ["medical"],
+	// 	difficulty: "medium",
+	// 	questionCount: 20,
+	// 	available: true,
+	// 	icon: "🇬🇧",
+	// 	color: "from-blue-400 to-indigo-500",
+	// 	subject: "english",
+	// 	categoryFolder: "medical",
+	// },
 	{
-		id: "medical-english",
-		titleKey: "quiz.medical_english.title",
-		descriptionKey: "quiz.medical_english.description",
-		category: ["medical"],
+		id: "medical-neonatology",
+		titleKey: "quiz.medical_neonatology.title",
+		descriptionKey: "quiz.medical_neonatology.description",
+		category: ["employee", "medical"],
 		difficulty: "medium",
 		questionCount: 20,
 		available: true,
-		icon: "🇬🇧",
-		color: "from-blue-400 to-indigo-500",
-		subject: "english",
+		icon: "🚼",
+		color: "from-orange-400 to-red-500",
+		subject: "neonatology",
 		categoryFolder: "medical",
 	},
-
 	// Student Quizzes
 	{
 		id: "student-computer-science",
@@ -53,35 +67,47 @@ export const quizzes: QuizInfo[] = [
 		subject: "computer science",
 		categoryFolder: "student",
 	},
-	{
-		id: "student-english",
-		titleKey: "quiz.student_english.title",
-		descriptionKey: "quiz.student_english.description",
-		category: ["student"],
-		difficulty: "easy",
-		questionCount: 20,
-		available: true,
-		icon: "📚",
-		color: "from-green-400 to-teal-500",
-		subject: "english",
-		categoryFolder: "student",
-	},
+	// {
+	// 	id: "student-english",
+	// 	titleKey: "quiz.student_english.title",
+	// 	descriptionKey: "quiz.student_english.description",
+	// 	category: ["student"],
+	// 	difficulty: "easy",
+	// 	questionCount: 20,
+	// 	available: true,
+	// 	icon: "📚",
+	// 	color: "from-green-400 to-teal-500",
+	// 	subject: "english",
+	// 	categoryFolder: "student",
+	// },
 
 	// Professor Quizzes
 	{
-		id: "professor-neonatology",
-		titleKey: "quiz.professor_neonatology.title",
-		descriptionKey: "quiz.professor_neonatology.description",
-		category: ["professor", "employee"],
-		difficulty: "medium",
+		id: "professor-computer-science",
+		titleKey: "quiz.professor_computer_science.title",
+		descriptionKey: "quiz.professor_computer_science.description",
+		category: ["professor"],
+		difficulty: "easy",
 		questionCount: 20,
 		available: true,
-		icon: "🚼",
-		color: "from-orange-400 to-red-500",
-		subject: "neonatology",
-		categoryFolder: "professor",
+		icon: "💻",
+		color: "from-orange-400 to-teal-500",
+		subject: "computer science",
+		categoryFolder: "student",
 	},
-
+	// {
+	// 	id: "professor-english",
+	// 	titleKey: "quiz.professor_english.title",
+	// 	descriptionKey: "quiz.professor_english.description",
+	// 	category: ["professor"],
+	// 	difficulty: "easy",
+	// 	questionCount: 20,
+	// 	available: true,
+	// 	icon: "📚",
+	// 	color: "from-green-400 to-teal-500",
+	// 	subject: "english",
+	// 	categoryFolder: "student",
+	// },
 	// Applicant Quizzes
 	{
 		id: "applicant-history",
@@ -98,16 +124,44 @@ export const quizzes: QuizInfo[] = [
 	},
 
 	// Academic Lyceum Quizzes
-
+	{
+		id: "lyceum-therapy",
+		titleKey: "quiz.lyceum_therapy.title",
+		descriptionKey: "quiz.lyceum_therapy.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "🩺",
+		color: "from-indigo-600 to-purple-800",
+		subject: "therapy",
+		categoryFolder: "lyceum",
+	},
+	{
+		id: "lyceum-nursing",
+		titleKey: "quiz.lyceum_nursing.title",
+		descriptionKey: "quiz.lyceum_nursing.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "💉",
+		color: "from-orange-400 to-red-500",
+		subject: "nursing",
+		categoryFolder: "lyceum",
+	},
 ]
 
 // Quiz questions data - organized by quiz ID
 export const quizData = {
 	"medical-pharmacy": medicalPharmacyQuestions,
 	"medical-english": medicalEnglishQuestions,
+	"medical-neonatology": medicalNeonatologyQuestions,
 	"student-english": studentEnglishQuestions,
 	"student-computer-science": studentComputerScienceQuestions,
-	"professor-neonatology": professorNeonatologyQuestions,
 	"applicant-history": applicantHistoryQuestions,
-
+	"professor-computer-science": studentComputerScienceQuestions,
+	"professor-english": studentEnglishQuestions,
+	"lyceum-therapy": lyceumTherapyQuestions,
+	"lyceum-nursing": lyceumNursingQuestions,
 }

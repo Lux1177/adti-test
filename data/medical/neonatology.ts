@@ -1,6 +1,6 @@
 import type {Locale, Question} from "~/types/quiz"
 
-export const professorNeonatologyQuestions: Record<Locale, Question[]> = {
+export const medicalNeonatologyQuestions: Record<Locale, Question[]> = {
 	en: [
 		{
 			questionText: "Vaginal bleeding occurs in the following cases:",

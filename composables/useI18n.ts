@@ -156,6 +156,16 @@ const translations: Translations = {
 		ru: "Навыки английского языка для медицинских работников.",
 		uz: "Тиббий ходимлар учун инглиз тили кўникмалари.",
 	},
+	"quiz.medical_neonatology.title": {
+		en: "Neonatology specialty",
+		ru: "Специальность неонатология",
+		uz: "Неонатология мутахассислиги",
+	},
+	"quiz.medical_neonatology.description": {
+		en: "Test of knowledge in neonatology.",
+		ru: "Тест на знания в области неонатологии.",
+		uz: "Неонатология соҳаси бўйича билимлар тести.",
+	},
 	"quiz.student_english.title": {
 		en: "Student English",
 		ru: "Английский для студентов",
@@ -166,15 +176,45 @@ const translations: Translations = {
 		ru: "Основы английской грамматики для студентов.",
 		uz: "Талабалар учун инглиз тили грамматикаси асослари.",
 	},
-	"quiz.professor_neonatology.title": {
-		en: "Neonatology specialty",
-		ru: "Специальность неонатология",
-		uz: "Неонатология мутахассислиги",
+	"quiz.professor_computer_science.title": {
+		en: "Information Technologies for Certification",
+		ru: "Информационные технологии для аттестации",
+		uz: "Аттестация учун ахборот технологиялари",
 	},
-	"quiz.professor_neonatology.description": {
-		en: "Test of knowledge in neonatology.",
-		ru: "Тест на знания в области неонатологии.",
-		uz: "Неонатология соҳаси бўйича билимлар тести.",
+	"quiz.professor_computer_science.description": {
+		en: "Covers basic IT skills for certification.",
+		ru: "Основы ИТ для прохождения аттестации.",
+		uz: "Аттестация учун асосий ИТ билимлар.",
+	},
+	"quiz.professor_english.title": {
+		en: "English Language for Certification",
+		ru: "Английский язык для аттестации",
+		uz: "Аттестация учун инглиз тили",
+	},
+	"quiz.professor_english.description": {
+		en: "Grammar, vocabulary, and basic communication skills.",
+		ru: "Грамматика, лексика и базовое общение.",
+		uz: "Грамматика, луғат ва мулоқот кўникмалари.",
+	},
+	"quiz.lyceum_therapy.title": {
+		en: "Therapy Test for Academic Lyceums",
+		ru: "Тест по терапии для лицеев",
+		uz: "Терапия тести (лицейлар учун)",
+	},
+	"quiz.lyceum_therapy.description": {
+		en: "Covers internal diseases and treatment basics.",
+		ru: "Основы терапии и внутренних болезней.",
+		uz: "Ички касалликлар ва даволаш асослари.",
+	},
+	"quiz.lyceum_nursing.title": {
+		en: "Nursing Test",
+		ru: "Тест по сестринскому делу",
+		uz: "Ҳамширалик иши тести",
+	},
+	"quiz.lyceum_nursing.description": {
+		en: "Covers basic nursing care and practice.",
+		ru: "Основы ухода и сестринской практики.",
+		uz: "Асосий парвариш ва амалийот саволлари.",
 	},
 	"quiz.applicant_history.title": {
 		en: "History for applicants",
