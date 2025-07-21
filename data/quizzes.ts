@@ -2,10 +2,11 @@ import type { QuizInfo } from "~/types/quiz"
 
 // Import all question sets
 import { medicalPharmacyQuestions } from "./medical/pharmacy"
-import { medicalEnglishQuestions } from "./medical/english"
-import { studentEnglishQuestions } from "./student/english"
+// import { medicalEnglishQuestions } from "./medical/english"
+// import { studentEnglishQuestions } from "./student/english"
 import { studentComputerScienceQuestions } from "./student/computerScience"
 import { medicalNeonatologyQuestions } from "./medical/neonatology"
+import { medicalDmedQuestions } from "./medical/dmed"
 import { applicantHistoryQuestions } from "./applicant/history"
 import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
@@ -24,7 +25,20 @@ export const quizzes: QuizInfo[] = [
 		available: true,
 		icon: "💊",
 		color: "from-green-500 to-indigo-600",
-		subject: "english",
+		subject: "pharmacy",
+		categoryFolder: "medical",
+	},
+	{
+		id: "medical-dmed",
+		titleKey: "quiz.medical_dmed.title",
+		descriptionKey: "quiz.medical_dmed.description",
+		category: ["medical"],
+		difficulty: "hard",
+		questionCount: 20,
+		available: true,
+		icon: "⚕️",
+		color: "from-orange-400 to-teal-500",
+		subject: "dmed",
 		categoryFolder: "medical",
 	},
 	// {
@@ -155,13 +169,14 @@ export const quizzes: QuizInfo[] = [
 // Quiz questions data - organized by quiz ID
 export const quizData = {
 	"medical-pharmacy": medicalPharmacyQuestions,
-	"medical-english": medicalEnglishQuestions,
+	"medical-dmed": medicalDmedQuestions,
+	// "medical-english": medicalEnglishQuestions,
 	"medical-neonatology": medicalNeonatologyQuestions,
-	"student-english": studentEnglishQuestions,
+	// "student-english": studentEnglishQuestions,
 	"student-computer-science": studentComputerScienceQuestions,
 	"applicant-history": applicantHistoryQuestions,
 	"professor-computer-science": studentComputerScienceQuestions,
-	"professor-english": studentEnglishQuestions,
+	// "professor-english": studentEnglishQuestions,
 	"lyceum-therapy": lyceumTherapyQuestions,
 	"lyceum-nursing": lyceumNursingQuestions,
 }

@@ -136,6 +136,16 @@ const translations: Translations = {
 		ru: "Проверьте свои знания по Фармации.",
 		uz: "Фармациядан билимингизни синаб кўринг.",
 	},
+	"quiz.medical_dmed.title": {
+		en: "DMED Test",
+		ru: "DMED Тест",
+		uz: "DMED Тест",
+	},
+	"quiz.medical_dmed.description": {
+		en: "DMED Test (manager)",
+		ru: "DMED Тест (менеджер)",
+		uz: "DMED Тест (менежер)",
+	},
 	"quiz.english.title": {
 		en: "English Grammar Test",
 		ru: "Тест по английской грамматике",
