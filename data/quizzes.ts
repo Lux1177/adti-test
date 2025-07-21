@@ -50,7 +50,7 @@ export const quizzes: QuizInfo[] = [
 		questionCount: 20,
 		available: true,
 		icon: "🩻",
-		color: "from-orange-400 to-yellow-800",
+		color: "from-orange-400 to-blue-600",
 		subject: "xray",
 		categoryFolder: "medical",
 	},
