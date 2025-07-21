@@ -142,9 +142,19 @@ const translations: Translations = {
 		uz: "DMED Тест",
 	},
 	"quiz.medical_dmed.description": {
-		en: "DMED Test (manager)",
-		ru: "DMED Тест (менеджер)",
-		uz: "DMED Тест (менежер)",
+		en: "DMED Test (manager).",
+		ru: "DMED Тест (менеджер).",
+		uz: "DMED Тест (менежер).",
+	},
+	"quiz.medical_xray.title": {
+		en: "Test on X-ray Laboratory",
+		ru: "Тест по рентгенологической лаборатории",
+		uz: "Рентген лабораторияси бўйича тест",
+	},
+	"quiz.medical_xray.description": {
+		en: "Knowledge of X-ray equipment and safety.",
+		ru: "Знания об оборудовании и безопасности рентгена.",
+		uz: "Рентген ускуналари ва хавфсизлик бўйича билимлар.",
 	},
 	"quiz.english.title": {
 		en: "English Grammar Test",
