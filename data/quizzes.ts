@@ -7,6 +7,7 @@ import { medicalPharmacyQuestions } from "./medical/pharmacy"
 import { studentComputerScienceQuestions } from "./student/computerScience"
 import { medicalNeonatologyQuestions } from "./medical/neonatology"
 import { medicalDmedQuestions } from "./medical/dmed"
+import { medicalXrayQuestions } from "./medical/xray"
 import { applicantHistoryQuestions } from "./applicant/history"
 import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
@@ -183,6 +184,7 @@ export const quizzes: QuizInfo[] = [
 export const quizData = {
 	"medical-pharmacy": medicalPharmacyQuestions,
 	"medical-dmed": medicalDmedQuestions,
+	"medical-xray": medicalXrayQuestions,
 	// "medical-english": medicalEnglishQuestions,
 	"medical-neonatology": medicalNeonatologyQuestions,
 	// "student-english": studentEnglishQuestions,
