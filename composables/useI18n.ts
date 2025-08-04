@@ -71,8 +71,8 @@ const translations: Translations = {
 	},
 	"category.academic_lyceum": {
 		en: "For Academic Lyceums",
-		ru: "Для академических лицеев",
-		uz: "Академик лицейлар учун",
+		ru: "Для учителей академических лицеев",
+		uz: "Академик лицей ўкитувчилари учун",
 	},
 
 	// Navigation
