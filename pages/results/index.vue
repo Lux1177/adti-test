@@ -60,9 +60,38 @@
 import { computed } from 'vue'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
+import {useHead} from "#app";
 
 const { t, locale } = useI18n()
 const quizStore = useQuizStore()
+
+useHead({
+	title: "Натижалар",
+	meta: [
+		{
+			name: 'description',
+			content: "Тестлар натижалари"
+		},
+		{
+			property: 'og:title',
+			content: "Натижалар"
+		},
+		{
+			property: 'og:description',
+			content: "Тестлар натижалари"
+		},
+		{
+			property: 'og:image',
+			content: '/icon.png'
+		}
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://adti-test.vercel.app/test/results`
+		}
+	]
+})
 
 const results = computed(() => quizStore.state.resultsHistory)
 

@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useI18n } from '~/composables/useI18n'
+import {useHead} from "#app";
 
 const { t, loadLocale } = useI18n()
 const languageSelected = ref(false)
@@ -52,4 +53,33 @@ onMounted(() => {
 	}
 	loadLocale()
 })
+
+useHead({
+	title: `АДТИ — Тест`,
+	meta: [
+		{
+			name: 'description',
+			content: "Андижон Давлат Тиббиёт Институти - Тест синовлари"
+		},
+		{
+			property: 'og:title',
+			content: "АДТИ — Тест"
+		},
+		{
+			property: 'og:description',
+			content: "Андижон Давлат Тиббиёт Институти - Тест синовлари"
+		},
+		{
+			property: 'og:image',
+			content: '/icon.png'
+		}
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: "https://adti-test.vercel.app/"
+		}
+	]
+})
+
 </script>

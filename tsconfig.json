@@ -3,13 +3,22 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "ESNext", // Changed from CommonJS to ESNext for better tree-shaking
+    "moduleResolution": "Bundler", // Changed from Node to Bundler (modern)
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "strict": true,
+    "noImplicitOverride": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-
-}
+    "forceConsistentCasingInFileNames": true,
+    // Additional helpful options
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true
+  }
 }

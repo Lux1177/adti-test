@@ -51,9 +51,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from '#app'
+import {useHead, useRoute, useRouter} from '#app'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
+import { getQuizInfoById } from "~/data/quizzes.ts";
 
 const quizStore = useQuizStore()
 const route = useRoute()
@@ -71,6 +72,36 @@ onMounted(() => {
 		router.push('/test');
 	}
 });
+
+const quiz = getQuizInfoById(quizId);
+
+useHead({
+	title: t(quiz?.titleKey),
+	meta: [
+		{
+			name: 'description',
+			content: t(quiz?.descriptionKey)
+		},
+		{
+			property: 'og:title',
+			content: t(quiz?.titleKey)
+		},
+		{
+			property: 'og:description',
+			content: t(quiz?.descriptionKey)
+		},
+		{
+			property: 'og:image',
+			content: '/icon.png'
+		}
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://adti-test.vercel.app/test/${quizId}`
+		}
+	]
+})
 
 const handleAnswer = (answer: string) => {
 	quizStore.selectAnswer(answer)

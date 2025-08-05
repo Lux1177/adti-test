@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from '#app'
+import {useHead, useRoute, useRouter} from '#app'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
 import type { QuizResult } from '~/types/quiz'
@@ -41,6 +41,36 @@ const result = ref<QuizResult | undefined>(undefined)
 
 onMounted(() => {
 	result.value = quizStore.getResultById(resultId)
+})
+
+
+
+useHead({
+	title: "Натижалар",
+	meta: [
+		{
+			name: 'description',
+			content: "Тестлар натижалари"
+		},
+		{
+			property: 'og:title',
+			content: "Натижалар"
+		},
+		{
+			property: 'og:description',
+			content: "Тестлар натижалари"
+		},
+		{
+			property: 'og:image',
+			content: '/icon.png'
+		}
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://adti-test.vercel.app/test/results`
+		}
+	]
 })
 
 const handleRestart = async (quizId: string) => {

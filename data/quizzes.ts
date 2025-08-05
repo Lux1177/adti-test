@@ -180,6 +180,14 @@ export const quizzes: QuizInfo[] = [
 	},
 ]
 
+export const getQuizInfoById = (quizId: string) => {
+	for (let quiz of quizzes) {
+		if (quiz.id === quizId) {
+			return quiz;
+		}
+	} return
+}
+
 // Quiz questions data - organized by quiz ID
 export const quizData = {
 	"medical-pharmacy": medicalPharmacyQuestions,

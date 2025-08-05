@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { ref, defineAsyncComponent } from 'vue'
-import { useRouter, navigateTo } from '#app'
+import {useRouter, navigateTo, useHead} from '#app'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
 import type { UserCategory } from '~/types/quiz'
@@ -50,6 +50,36 @@ const QuizSelector = defineAsyncComponent(() => import('~/components/QuizSelecto
 const { t, locale } = useI18n()
 const quizStore = useQuizStore()
 const router = useRouter()
+
+
+useHead({
+	title: `АДТИ — Тест`,
+	meta: [
+		{
+			name: 'description',
+			content: "Андижон Давлат Тиббиёт Институти - Тест синовлари"
+		},
+		{
+			property: 'og:title',
+			content: "АДТИ — Тест"
+		},
+		{
+			property: 'og:description',
+			content: "Андижон Давлат Тиббиёт Институти - Тест синовлари"
+		},
+		{
+			property: 'og:image',
+			content: '/icon.png'
+		}
+	],
+	link: [
+		{
+			rel: 'canonical',
+			href: "https://adti-test.vercel.app/test/"
+		}
+	]
+})
+
 
 type Step = 'category' | 'quiz'
 
