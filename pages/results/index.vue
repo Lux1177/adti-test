@@ -26,24 +26,22 @@
 
 			<!-- Results List -->
 			<div v-else>
-				<TransitionGroup name="list-ultra" tag="div" class="space-y-6">
+				<TransitionGroup name="list-ultra" tag="div" class="space-y-6 grid grid-cols-2 gap-6">
 					<!-- v-memo helps Vue skip re-rendering this component if the result object hasn't changed -->
-					<div v-for="result in results" :key="result.id" v-memo="[result]">
+					<div v-for="result in results" :key="result.id" v-memo="[result]" class="m-0">
 						<NuxtLink
 							:to="`/results/${result.id}`"
-							class="block glass-light-ultra rounded-3xl p-6 card-ultra-hover transition-all duration-300 hover:border-white/30"
+							class="block glass-light-ultra rounded-3xl p-6 card-ultra-hover transition-all duration-300 hover:border-white/30 min-h-full"
 						>
-							<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-								<div class="flex-1">
+							<div class="min-h-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+								<div class="min-h-full flex flex-col justify-between items-start">
 									<p class="text-sm text-white/60 mb-2">{{ formatDate(result.completedAt) }}</p>
 									<h3 class="text-xl font-semibold text-white mb-2">{{ t(result.quizTitleKey) }}</h3>
-									<p class="text-white/80">
-										{{ t('results.score', { score: result.score, total: result.totalQuestions }) }}
-									</p>
+
 								</div>
 								<div class="flex items-center gap-4">
 									<div class="text-2xl font-light" :class="getScoreColorClass(result.percentage)">
-										{{ result.percentage.toFixed(1) }}%
+										{{ getGrade(result.percentage) }}
 									</div>
 									<Icon name="heroicons:chevron-right" class="w-6 h-6 text-white/50" />
 								</div>
@@ -60,7 +58,7 @@
 import { computed } from 'vue'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { useI18n } from '~/composables/useI18n'
-import {useHead} from "#app";
+import { useHead } from "#app";
 
 const { t, locale } = useI18n()
 const quizStore = useQuizStore()
@@ -107,4 +105,12 @@ const getScoreColorClass = (percentage: number) => {
 	if (percentage >= 60) return 'text-yellow-400'
 	return 'text-red-400'
 }
+
+const getGrade = (percentage: number) => {
+	if (percentage >= 86) return 5
+	else if (percentage >= 71) return 4
+	else if (percentage >= 55) return 3
+	else return 0
+}
+
 </script>
