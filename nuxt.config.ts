@@ -22,7 +22,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "uz",
       },
-    },
         title: 'АДТИ - Тест',
         meta: [
           { charset: 'utf-8' },
@@ -35,19 +34,13 @@ export default defineNuxtConfig({
           { property: 'og:description', content: 'АДТИ - Тестлар' },
           { property: 'og:type', content: 'website' },
           { property: 'og:url', content: 'https://adti-test.vercel.app' },
-          { property: 'og:image', content: 'https://example.com/preview.jpg' },
+          {property: 'og:image', content: '/icon.png'},
 
-          // Twitter Card
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: 'Название сайта' },
-          { name: 'twitter:description', content: 'Описание для Twitter' },
-          { name: 'twitter:image', content: 'https://example.com/twitter-preview.jpg' }
         ],
         link: [
-          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+          {rel: 'icon', type: 'image/x-icon', href: '/icon.png'}
         ]
-      }
-    }
+    },
   },
   fonts: {
     families: [{ name: "Inter", provider: "google", weights: [300, 400, 500, 600, 700] }],
