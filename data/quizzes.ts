@@ -13,6 +13,7 @@ import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
 import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
 import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
+import {lyceumMedicalPrevQuestions} from "~/data/lyceum/medicalPrev.ts";
 
 
 // Quiz metadata
@@ -206,6 +207,19 @@ export const quizzes: QuizInfo[] = [
 		subject: "orthopedic dentistry and orthodontics",
 		categoryFolder: "lyceum",
 	},
+	{
+		id: "lyceum-medical-prev",
+		titleKey: "quiz.lyceum_medical_prev.title",
+		descriptionKey: "quiz.lyceum_medical_prev.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "😷",
+		color: "from-orange-400 to-red-500",
+		subject: "medical prevention",
+		categoryFolder: "lyceum",
+	},
 ]
 
 export const getQuizInfoById = (quizId: string) => {
@@ -232,4 +246,5 @@ export const quizData = {
 	"lyceum-nursing": lyceumNursingQuestions,
 	"lyceum-dental-surgery": lyceumDentalSurgeryQuestions,
 	"lyceum-dent-ort": lyceumDentOrtQuestions,
+	"lyceum-medical-prev": lyceumMedicalPrevQuestions,
 }

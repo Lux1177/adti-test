@@ -256,6 +256,16 @@ const translations: Translations = {
 		ru: "Зубы, протезирование и исправление.",
 		uz: "Тишлар, протезлаш ва тузатиш.",
 	},
+	"quiz.lyceum_medical_prev.title": {
+		en: "Basics of medical prevention",
+		ru: "Основы медицинской профилактики",
+		uz: "Тиббий профилактика асослари",
+	},
+	"quiz.lyceum_medical_prev.description": {
+		en: "Methods of disease prevention.",
+		ru: "Методы предупреждения заболеваний.",
+		uz: "Касалликларни олдини олиш усуллари.",
+	},
 	"quiz.applicant_history.title": {
 		en: "History for applicants",
 		ru: "История для абитуриентов",
