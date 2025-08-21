@@ -236,6 +236,26 @@ const translations: Translations = {
 		ru: "Основы ухода и сестринской практики.",
 		uz: "Асосий парвариш ва амалийот саволлари.",
 	},
+	"quiz.lyceum_dental_surgery.title": {
+		en: "Maxillofacial surgery Test",
+		ru: "Тест челюстно-лицевой хирургии",
+		uz: "Юз-жаг жаррохлиги тести",
+	},
+	"quiz.lyceum_dental_surgery.description": {
+		en: "Dental maxillofacial surgery Test.",
+		ru: "Основы стоматологической челюстно-лицевой хирургии.",
+		uz: "Стоматологик юз-жаг жаррохлиги асосий билимлари.",
+	},
+	"quiz.lyceum_dent_ort.title": {
+		en: "Prosthetic dentistry and orthodontics",
+		ru: "Ортопедическая стоматология и ортодонтия",
+		uz: "Ортапедик стоматология асослари",
+	},
+	"quiz.lyceum_dent_ort.description": {
+		en: "Teeth structure and correction.",
+		ru: "Зубы, протезирование и исправление.",
+		uz: "Тишлар, протезлаш ва тузатиш.",
+	},
 	"quiz.applicant_history.title": {
 		en: "History for applicants",
 		ru: "История для абитуриентов",

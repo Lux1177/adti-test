@@ -11,6 +11,8 @@ import { medicalXrayQuestions } from "./medical/xray"
 import { applicantHistoryQuestions } from "./applicant/history"
 import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
+import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
+import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
 
 
 // Quiz metadata
@@ -178,6 +180,32 @@ export const quizzes: QuizInfo[] = [
 		subject: "nursing",
 		categoryFolder: "lyceum",
 	},
+	{
+		id: "lyceum-dental-surgery",
+		titleKey: "quiz.lyceum_dental_surgery.title",
+		descriptionKey: "quiz.lyceum_dental_surgery.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "🦷",
+		color: "from-orange-400 to-red-500",
+		subject: "dental-surgery",
+		categoryFolder: "lyceum",
+	},
+	{
+		id: "lyceum-dent-ort",
+		titleKey: "quiz.lyceum_dent_ort.title",
+		descriptionKey: "quiz.lyceum_dent_ort.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "🦷",
+		color: "from-orange-400 to-red-500",
+		subject: "orthopedic dentistry and orthodontics",
+		categoryFolder: "lyceum",
+	},
 ]
 
 export const getQuizInfoById = (quizId: string) => {
@@ -202,4 +230,6 @@ export const quizData = {
 	// "professor-english": studentEnglishQuestions,
 	"lyceum-therapy": lyceumTherapyQuestions,
 	"lyceum-nursing": lyceumNursingQuestions,
+	"lyceum-dental-surgery": lyceumDentalSurgeryQuestions,
+	"lyceum-dent-ort": lyceumDentOrtQuestions,
 }
