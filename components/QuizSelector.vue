@@ -61,6 +61,11 @@
                       <Icon name="heroicons:signal" class="w-4 h-4 mr-1" />
                       {{ quiz.difficulty }}
                     </span>
+										<!-- Language indicator for language-specific tests -->
+										<span v-if="quiz.specificLanguage" class="flex items-center">
+                      <Icon name="heroicons:language" class="w-4 h-4 mr-1" />
+                      {{ getLanguageName(quiz.specificLanguage) }}
+                    </span>
 									</div>
 								</div>
 							</div>
@@ -177,7 +182,7 @@ import { computed } from 'vue'
 import { useI18n } from '~/composables/useI18n'
 import { useQuizStore } from '~/composables/useQuizStore'
 import { quizzes } from '~/data/quizzes'
-import type { UserCategory } from '~/types/quiz'
+import type { UserCategory, Locale } from '~/types/quiz'
 
 const { t, locale } = useI18n()
 const quizStore = useQuizStore()
@@ -197,10 +202,22 @@ const emit = defineEmits<{
 	'change-language': []
 }>()
 
+// Filter quizzes based on category and language
 const availableQuizzes = computed(() => {
-	return quizzes.filter(quiz =>
-		quiz.available && quiz.category.includes(props.selectedCategory)
-	)
+	return quizzes.filter(quiz => {
+		// Check if quiz is available and matches category
+		if (!quiz.available || !quiz.category.includes(props.selectedCategory)) {
+			return false
+		}
+
+		// If quiz has a specific language requirement, only show it for that language
+		if (quiz.specificLanguage) {
+			return quiz.specificLanguage === locale.value
+		}
+
+		// For multilingual tests, always show them
+		return true
+	})
 })
 
 const startQuiz = (quizId: string) => {
@@ -224,14 +241,23 @@ const getCategoryImage = (category: UserCategory) => {
 }
 
 const getCategoryTitle = (category: UserCategory) => {
-	const titles = {
-		professor: 'Professor',
-		employee: 'Employee',
-		student: 'Student',
-		medical: 'Medical',
-		applicant: 'Applicant',
-		academic_lyceum: 'Academic Lyceum'
+	const titleKeys = {
+		professor: 'category.professor_title',
+		employee: 'category.employee_title',
+		student: 'category.student_title',
+		medical: 'category.medical_title',
+		applicant: 'category.applicant_title',
+		academic_lyceum: 'category.academic_lyceum_title'
 	}
-	return titles[category]
+	return t(titleKeys[category])
+}
+
+const getLanguageName = (lang: Locale) => {
+	const names = {
+		en: 'English',
+		ru: 'Русский',
+		uz: 'O\'zbek'
+	}
+	return names[lang]
 }
 </script>

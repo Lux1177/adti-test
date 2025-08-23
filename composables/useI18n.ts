@@ -114,6 +114,38 @@ const translations: Translations = {
 		uz: "Категорияларга қайтиш",
 	},
 
+	// Category titles for badges
+	"category.professor_title": {
+		en: "Professor",
+		ru: "Профессор",
+		uz: "Профессор",
+	},
+	"category.employee_title": {
+		en: "Employee",
+		ru: "Сотрудник",
+		uz: "Ходим",
+	},
+	"category.student_title": {
+		en: "Student",
+		ru: "Студент",
+		uz: "Талаба",
+	},
+	"category.medical_title": {
+		en: "Medical Worker",
+		ru: "Медработник",
+		uz: "Шифокор",
+	},
+	"category.applicant_title": {
+		en: "Applicant",
+		ru: "Абитуриент",
+		uz: "Абитуриент",
+	},
+	"category.academic_lyceum_title": {
+		en: "Academic Lyceum",
+		ru: "Академический лицей",
+		uz: "Академик лицей",
+	},
+
 	// Quiz Titles and Descriptions
 
 	"quiz.student_computer_science.title": {
@@ -265,6 +297,16 @@ const translations: Translations = {
 		en: "Methods of disease prevention.",
 		ru: "Методы предупреждения заболеваний.",
 		uz: "Касалликларни олдини олиш усуллари.",
+	},
+	"quiz.lyceum_pediatrics.title": {
+		en: "Basics of pediatrics",
+		ru: "Основы педиатрии",
+		uz: "Педиатрия асослари",
+	},
+	"quiz.lyceum_pediatrics.description": {
+		en: "Child health and care.",
+		ru: "Здоровье и уход за детьми.",
+		uz: "Болалар саломатлиги ва парвариши.",
 	},
 	"quiz.applicant_history.title": {
 		en: "History for applicants",

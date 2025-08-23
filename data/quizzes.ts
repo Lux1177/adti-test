@@ -14,6 +14,7 @@ import { lyceumNursingQuestions } from "./lyceum/nursing"
 import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
 import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
 import {lyceumMedicalPrevQuestions} from "~/data/lyceum/medicalPrev.ts";
+import {lyceumPediatricsQuestions} from "~/data/lyceum/pediatrics.ts";
 
 
 // Quiz metadata
@@ -190,7 +191,7 @@ export const quizzes: QuizInfo[] = [
 		questionCount: 20,
 		available: true,
 		icon: "🦷",
-		color: "from-orange-400 to-red-500",
+		color: "from-blue-600 to-indigo-800",
 		subject: "dental-surgery",
 		categoryFolder: "lyceum",
 	},
@@ -203,7 +204,7 @@ export const quizzes: QuizInfo[] = [
 		questionCount: 20,
 		available: true,
 		icon: "🦷",
-		color: "from-orange-400 to-red-500",
+		color: "from-blue-400 to-indigo-500",
 		subject: "orthopedic dentistry and orthodontics",
 		categoryFolder: "lyceum",
 	},
@@ -216,8 +217,21 @@ export const quizzes: QuizInfo[] = [
 		questionCount: 20,
 		available: true,
 		icon: "😷",
-		color: "from-orange-400 to-red-500",
+		color: "from-cyan-200 to-red-500",
 		subject: "medical prevention",
+		categoryFolder: "lyceum",
+	},
+	{
+		id: "lyceum-pediatrics",
+		titleKey: "quiz.lyceum_pediatrics.title",
+		descriptionKey: "quiz.lyceum_pediatrics.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "👶🏼",
+		color: "from-green-500 to-indigo-600",
+		subject: "pediatrics",
 		categoryFolder: "lyceum",
 	},
 ]
@@ -247,4 +261,5 @@ export const quizData = {
 	"lyceum-dental-surgery": lyceumDentalSurgeryQuestions,
 	"lyceum-dent-ort": lyceumDentOrtQuestions,
 	"lyceum-medical-prev": lyceumMedicalPrevQuestions,
+	"lyceum-pediatrics": lyceumPediatricsQuestions,
 }
