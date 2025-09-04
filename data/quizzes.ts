@@ -13,8 +13,11 @@ import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
 import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
 import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
-import {lyceumMedicalPrevQuestions} from "~/data/lyceum/medicalPrev.ts";
-import {lyceumPediatricsQuestions} from "~/data/lyceum/pediatrics.ts";
+import { lyceumMedicalPrevQuestions } from "~/data/lyceum/medicalPrev";
+import { lyceumPediatricsQuestions } from "~/data/lyceum/pediatrics";
+import { teacherOphthalmologyQuestions } from "~/data/teacher/ophthalmology";
+import { teacherPresidentWorksQuestions } from "~/data/teacher/presidentWorks";
+import { teacherITQuestions } from "~/data/teacher/it";
 
 
 // Quiz metadata
@@ -84,6 +87,19 @@ export const quizzes: QuizInfo[] = [
 		color: "from-orange-400 to-red-500",
 		subject: "neonatology",
 		categoryFolder: "medical",
+	},
+	{
+		id: "medical-ophthalmology",
+		titleKey: "quiz.teacher_ophthalmology.title",
+		descriptionKey: "quiz.teacher_ophthalmology.description",
+		category: ["medical"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "👁️",
+		color: "from-green-800 to-indigo-500",
+		subject: "ophthalmology",
+		categoryFolder: "teacher",
 	},
 	// Student Quizzes
 	{
@@ -234,6 +250,45 @@ export const quizzes: QuizInfo[] = [
 		subject: "pediatrics",
 		categoryFolder: "lyceum",
 	},
+	{
+		id: "teacher-ophthalmology",
+		titleKey: "quiz.teacher_ophthalmology.title",
+		descriptionKey: "quiz.teacher_ophthalmology.description",
+		category: ["professor"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "👁️",
+		color: "from-green-800 to-indigo-500",
+		subject: "ophthalmology",
+		categoryFolder: "teacher",
+	},
+	{
+		id: "teacher-it",
+		titleKey: "quiz.teacher_it.title",
+		descriptionKey: "quiz.teacher_it.description",
+		category: ["professor"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "💻",
+		color: "from-cyan-600 to-red-400",
+		subject: "information technologies",
+		categoryFolder: "teacher",
+	},
+	{
+		id: "teacher-president-works",
+		titleKey: "quiz.teacher_president_works.title",
+		descriptionKey: "quiz.teacher_president_works.description",
+		category: ["professor"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "🏛️",
+		color: "from-purple-600 to-red-800",
+		subject: "president works",
+		categoryFolder: "teacher",
+	},
 ]
 
 export const getQuizInfoById = (quizId: string) => {
@@ -251,6 +306,7 @@ export const quizData = {
 	"medical-xray": medicalXrayQuestions,
 	// "medical-english": medicalEnglishQuestions,
 	"medical-neonatology": medicalNeonatologyQuestions,
+	"medical-ophthalmology": teacherOphthalmologyQuestions,
 	// "student-english": studentEnglishQuestions,
 	"student-computer-science": studentComputerScienceQuestions,
 	"applicant-history": applicantHistoryQuestions,
@@ -262,4 +318,7 @@ export const quizData = {
 	"lyceum-dent-ort": lyceumDentOrtQuestions,
 	"lyceum-medical-prev": lyceumMedicalPrevQuestions,
 	"lyceum-pediatrics": lyceumPediatricsQuestions,
+	"teacher-ophthalmology": teacherOphthalmologyQuestions,
+	"teacher-it": teacherITQuestions,
+	"teacher-president-works": teacherPresidentWorksQuestions,
 }

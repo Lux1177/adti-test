@@ -318,6 +318,36 @@ const translations: Translations = {
 		ru: "Базовые знания по истории для абитуриентов.",
 		uz: "Абитуриентлар учун тарих фанидан асосий билилар.",
 	},
+	"quiz.teacher_ophthalmology.title": {
+		en: "Basics of ophthalmology",
+		ru: "Основы офтальмологии",
+		uz: "Офтальмология асослари",
+	},
+	"quiz.teacher_ophthalmology.description": {
+		en: "Eye health and diseases.",
+		ru: "Здоровье глаз и болезни.",
+		uz: "Кўз саломатлиги ва касалликлар.",
+	},
+	"quiz.teacher_it.title": {
+		en: "Basics of information technology",
+		ru: "Основы информационных технологий",
+		uz: "Ахборот тизимлари",
+	},
+	"quiz.teacher_it.description": {
+		en: "Computers and modern software.",
+		ru: "Компьютеры и современные программы.",
+		uz: "Компьютер ва замонавий дастурлар.",
+	},
+	"quiz.teacher_president_works.title": {
+		en: "President’s works and addresses",
+		ru: "Труды и выступления Президента",
+		uz: "Президент асарлари ва нутқлари",
+	},
+	"quiz.teacher_president_works.description": {
+		en: "National development, state policy and reforms.",
+		ru: "Национальное развитие, государственная политика и реформы.",
+		uz: "Миллий тараққиёт, давлат сиёсати ва ислоҳотлар йўли.",
+	},
 
 	// Quiz Features
 	"feature.unlimited": {
