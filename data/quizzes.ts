@@ -10,8 +10,10 @@ import { teacherITQuestions } from "~/data/teacher/it"
 import { teacherOphthalmologyQuestions } from "~/data/teacher/ophthalmology"
 import { teacherPresidentWorksQuestions } from "~/data/teacher/presidentWorks"
 import { applicantHistoryQuestions } from "./applicant/history"
+import { lyceumAnatomyQuestions } from "./lyceum/anatomy"
 import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
 import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
+import { lyceumFamilyDoctorQuestions } from "./lyceum/familyDoctor"
 import { lyceumNursingQuestions } from "./lyceum/nursing"
 import { lyceumTherapyQuestions } from "./lyceum/therapy"
 import { medicalDmedQuestions } from "./medical/dmed"
@@ -264,7 +266,7 @@ export const quizzes: QuizInfo[] = [
 		categoryFolder: "lyceum",
 	},
 	{
-		id: "lyceum-family-doctor-works",
+		id: "lyceum-family-doctor",
 		titleKey: "quiz.lyceum_family_doctor.title",
 		descriptionKey: "quiz.lyceum_family_doctor.description",
 		category: ["academic_lyceum"],
@@ -344,6 +346,8 @@ export const quizData = {
 	"lyceum-dent-ort": lyceumDentOrtQuestions,
 	"lyceum-medical-prev": lyceumMedicalPrevQuestions,
 	"lyceum-pediatrics": lyceumPediatricsQuestions,
+	"lyceum-anatomy": lyceumAnatomyQuestions,
+	"lyceum-family-doctor": lyceumFamilyDoctorQuestions,
 	"teacher-ophthalmology": teacherOphthalmologyQuestions,
 	"teacher-it": teacherITQuestions,
 	"teacher-president-works": teacherPresidentWorksQuestions,
