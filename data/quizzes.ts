@@ -4,20 +4,20 @@ import type { QuizInfo } from "~/types/quiz"
 import { medicalPharmacyQuestions } from "./medical/pharmacy"
 // import { medicalEnglishQuestions } from "./medical/english"
 // import { studentEnglishQuestions } from "./student/english"
-import { studentComputerScienceQuestions } from "./student/computerScience"
-import { medicalNeonatologyQuestions } from "./medical/neonatology"
-import { medicalDmedQuestions } from "./medical/dmed"
-import { medicalXrayQuestions } from "./medical/xray"
+import { lyceumMedicalPrevQuestions } from "~/data/lyceum/medicalPrev"
+import { lyceumPediatricsQuestions } from "~/data/lyceum/pediatrics"
+import { teacherITQuestions } from "~/data/teacher/it"
+import { teacherOphthalmologyQuestions } from "~/data/teacher/ophthalmology"
+import { teacherPresidentWorksQuestions } from "~/data/teacher/presidentWorks"
 import { applicantHistoryQuestions } from "./applicant/history"
-import { lyceumTherapyQuestions } from "./lyceum/therapy"
-import { lyceumNursingQuestions } from "./lyceum/nursing"
 import { lyceumDentalSurgeryQuestions } from "./lyceum/dentalSurgery"
 import { lyceumDentOrtQuestions } from "./lyceum/dentOrt"
-import { lyceumMedicalPrevQuestions } from "~/data/lyceum/medicalPrev";
-import { lyceumPediatricsQuestions } from "~/data/lyceum/pediatrics";
-import { teacherOphthalmologyQuestions } from "~/data/teacher/ophthalmology";
-import { teacherPresidentWorksQuestions } from "~/data/teacher/presidentWorks";
-import { teacherITQuestions } from "~/data/teacher/it";
+import { lyceumNursingQuestions } from "./lyceum/nursing"
+import { lyceumTherapyQuestions } from "./lyceum/therapy"
+import { medicalDmedQuestions } from "./medical/dmed"
+import { medicalNeonatologyQuestions } from "./medical/neonatology"
+import { medicalXrayQuestions } from "./medical/xray"
+import { studentComputerScienceQuestions } from "./student/computerScience"
 
 
 // Quiz metadata
@@ -248,6 +248,32 @@ export const quizzes: QuizInfo[] = [
 		icon: "👶🏼",
 		color: "from-green-500 to-indigo-600",
 		subject: "pediatrics",
+		categoryFolder: "lyceum",
+	},	
+	{
+		id: "lyceum-anatomy",
+		titleKey: "quiz.lyceum_anatomy.title",
+		descriptionKey: "quiz.lyceum_anatomy.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "🩻",
+		color: "from-cyan-600 to-red-400",
+		subject: "anatomy",
+		categoryFolder: "lyceum",
+	},
+	{
+		id: "lyceum-family-doctor-works",
+		titleKey: "quiz.lyceum_family_doctor.title",
+		descriptionKey: "quiz.lyceum_family_doctor.description",
+		category: ["academic_lyceum"],
+		difficulty: "medium",
+		questionCount: 20,
+		available: true,
+		icon: "👩‍⚕️",
+		color: "from-purple-600 to-red-800",
+		subject: "family doctor",
 		categoryFolder: "lyceum",
 	},
 	{

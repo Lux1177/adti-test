@@ -1,4 +1,4 @@
-import type { Question, Locale } from "~/types/quiz"
+import type { Locale, Question } from "~/types/quiz"
 
 export const lyceumNursingQuestions: Record<Locale, Question[]> = {
 	en: [
@@ -1086,5 +1086,255 @@ export const lyceumNursingQuestions: Record<Locale, Question[]> = {
 			options: ["Nefrotik sindrom", "Miokardit", "Gemolitik kasallik", "Dermatomiozit"],
 			correctAnswer: "Nefrotik sindrom",
 		},
+		{
+		questionText: "Qizil yarimoy jamiyati qachondan ish boshlagan?",
+		options: ["1919 y", "1920 y", "1818 y", "1990 y"],
+		correctAnswer: "1919 y",
+	},
+	{
+		questionText: "Xamshiralik yordamini qaysi modeli V.Xenderson tomonidan taklif etilgan?",
+		options: ["Evolyutsiya - adaptatsion modeli", "Inson xulqining turli xolatlariga qaratilgan modeli", "Adabtatsion modeli", "O`z-o’ziga parvarish qilishdagi kamchiliklarga qaratilgan"],
+		correctAnswer: "Evolyutsiya - adaptatsion modeli",
+	},
+	{
+		questionText: "Sog'lom odamda odatiy ravishdagi ovqat va suyuqlikni qabul qilinganda siydikning solishtirma og'irligi  normada bo'ladi:",
+		options: ["1015-1025", "1005-1015", "1025-1035", "1005-1010"],
+		correctAnswer: "1015-1025",
+	},
+	{
+		questionText: "Sog'lom odam meyorida sutkasiga siydik bilan qancha oqsil ajratadi",
+		options: ["50 mg", "100 mg", "200 mg", "500 mg"],
+		correctAnswer: "50 mg",
+	},
+	{
+		questionText: "Dеontologiya so`zining ma'nosini ko`rsating.",
+		options: ["yunoncha - yurish  turish , axloq", "lotincha - zarur  lozim", "yunoncha - zarur  lozim", "Lotincha- yurish   turish , burch"],
+		correctAnswer: "yunoncha - yurish  turish , axloq",
+	},
+	{
+		questionText: "Florens Naytingeyl medali qachon ta'sis etilgan?",
+		options: ["Bir ming to'qqiz yuz on ikkinchi  yil", "Bir ming to'qqiz yuz yigirma beshinchi  yil", "Bir ming to'qqiz yuz  beshinchi  yil", "Bir ming to'qqiz yuz qirq  beshinchi  yil"],
+		correctAnswer: "Bir ming to'qqiz yuz on ikkinchi  yil",
+	},
+	{
+		questionText: "Abu Ali ibn Sinoning «Tib qonunlari» asari nechta kitobdan iborat?",
+		options: ["beshta", "to'rtta", "uchta", "ikkita"],
+		correctAnswer: "beshta",
+	},
+	{
+		questionText: "Hamshiralik ishining asoschisi F. Naytingeyl qachon tavallud topgan?",
+		options: ["Bir ming sakkiz yuz yigirmanchi  yil", "Bir ming to'qqiz yuz yigirmanchi  yil", "Bir ming sakkiz yuz o'ninchi  yil", "Bir ming to'qqiz yuz o'ninchi  yil"],
+		correctAnswer: "Bir ming sakkiz yuz yigirmanchi  yil",
+	},
+	{
+		questionText: "Tibbiyot dеontologiyasi tibbiyot xodimlaridan nimani talab qiladi?",
+		options: ["yuksak insoniy fazilatlarga ega bo`lishni", "bilimdonlilikni", "mеhribonlikni", "halollikni"],
+		correctAnswer: "yuksak insoniy fazilatlarga ega bo`lishni",
+	},
+	{
+		questionText: "Insonning 14 ta asosiy extiyojlari muallifi kim?",
+		options: ["V.Xenderson", "Maslou", "Rauper Logan", "Orem  Djonson"],
+		correctAnswer: "V.Xenderson",
+	},
+	{
+		questionText: "Halqaro hamshiralik ishining asoschisi kim?",
+		options: ["F. Naytingeyl", "V.Xenderson", "Orem Djonson", "Maslou"],
+		correctAnswer: "F. Naytingeyl",
+	},
+	{
+		questionText: "Halqaro hamshiralar kuni qachon nishonlanadi?",
+		options: ["o'n ikkinchi may", "birinchi yanvar", "o'n oltinchi aprel", "o'ttizinchi sentyabr"],
+		correctAnswer: "o'n ikkinchi may",
+	},
+	{
+		questionText: "“Etika”  so’zining ma'nosini ko’rsating?",
+		options: ["Yunoncha - yurish   turish, axloq", "Xitoycha - yurish   turish, axloq", "Yunoncha - yurish   turish, javobgarlik", "Lotincha - yurish   turish, burch"],
+		correctAnswer: "Yunoncha - yurish   turish, axloq",
+	},
+	{
+		questionText: "Verbal muloqot ko’nikmalariga kiradi?",
+		options: ["Yozish jarayoni, savol berish san’ati, tinglash san’ati", "Gavda holati, savol berish san’ati", "Tinglash san’ati, yuz mimikasi", "Qo’l xarakati,  gavda holati,  yuz mimikasi"],
+		correctAnswer: "Yozish jarayoni, savol berish san’ati, tinglash san’ati",
+	},
+	{
+		questionText: "Axloqiy   tushunchalarga kirmaydi",
+		options: ["Burch, qo’pollik, qadr- qimmat", "Burch, sharaf, baxt", "Burch, sharaf, vijdon", "Burch, sharaf, or-nomus"],
+		correctAnswer: "Burch, qo’pollik, qadr- qimmat",
+	},
+	{
+		questionText: "Dezinfeksiya deb nimaga aytiladi?",
+		options: ["infeksiya manbai bo`lgan mikroorga- nizm va uning sporalarini yo`qotish", "infeksiya manbai bo`lgan hashoratlarni yo`qotish", "infeksiya manbai bo`lgan mikroorga- nizmlarni yo`qotish", "infeksiya manbai bo`lgan kemiruvchilarni yo`qotish"],
+		correctAnswer: "infeksiya manbai bo`lgan mikroorga- nizm va uning sporalarini yo`qotish",
+	},
+	{
+		questionText: "Dezinfeksiya turlariga qaysilar kiradi ?",
+		options: ["mexanik, kimyoviy", "profilaktik, o`choqli", "fizik, biologik", "aralash"],
+		correctAnswer: "mexanik, kimyoviy",
+	},
+	{
+		questionText: "Hamshiralik jarayonini amalga oshirishda  rejani tuzish nimaga asoslanadi?",
+		options: ["Hamshira tashxisiga", "Hamshira tashxisiga", "Bemor xohishiga", "Oila a’zolarini xohishiga"],
+		correctAnswer: "Hamshira tashxisiga",
+	},
+	{
+		questionText: "Kattalаrda 1 daqiqada nafas harakatlari soni qancha?",
+		options: ["O'n olti-yigirmata", "Yigirma-qirq", "oltmish-sakson", "qirq-ellik"],
+		correctAnswer: "O'n olti-yigirmata",
+	},
+	{
+		questionText: "Kattalarda 1 daqiqada normada puls soni nechaga teng?",
+		options: ["oltmish - sakson", "Yuz-yuz o'n", "O'n olti-yigirmata", "qirq besh-ellik"],
+		correctAnswer: "oltmish - sakson",
+	},
+	{
+		questionText: "Antropometrik tekshiruvlarga nimalar kiradi?",
+		options: ["bo’y uzunligi, tana vazni, ko’krak qafasi va bosh aylanasini aniqlash", "tana harorati, puls va nafas harakatlari sonini aniqlash", "arterial bosim, tana vazni va muskul kuchini aniqlash", "o’pkaning tiriklik sig’imi, bo’y uzunligi va tana haroratini aniqlash"],
+		correctAnswer: "bo’y uzunligi, tana vazni, ko’krak qafasi va bosh aylanasini aniqlash",
+	},
+	{
+		questionText: "Florens Naytingeyl qachon va qayerda tug’ilgan?",
+		options: ["Florensiyada,Bir ming sakkiz yuz yigirmanchi yil", "Angilyada, Bir ming sakkiz yuz yigirmanchi yil", "Yaponiya, Bir ming to'qqiz yuz yigirmanchi yil", "Amerika, Bir ming to'qqiz yuz yigirmanchi yil"],
+		correctAnswer: "Florensiyada,Bir ming sakkiz yuz yigirmanchi yil",
+	},
+	{
+		questionText: "Fidoiy hamshiralar uchun yuksak unvon kimning nomi bilan yuritiladi va nechanchi yili?",
+		options: ["Florens Naytingeyl,  bir ming to'qqiz yuz o'n ikkinchi yil", "Abu Ali ibn Sino,      bir ming to'qqiz yuz o'n ikkinchi yil", "S.P.Botkina,              bir ming o'ttiz to'qqizinchi yil", "N.I.Pirogov,           Bir ming yigirmanchi yil"],
+		correctAnswer: "Florens Naytingeyl,  bir ming to'qqiz yuz o'n ikkinchi yil",
+	},
+	{
+		questionText: "“Antropometriya”so`zi nimani anglatadi?",
+		options: ["Bemorning  bo`yini o’lchash.Vaznini o'lchash", "Bemorni  bo`yini o’lchash,tana haroratini o’lchash", "Bemorni  bo`yini o’lchash,nafasni aniqlash", "Bemorni  bo`yini o’lchash puls sonini aniqlash"],
+		correctAnswer: "Bemorning  bo`yini o’lchash.Vaznini o'lchash",
+	},
+	{
+		questionText: "Qayerda va qachon birinchi tibbiyot bilim yurti  ochildi?",
+		options: ["Toshkentda,Bir ming,to'qqiz yuz o'n sakkizinchi yil", "Samarqanda, Bir ming,to'qqiz yuz yigirmanchi yil", "Andijonda,  Bir ming,to'qqiz yuz yigirma ikkinchi yil", "Buxoroda,Bir ming sakkiz yuz to'qsoninchi yil"],
+		correctAnswer: "Toshkentda,Bir ming,to'qqiz yuz o'n sakkizinchi yil",
+	},
+	{
+		questionText: "Chalqancha yotish holatida yotoq yaralar ko’proq paydo bo’ladigan tananing alohida sohalari?",
+		options: ["Boshning ensa qismi,kuraklar,tirsak osti, dumg’aza, tovonda", "Quloq chanog’i, akromial o’sig’i, qovurg’alarda", "Quloq chanog’i sohasi, jinsiy a’zolar, ensada", "Tirsak bo’g’imi sohasida,dumba sohasida"],
+		correctAnswer: "Boshning ensa qismi,kuraklar,tirsak osti, dumg’aza, tovonda",
+	},
+	{
+		questionText: "Yurakning qavatlarini ayting.",
+		options: ["Endokard ,Miokard, Perikard", "Miokard,Perikard,Vitseral", "Perikard, Vitseral, Plevral qavat", "Plevral qavat, Vitseral,Miokard"],
+		correctAnswer: "Endokard ,Miokard, Perikard",
+	},
+	{
+		questionText: "Ovqatning funksiyalarini aniqlang.",
+		options: ["energetik, plastik", "transport, energetik", "energetik, signal", "transport,signal"],
+		correctAnswer: "energetik, plastik",
+	},
+	{
+		questionText: "Ovqat hazm qilish sistemasining qaysi qismida fermentlar ishlab chiqariladi?",
+		options: ["Og’iz bo’shlig’ida, oshqozonda, ingichka ichakda", "Oshqozonda, ingichka ichakda", "Qizilo’ngachda, oshqozonda", "Qizil o’ngachda, ingichka ichakda"],
+		correctAnswer: "Og’iz bo’shlig’ida, oshqozonda, ingichka ichakda",
+	},
+	{
+		questionText: "Sun’iy ovqatlantirishga qaysi javob kiradi?",
+		options: ["Burun yoki og’izdan zond orqali, Gastros- toma orqali ,Parenteral ovqatlantirish", "Burun yoki og’izdan zond orqali, Qoshiq orqali, Parenteral ovqatlantirish", "Burun yoki og’izdan zond orqali, Gastros- toma orqali ,Og'iz orqali ovqatlantirish", "Gastrostoma orqali ,Choynakdan, Og'iz orqali ovqatlantirish"],
+		correctAnswer: "Burun yoki og’izdan zond orqali, Gastros- toma orqali ,Parenteral ovqatlantirish",
+	},
+	{
+		questionText: "Antropometriyada nimani o`lchaymiz?",
+		options: ["Bemor og’irligini, Bo’yi uzunligini Ko’krak aylanasini o’lchash", "A/B ni o’lchash Bemorning tana haroratini o’lchash Qo’l va oyoq kuchini", "Bemorning tana haroratini o’lchash, Qo’l va oyoq mushak- lari kuchini o'lchash", "Qo’l va oyoq mushaklari kuchini ,Bemor og’irligini, Bo’yini o'lchash"],
+		correctAnswer: "Bemor og’irligini, Bo’yi uzunligini Ko’krak aylanasini o’lchash",
+	},
+	{
+		questionText: "Patologik nafas turiga qaysilar kiradi?",
+		options: ["Cheyn-Stoks,Biot, Kussmaul", "Cheyn-Stoks, Rabkin, Orem", "Kussmaul, Maslou, Orem", "Cheyn-Stoks, Botkin, Biot"],
+		correctAnswer: "Cheyn-Stoks,Biot, Kussmaul",
+	},
+	{
+		questionText: "Muz xaltacha qo`yish mo’nelik -larga(A) va ko`rsatmalarga  (B)qaysilar kiradi?",
+		options: ["bronxlar yallig`lani- shi,qon tomirlar spazmi,lat yeyish,ichki qon ketish", "bronxlar yallig`lani- shi,qon tomirlar spazmi,lat yeyish,teri kasalliklari", "xashoratlar chaqqanda, ichki qon ketish, lat yeyish,teri kasalliklar", "ichki qon ketish, lat yeyish,teri kasalliklar, bronxlar spazmi"],
+		correctAnswer: "bronxlar yallig`lani- shi,qon tomirlar spazmi,lat yeyish,ichki qon ketish",
+	},
+	{
+		questionText: "Taktil  sezgini baholashda qanday jihozlar ishlatiladi?",
+		options: ["to`gnog`ich,moy qalam, issiq va sovuq suv", "kamerton,tonometr,sm lenta", "tonometr,sm lenta, tibbiy tarozi,tanometr, fonendoskop", "tonometr,kamerton, fonendoskop,  tibbiy tarozi"],
+		correctAnswer: "to`gnog`ich,moy qalam, issiq va sovuq suv",
+	},
+	{
+		questionText: "Glomerulonefrit qo`zg`atuvchisini ko`rsating?",
+		options: ["A guruhiga mansub,B gemolitik streptokokk", "B gemolitik strepto- kokk,D gemolitik streptokokk", "C guruhiga mansub,D  gemolitik streptokokk", "D gemolitik strepto kokk,G gemolitik streptokokk"],
+		correctAnswer: "A guruhiga mansub,B gemolitik streptokokk",
+	},
+	{
+		questionText: "Nafas olish a’zolari kasalliklarida bemor va oila a’zolarini hamshiralik ishiga o’qitishga qaysilar kiradi?",
+		options: ["Isitmalayotgan bemorni parvarish qilishni o’rgatish,yo'talda yordam ko'rsatishni, chalg'ituvchi muolaja o'rganish", "O’pkani eshitishni o’rgatish,Y'otalda yordam,isitmalayotgan bemorni parvari- shni o'rgatish", "O’pkani eshitishni o’rgatish,Y'otalda yordam,chalg'ituvchi muolajani o'tkazishni o'rgatish", "Yo'talda yordam, isitmalayotgan bemorni parvarishni o'rgatish, chalg'ituvchi muolajani o'rgatish"],
+		correctAnswer: "Isitmalayotgan bemorni parvarish qilishni o’rgatish,yo'talda yordam ko'rsatishni, chalg'ituvchi muolaja o'rganish",
+	},
+	{
+		questionText: "Og’iz bo’shlig’ini ko’zdan kechirganda nimalarga ahamiyat beriladi?",
+		options: ["tishlar,shilliq qavatlar,tomoq bezlari", "tishlar,tomoq bezlari,qizilo'ngach", "shilliq qavatlar, tomoq bezlari, burunga", "tomoq bezlariga ,qizilo'ngach, burunga"],
+		correctAnswer: "tishlar,shilliq qavatlar,tomoq bezlari",
+	},
+	{
+		questionText: "Periferik qusish(A)  va  markaziy qusish(B)ning farqini ko`rsating.",
+		options: ["ko`ngil aynishi.so`lak oqishidan keyin boshlanadi, qusuq massasi nordon hidli", "hech qanday belgisiz to`satdan boshlanadi bemor ahvolini yengillashtirmaydi", "qusuq massasi nordon hidli, me`da bo`shatil- gandan so`ng bemorning ahvoli ancha yaxshilanadi to`satdan boshlanadi", "bemor ahvolini yengillashtirmaydi ko'ngil aynish, isitma ko'tarilishi"],
+		correctAnswer: "ko`ngil aynishi.so`lak oqishidan keyin boshlanadi, qusuq massasi nordon hidli",
+	},
+	{
+		questionText: "Limfa tugunlarini palpatsiya qilganda nima baholanadi?",
+		options: ["harakatchanligi, og’riq bor-yo’qligi, yumshoq- qattiqligi xolati", "limfa funksiyasi limfa faoliyati harakatchanligi og’riq bor-yo’qligi", "og’riq bor-yo’qligi,yumshoq-qattiqligi, xolati,limfa suyuqligi", "harakatchanligi,og'riq bor-yo'qligi, yumshoq-qattiqligi, xolati,limfa suyuqligi"],
+		correctAnswer: "harakatchanligi, og’riq bor-yo’qligi, yumshoq- qattiqligi xolati",
+	},
+	{
+		questionText: "Terining funksiyalari nimalardan iborat?",
+		options: ["himoya,nafas olish, termoregulyatsiya,ayirish,sezish", "termoregulyatsiya, nafas olish, sezish, qon aylanish,yog ajratish", "teri ajratish; suyuqlik so'rilishi, yog' ajratish", "termoregulyatsiya,qon aylanish,  teri ajratish,suyuqlik so'rilishi,yog' ajratish"],
+		correctAnswer: "himoya,nafas olish, termoregulyatsiya,ayirish,sezish",
+	},
+	{
+		questionText: "Yotoq yaralarini baholash shkalasini ko’rsating.",
+		options: ["Breyden  shkalasi, Norton shkalasi", "Glasko shkalasi, Riva -Rochi shkalasi", "Glasko shkalasi Norton  shkalasi Riva-Rochchi shkalasi", "Apgar shkalasi Norton shkalasi"],
+		correctAnswer: "Breyden  shkalasi, Norton shkalasi",
+	},
+	{
+		questionText: "Siydikni go`sht seli rangiga kirishi nima deyiladi?",
+		options: ["gematuriya", "piuriya,bilirubinuriya, gemoglogin", "leykosituriya, gematouriya", "proteinuriya,silindruriya,diurez"],
+		correctAnswer: "gematuriya",
+	},
+	{
+		questionText: "O`tkir glomerulonefritda shishlar avval qayerda bo`ladi?",
+		options: ["Yuzda", "qo'lda,oyoqda", "Yuzda Qorinda", "Yuzda qo`lda"],
+		correctAnswer: "Yuzda",
+	},
+	{
+		questionText: "Oligouriya nima?",
+		options: ["siydikni kam ajralishi", "siydikni ko'p ajralishi,siydikni ajralishi kechqurun", "siydikni butunlay ajralishi,siydikni ajralishi,kechqurun ko'payishi", "siydikni kam ajralishi,siydikni ko'p ajralishi"],
+		correctAnswer: "siydikni kam ajralishi",
+	},
+	{
+		questionText: "Buyrak kasalligida og`riqlar tananing qaysi sohasida bo`ladi ?",
+		options: ["bel sohasida", "dumg`azada,epigastral sohada", "qovurg'a ostida, epigastral sohada", "bel sohada, epigastral sohada"],
+		correctAnswer: "bel sohasida",
+	},
+	{
+		questionText: "Proteinuriya – ?",
+		options: ["Siydikda ko`p miqdorda oqsil paydo bo`lishi", "siydikda ko`p miqdorda leykotsit paydo bo`lishi", "siydikda ko`p miqdorda eritrotsit paydo bo`lishi,siydikda leykotsit bo'lishi", "Siydikda ko`p miqdorda silindr paydo bo`lishi"],
+		correctAnswer: "Siydikda ko`p miqdorda oqsil paydo bo`lishi",
+	},
+	{
+		questionText: "Dizuriya nima?",
+		options: ["og`riq bilan qiynalib siyish", "siydikni umuman ajralmasligi,kechpayt tez-tez siyish", "siydikni kam ajralishi,siydikni umuman ajralmasligi", "Og'riq bilan qiynalib siyish,tez-tez kechasi siyish"],
+		correctAnswer: "og`riq bilan qiynalib siyish",
+	},
+	{
+		questionText: "Siydikda oqsil ajralishi nima deyiladi?",
+		options: ["Proteinuriya", "Leykosituriya,ge-matouriya", "Piuriya,  gematouriya,", "Proteinuriya,silindruriya,diurez"],
+		correctAnswer: "Proteinuriya",
+	},
+	{
+		questionText: "Burundan qon ketganda qaysi yordam qo`llaniladi?",
+		options: ["burun sohasiga sovuq kompress  qo`yish", "burunga ingalyasiya qilish,burun bo'shlig'ini pilikcha bilan tozalash", "burunga protorgol tomizish,burun bo'shlig'ini pilikcha bilan tozalash", "burun sohasiga sovuq kompress  qo`yish"],
+		correctAnswer: "burun sohasiga sovuq kompress  qo`yish",
+	},
+	{
+		questionText: "Patologik nafas shovqinlariga qaysilar kiradi?",
+		options: ["nam xirillashlar, krepitatsiya", "bronxial nafas , nam xirillash", "Vezikulyar nafas , krepitatsiya", "Bronxial nafas, shovqinli nafas"],
+		correctAnswer: "nam xirillashlar, krepitatsiya",
+	},
 ],
 };

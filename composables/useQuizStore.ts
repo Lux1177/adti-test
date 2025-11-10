@@ -1,6 +1,6 @@
-import { reactive, computed, readonly } from "vue"
-import type { Question, Locale, QuizState, QuizResult } from "~/types/quiz"
+import { computed, reactive, readonly } from "vue"
 import { quizzes } from "~/data/quizzes"
+import type { Locale, Question, QuizResult, QuizState } from "~/types/quiz"
 
 // Create reactive state
 const state = reactive<QuizState>({

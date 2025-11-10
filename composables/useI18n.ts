@@ -1,4 +1,4 @@
-import { ref, computed, watch } from "vue"
+import { computed, ref, watch } from "vue"
 
 export type Locale = "en" | "ru" | "uz"
 
@@ -257,6 +257,16 @@ const translations: Translations = {
 		en: "Covers internal diseases and treatment basics.",
 		ru: "Основы терапии и внутренних болезней.",
 		uz: "Ички касалликлар ва даволаш асослари.",
+	},	
+	"quiz.lyceum_anatomy.title": {
+		en: "Anatomy",
+		ru: "Анатомия",
+		uz: "Анатомия фани",
+	},
+	"quiz.lyceum_anatomy.description": {
+		en: "Test on human body structure.",
+		ru: "Тест по строению человеческого тела.",
+		uz: "Инсон танаси тузилишини билиш тести.",
 	},
 	"quiz.lyceum_nursing.title": {
 		en: "Nursing Test",
@@ -267,6 +277,16 @@ const translations: Translations = {
 		en: "Covers basic nursing care and practice.",
 		ru: "Основы ухода и сестринской практики.",
 		uz: "Асосий парвариш ва амалийот саволлари.",
+	},	
+	"quiz.lyceum_family_doctor.title": {
+		en: "Family Medicine",
+		ru: "Семейная медицина",
+		uz: "Оилавий шифокорлик",
+	},
+	"quiz.lyceum_family_doctor.description": {
+		en: "Test on clinical case practice",
+		ru: "Тест по клиническим ситуациям",
+		uz: "Амалиётдаги тиббий ҳолатлар тести",
 	},
 	"quiz.lyceum_dental_surgery.title": {
 		en: "Maxillofacial surgery Test",

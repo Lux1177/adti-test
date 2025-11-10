@@ -1,4 +1,4 @@
-import type { Question, Locale } from "~/types/quiz"
+import type { Locale, Question } from "~/types/quiz"
 
 const questions = [
 	{
